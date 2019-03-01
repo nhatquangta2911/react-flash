@@ -1,0 +1,25 @@
+$titleColor: rgb(21, 118, 228);
+$hoverColor: rgb(238, 219, 45);
+body {
+
+  font-weight: bold;
+  font-family: sans-serif;
+
+}
+
+.app {
+
+  color: $titleColor;
+
+  &:hover {
+
+    color: $hoverColor;
+    transition: color 0.5s;
+
+  }
+
+}
+
+#title {
+  color: $titleColor;
+}
