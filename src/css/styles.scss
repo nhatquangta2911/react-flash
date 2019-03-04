@@ -2,9 +2,11 @@ $titleColor: rgb(21, 118, 228);
 $hoverColor: rgb(238, 219, 45);
 body {
 
-  font-weight: bold;
+  font-weight: normal;
   font-family: sans-serif;
-
+  font-size: 22px;
+  color: rgb(83, 83, 83);
+  background-color: rgb(247, 247, 247);
 }
 
 .app {

@@ -11,6 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
@@ -24,6 +25,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "bulma": "^0.7.4",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.3.1",
     "react": "^16.8.3",
@@ -32,7 +34,10 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/react"
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
     ]
   }
 }
