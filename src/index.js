@@ -7,6 +7,6 @@ import App from './components/App.js';
 
 window.onload = function () {
 
-  ReactDOM.render(<App />, document.getElementById('root'));
+  ReactDOM.render(<App title='best'/>, document.getElementById('root'));
 
 };

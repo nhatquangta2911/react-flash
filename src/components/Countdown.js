@@ -4,7 +4,6 @@ export default class Countdown extends React.Component {
 
   constructor(props) {
     super(props)
-
     this.getRemainingTime()
     // this.state = {
     //   interval: this.getRemainingTime()
@@ -51,7 +50,7 @@ export default class Countdown extends React.Component {
                 <div className="level-item has-text-centered">
                   <div>
                     <p className="heading">Seconds</p>
-                    <p className="title">59</p>
+                    <p className="title">00</p>
                   </div>
                 </div>
               </nav>
