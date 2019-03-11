@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './css/styles.scss'
+import '../css/styles.scss'
 import Countdown from './Countdown'
 import Footer from './Footer'
 import Form from './Form'
@@ -49,7 +49,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div class="">
+      <div>
         <Form />
       </div> 
     )

@@ -1,14 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
 $titleColor: rgb(21, 118, 228);
 $hoverColor: rgb(238, 219, 45);
+
+
 body {
-  margin: 0;
-  padding: 0;
+  margin-top: 21px;
+  padding: 0 50px;
   width: 100%;
   font-weight: normal;
-  font-family: sans-serif;
   font-size: 22px;
   color: rgb(83, 83, 83);
-  background-color: rgb(247, 247, 247);
+  font-family: "Fira Sans", sans-serif;
+  display: block;
+  text-align: center;
 }
 
 .app {
@@ -26,4 +31,53 @@ body {
 
 #title {
   color: $titleColor;
+}
+
+.inputText {
+  border: 1px solid #aaa;
+  margin-right: 5px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 2px 8px;
+  font-family: "Fira Sans", sans-serif;
+  color: #777;
+}
+
+.btnSubmit {
+  height: 35px;
+  width: 80px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: "Fira Sans", sans-serif;
+  background-color: rgb(82, 17, 126);
+  color: #00ffc8;
+  font-weight: bold;
+}
+
+#outputTitle {
+  margin: 10px 0;
+}
+
+#simpleBox {
+  border: 1px solid #f6f6f6;
+  background-color: #f6f6f6;  
+  padding: 1%;
+  margin: 3px 0;
+}
+
+.rank {
+  font-size: 60px;
+}
+
+.song {
+  font-size: 50px;
+  color: hsl(263, 65%, 43%);
+}
+
+.artist {
+  color: hsl(150, 57%, 50%);
+  font-weight: bold;
 }
