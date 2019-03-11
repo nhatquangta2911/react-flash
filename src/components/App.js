@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import './css/styles.scss'
 import Countdown from './Countdown'
 import Footer from './Footer'
+import Form from './Form'
 
 export default class App extends Component {
   
@@ -47,12 +49,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Hey, dude!</h1>
-        <p>My name is {this.state.name} and I'm turning {this.state.age} this year </p>
-      <button onClick={this.handleClick} className="button is-primary">Click me!</button>
-      <button onMouseOver={this.handleMouseOver} className="button is-warning">Hover me!</button>
-      <p onCopy={this.handleCopy}>Best quote ever</p>
+      <div class="">
+        <Form />
       </div> 
     )
   }
