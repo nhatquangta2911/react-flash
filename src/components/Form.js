@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SimpleBoxes from "./SimpleBoxes";
 import UIComponent from "./UIComponent";
 import User from "./User";
+import AddUser from "./AddUser";
 export default class Form extends Component {
   state = {
     users: [
@@ -284,8 +285,9 @@ export default class Form extends Component {
           <button className="btnSubmit">Submit</button>
         </form> */}
         {/* <SimpleBoxes data={this.state} /> */}
-        <UIComponent data={this.state} />
-        <User data={this.state} />
+        {/* <UIComponent data={this.state} /> */}
+        {/* <User data={this.state} /> */}
+        <AddUser />
       </div>
     );
   }

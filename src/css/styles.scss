@@ -164,3 +164,8 @@ body {
   font-size: 45px;
   font-weight: bold;
 }
+
+.form {
+  display: flex;
+  flex-flow: column;
+}
