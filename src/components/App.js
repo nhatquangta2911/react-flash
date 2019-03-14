@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../css/styles.scss'
 import Todos from './Todos';
-import AddTodo from '../AddTodo';
+import AddTodo from './AddTodo';
 
 export default class App extends Component {  
   
@@ -14,6 +14,10 @@ export default class App extends Component {
       {
         id: 2,
         content: 'Grab a coffee'
+      },
+      {
+        id: 3,
+        content: 'Buy a journal book'
       }
     ]
   }
