@@ -95,7 +95,7 @@ export default class App extends Component {
   // handleCopy(event) {
   //   console.log('Not easy to copy dude!');
   // }
-
+  
   render() {
     return (
       <div>
