@@ -96,6 +96,19 @@ export default class App extends Component {
   //   console.log('Not easy to copy dude!');
   // }
 
+  // when first mount to the DOM
+  // fires only once (until refresh the page)
+  componentDidMount() {
+    console.log('Component mounted');
+  }
+
+  // when getting a change of states and props
+  componentDidUpdate(previousProps, previousState) {
+    console.log('Component updated');
+    console.log(previousProps);
+    console.log(previousState);
+  }
+
   render() {
     return (
       <div>
