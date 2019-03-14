@@ -287,7 +287,6 @@ export default class Form extends Component {
         {/* <SimpleBoxes data={this.state} /> */}
         {/* <UIComponent data={this.state} /> */}
         {/* <User data={this.state} /> */}
-        <AddUser />
       </div>
     );
   }

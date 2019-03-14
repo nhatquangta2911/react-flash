@@ -3,34 +3,83 @@ import '../css/styles.scss'
 import Countdown from './Countdown'
 import Footer from './Footer'
 import Form from './Form'
+import AddUser from './AddUser'
+import User from './User'
+// import { getMaxListeners } from 'cluster';
 
 export default class App extends Component {
-  
+
   state = {
-    name: 'Ryan',
-    age: 22,
-    isShown: false
+    users: [
+      {
+        id: 1,
+        name: 'Ryan',
+        email: 'ryan@gmail.com',
+        phone: '01223334444',
+        website: 'ryan.com' 
+      },
+      {
+        id: 2,
+        name: 'Shaun',
+        email: 'shaun@gmail.com',
+        phone: '0122333555',
+        website: 'shaun.com' 
+      },
+      {
+        id: 3,
+        name: 'Anica',
+        email: 'anica@gmail.com',
+        phone: '01224447777',
+        website: 'anica.com' 
+      }
+    ]
   }
 
-  constructor(props) {
-    super(props)
-    this.title = "title"
-  }
+  addUser = (user) => {
 
-  handleClick = (event) => {
-    
+    // user.id = this.state.users[this.state.users.length - 1]['id'] + 1;
+    let shallowUsers = [...this.state.users, user]
     this.setState({
-      name: 'Shaun',
-      age: 42,
-      isShown: true,
-      score: 9.94
+      users: shallowUsers
+    })
+  }
+
+  deleteUser = (id) => {
+    // let shallowUsers = [...this.state.users]
+    // for(let i = 0; i < this.state.users.length; i++) {
+    //   if(this.state.users[i].id === id) {
+    //     shallowUsers.splice(i, 1)
+    //   }
+    // }
+    
+    let shallowUsers = this.state.users.filter(user => {
+      return user.id !== id
     })
 
-    if(this.state.isShown === true) {
-      console.log(this.state);
-    }
-    console.log(event.target.innerHTML);
+    this.setState({
+      users: shallowUsers
+    })    
   }
+
+  // constructor(props) {
+  //   super(props) 
+  //   this.title = "title"
+  // }
+
+  // handleClick = (event) => {
+    
+  //   this.setState({
+  //     name: 'Shaun',
+  //     age: 42,
+  //     isShown: true,
+  //     score: 9.94
+  //   })
+
+  //   if(this.state.isShown === true) {
+  //     console.log(this.state);
+  //   }
+  //   console.log(event.target.innerHTML);
+  // }
 
   // // Can not access to the state because of this silly context
   // handleClick(event) {
@@ -38,19 +87,21 @@ export default class App extends Component {
   //   console.log(event.target.innerHTML)
   // }
 
-  handleMouseOver(event) {
-    console.log(event.target.innerHTML)
-    console.log(event.pageX, event.pageY);
-  }
+  // handleMouseOver(event) {
+  //   console.log(event.target.innerHTML)
+  //   console.log(event.pageX, event.pageY);
+  // }
 
-  handleCopy(event) {
-    console.log('Not easy to copy dude!');
-  }
+  // handleCopy(event) {
+  //   console.log('Not easy to copy dude!');
+  // }
 
   render() {
     return (
       <div>
-        <Form />
+        {/* <Form /> */}
+        <User deleteUser={this.deleteUser} data={this.state}/>
+        <AddUser addUser={this.addUser} data={this.state} />
       </div> 
     )
   }
