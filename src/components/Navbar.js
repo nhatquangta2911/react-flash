@@ -1,7 +1,11 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, NavLink, withRouter} from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+    // setTimeout(() => {
+    //     props.history.push('/about')
+    // }, 2000)
 
     return (
        <nav className="nav-wrapper cyan darken-1">
@@ -9,8 +13,8 @@ const Navbar = () => {
                 <a className="brand-logo">Routeryan</a>
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact</Link></li> 
+                    <li><NavLink to="/about">About</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li> 
                 </ul>
             </div>
        </nav>
@@ -18,4 +22,8 @@ const Navbar = () => {
 
 }
 
-export default Navbar
+// High order function
+// Wrapping the component => supercharging this component
+// Apply this properties to this props
+// As React Router wrapped all the component, and Navbar is not in them
+export default withRouter(Navbar)
