@@ -1,4 +1,5 @@
 import React from 'react'
+import RandomTextColor from '../high-order-components/RandomTextColor'
 
 const Contact = (props) => {
 
@@ -15,4 +16,4 @@ const Contact = (props) => {
 
 }
 
-export default Contact
+export default RandomTextColor(Contact)
