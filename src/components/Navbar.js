@@ -10,7 +10,7 @@ const Navbar = (props) => {
     return (
        <nav className="nav-wrapper cyan darken-1">
             <div className="container">
-                <a className="left brand-logo"><span className="amber-text lighten-2">Ryan</span>FLASH</a>
+                <a className="left brand-logo"><span className="amber-text"><b>Ryan</b></span>FLASH</a>
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
                     <li><NavLink to="/about">About</NavLink></li>
