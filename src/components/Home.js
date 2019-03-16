@@ -23,9 +23,9 @@ class Home extends Component {
         return (
           <div className="post card" key={post.id}>
             <div className="card-content">
-              <span class="new amber darken-2 badge"></span>
+              <span className="new amber darken-2 badge"></span>
               <div className="card-title cyan-text">{post.title}</div>
-              <p>{post.body}</p>
+              <p className="grey-text">{post.body}</p>
             </div>
           </div>
         );
