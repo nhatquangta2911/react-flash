@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class Post extends Component {
+class Post extends Component {
+   /* 
    state = {
       post: null
    };
@@ -18,14 +19,17 @@ export default class Post extends Component {
             });
          });
    }
+   */
 
    render() {
-      const post = this.state.post ? (
+      const post = this.props.post ? (
          <div className="post card">
             <div className="card-content">
                <span className="new amber darken-2 badge" />
-               <div className="card-title cyan-text">{this.state.post.title}</div>
-               <p className="grey-text">{this.state.post.body}</p>
+               <div className="card-title cyan-text">
+                  {this.props.post.title}
+               </div>
+               <p className="grey-text">{this.props.post.body}</p>
             </div>
          </div>
       ) : (
@@ -34,9 +38,20 @@ export default class Post extends Component {
 
       return (
          <div className="container">
-            <br/>
+            <br />
             {post}
          </div>
       );
    }
 }
+
+const mapStateToProps = (state, ownProps) => {
+   // single individual record
+   // ownProps + additional props from Redux store
+   let id = ownProps.match.params.post_id
+   return {
+      post: state.posts.find(post => post.id === id)
+   }
+}
+
+export default connect(mapStateToProps)(Post);
