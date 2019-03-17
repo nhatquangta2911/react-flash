@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-
+import { deletePost } from "../actions/postAction";
 class Post extends Component {
    /* 
    state = {
@@ -21,7 +21,14 @@ class Post extends Component {
    }
    */
 
+   handleClick = () => {
+      this.props.deletePost(this.props.post.id);
+      // redirect to the home page after deleting
+      this.props.history.push("/");
+   };
+
    render() {
+      console.log(this.props);
       const post = this.props.post ? (
          <div className="post card">
             <div className="card-content">
@@ -30,6 +37,11 @@ class Post extends Component {
                   {this.props.post.title}
                </div>
                <p className="grey-text">{this.props.post.body}</p>
+               <div className="center">
+                  <button className="btn grey" onClick={this.handleClick}>
+                     Delete Post
+                  </button>
+               </div>
             </div>
          </div>
       ) : (
@@ -48,10 +60,20 @@ class Post extends Component {
 const mapStateToProps = (state, ownProps) => {
    // single individual record
    // ownProps + additional props from Redux store
-   let id = ownProps.match.params.post_id
+   let id = ownProps.match.params.post_id;
    return {
       post: state.posts.find(post => post.id === id)
-   }
-}
+   };
+};
 
-export default connect(mapStateToProps)(Post);
+const mapDispatchToProps = (dispatch) => {
+   // this param: dispatch method !
+   return {
+      deletePost: id => dispatch(deletePost(id))
+   }
+};
+
+export default connect(
+   mapStateToProps,
+   mapDispatchToProps
+)(Post);
