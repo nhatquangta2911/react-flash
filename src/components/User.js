@@ -43,7 +43,7 @@ class User extends Component {
 const mapStateToProps = (state, ownProps) => {
    let id = ownProps.match.params.user_id;
    return {
-      user: state.users.find(user => user.id === id)
+      user: state.users.find(user => user.id == id)
    };
 };
 

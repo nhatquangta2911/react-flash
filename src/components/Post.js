@@ -61,7 +61,7 @@ const mapStateToProps = (state, ownProps) => {
    // ownProps + additional props from Redux store
    let id = ownProps.match.params.post_id;
    return {
-      post: state.posts.find(post => post.id === id)
+      post: state.posts.find(post => post.id == id)
    };
 };
 
