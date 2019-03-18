@@ -19,10 +19,7 @@ class Home extends Component {
    }
 */
 
-
-
    render() {
-      console.log(this.props)
       const { posts } = this.props;
       const postList = posts.length ? (
          posts.map(post => {
@@ -30,7 +27,7 @@ class Home extends Component {
                <div className="post card" key={post.id}>
                   <div className="card-content">
                      <span className="new amber darken-2 badge" />
-                     <Link to={"/" + post.id}>
+                     <Link to={"/posts/" + post.id}>
                         <div className="card-title cyan-text">{post.title}</div>
                      </Link>
                      <p className="grey-text">{post.body}</p>
@@ -39,7 +36,7 @@ class Home extends Component {
             );
          })
       ) : (
-         <div className="center">No posts yet</div>
+         <div className="center">Loading posts...</div>
       );
 
       return (
@@ -51,10 +48,10 @@ class Home extends Component {
    }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
    return {
       posts: state.posts
-   }
-}
+   };
+};
 
 export default connect(mapStateToProps)(Home);
