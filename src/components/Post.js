@@ -28,7 +28,6 @@ class Post extends Component {
    };
 
    render() {
-      console.log(this.props);
       const post = this.props.post ? (
          <div className="post card">
             <div className="card-content">
