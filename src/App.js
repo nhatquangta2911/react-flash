@@ -7,6 +7,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Post from "./components/Post";
 import User from "./components/User";
+import Movies from "./components/Movies";
+import Movie from "./components/Movies/Movie";
 
 export default class App extends Component {
    render() {
@@ -20,6 +22,8 @@ export default class App extends Component {
                   <Route path="/contact" component={Contact} />
                   <Route path="/posts/:post_id" component={Post} />
                   <Route path="/users/:user_id" component={User} />
+                  <Route path="/movies" component={Movies} />
+                  <Route path="/movies/:movie_id" component={Movie} />
                </Switch>
             </div>
          </BrowserRouter>
