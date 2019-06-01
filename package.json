@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "heroku-postbuild": "webpack -p"
   },
   "author": "",
   "license": "ISC",
