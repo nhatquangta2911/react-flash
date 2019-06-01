@@ -24,6 +24,7 @@ export default class App extends Component {
                   <Route path="/users/:user_id" component={User} />
                   <Route path="/movies" component={Movies} />
                   <Route path="/movies/:movie_id" component={Movie} />
+                  <Route path="/cards/random" component={Home} />
                </Switch>
             </div>
          </BrowserRouter>
