@@ -29,15 +29,15 @@ export default class Cards extends Component {
    render() {
       const { cards, isError } = this.state;
       const listCards = cards && cards.map(card => (
-         <div className="cards-item" key={card._id}>
-            <p>{card.englishTitle}</p>
-            <p>{card.vietnameseTitle}</p>
+         <div className="card-item" key={card._id}>
+            <h3>{card.englishTitle}</h3>
+            <h5>{card.vietnameseTitle}</h5>
+            <img src={card.image} alt={card.englishTitle}/>
             <p>{card.example}</p>
-            <p>{card.type}</p>
-            <p>{card.context}</p>
-            <p>{card.dateCreated}</p>
-            <p>{card.isRemember}</p>
-            <p>{card.image}</p>
+            {/* <p>{card.type}</p> */}
+            {/* <p>{card.context}</p> */}
+            {/* <p>{card.dateCreated}</p> */}
+            {/* <p>{card.isRemember}</p> */}
          </div>
       ));
       return (

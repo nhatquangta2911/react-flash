@@ -1,1 +1,33 @@
 @import '../../../css/mixins.scss';
+
+.card-item {
+   background: #fff;
+   width: 50%;
+   margin: 80px auto;
+   @include shadow;
+   color: #555;
+   padding: 10px;
+
+   h3, h5, p, img {
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+   }
+
+   img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      @include shadow;
+      border-radius: 6px;
+      margin-bottom: 40px;
+   }
+
+}
+
+@media only screen and (max-width: 768px) {
+   .card-item {
+      width: 90%;
+   }
+}
