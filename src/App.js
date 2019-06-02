@@ -9,6 +9,7 @@ import Post from "./components/Post";
 import User from "./components/User";
 import Movies from "./components/Movies";
 import Movie from "./components/Movies/Movie";
+import Cards from "./components/Cards/Cards";
 
 export default class App extends Component {
    render() {
@@ -17,14 +18,14 @@ export default class App extends Component {
             <div className="App">
                <Navbar />
                <Switch>
-                  <Route exact path="/" component={Home} />
+                  <Route exact path="/" component={Cards} />
                   <Route path="/about" component={About} />
                   <Route path="/contact" component={Contact} />
                   <Route path="/posts/:post_id" component={Post} />
                   <Route path="/users/:user_id" component={User} />
                   <Route path="/movies" component={Movies} />
                   <Route path="/movies/:movie_id" component={Movie} />
-                  <Route path="/cards/random" component={Home} />
+                  <Route path="/cards" component={Cards} />
                </Switch>
             </div>
          </BrowserRouter>

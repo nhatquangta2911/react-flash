@@ -12,10 +12,11 @@ const Navbar = (props) => {
             <div className="container">
                 <a className="left brand-logo"><span className="amber-text"><b>Shawn</b></span>FLASH</a>
                 <ul className="right">
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/cards">Home</Link></li>
                     <li><NavLink to="/about">About</NavLink></li>
-                    <li><NavLink to="/contact">Contact</NavLink></li> 
+                    {/* <li><NavLink to="/contact">Contact</NavLink></li>  */}
                     <li><NavLink to="/movies">Movies</NavLink></li> 
+                    <li><NavLink to="/cards">Flashcards</NavLink></li> 
                 </ul>
             </div>
        </nav>
