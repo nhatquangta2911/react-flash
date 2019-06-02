@@ -7,6 +7,10 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "heroku-postbuild": "webpack -p"
   },
+  "engines": {
+    "node": "11.10.1",
+    "npm": "6.9.0"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
