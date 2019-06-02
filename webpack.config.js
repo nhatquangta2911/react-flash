@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  watch: true,
-
   entry: {
     app: "./src/index.js"
   },
