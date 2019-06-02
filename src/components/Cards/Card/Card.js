@@ -22,7 +22,7 @@ export default class Card extends Component {
             this.setState({
                card: res.data
             });
-            // document.title = card.englishTitle;
+            document.title = this.state.card[0].englishTitle;
          })
          .catch(err => {
             this.setState({
