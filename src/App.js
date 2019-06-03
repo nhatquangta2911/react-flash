@@ -29,7 +29,6 @@ export default class App extends Component {
                   <Route exact path="/cards" component={Cards} />
                   {/* <Route path="/cards/random" component={Card} /> */}
                   <Route path="/cards/card/:id" component={Card} />
-
                </Switch>
             </div>
          </BrowserRouter>
