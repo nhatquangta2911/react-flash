@@ -37,15 +37,13 @@ export default class Card extends Component {
             {isError && <p>Something Failed.</p>}
             {isError404 && <p>Not Found.</p>}
             {card && (
-               <div className="card-item">
+               <div className="cards-item">
                   <h3>{card.englishTitle}</h3>
                   <h5>{card.vietnameseTitle}</h5>
-                  <p>{card.type}</p>
+                  <p className="type">{card.type}</p>
                   <img src={card.image} alt={card.englishTitle} />
                   <p>{card.example}</p>
                   <h5>{card.context}</h5>
-                  {/* <p>{card[0].dateCreated}</p> */}
-                  {/* <p>{card[0].isRemember}</p> */}
                </div>
             )}
          </div>

@@ -5,16 +5,24 @@
    flex-wrap: wrap;
 }
 .card-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    flex-basis: 30%;
    background: #fff;
    width: 30%;
-   margin: 80px auto;
+   height: 200px;
+   margin: 40px auto 20px;
    @include shadow;
    color: #555;
    padding: 30px 50px;
 
+   .type {
+      color: orange;
+   }
+
    h3,
-   h5,
+   h4,
    p,
    img {
       width: 100%;

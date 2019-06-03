@@ -15,7 +15,7 @@ export default class Cards extends Component {
    }
 
    componentDidMount() {
-      CardApi.getRecent()
+      CardApi.list()
          .then(res => {
             this.setState({
                cards: res.data
@@ -33,15 +33,15 @@ export default class Cards extends Component {
       const listCards =
          cards &&
          cards.map(card => (
-            <div className="card-item" key={card._id}>
+            <div className="cards-item" key={card._id}>
                <Link to={toCardLink(card._id)}>
-                  <h3>{card.englishTitle}</h3>
+                  <h4 className="hide-item">{card.englishTitle}</h4>
                   <h5>{card.vietnameseTitle}</h5>
-                  <p>{card.type}</p>
-                  <img src={card.image} alt={card.englishTitle} />
-                  <p>{card.example}</p>
-                  <h5>{card.context}</h5>
                </Link>
+                  <p className="type">{card.type}</p>
+                  <img src={card.image} alt={card.englishTitle} />
+                  <p className="hide-item">{card.example}</p>
+                  <p className="hide-item">{card.context}</p>
             </div>
          ));
       return (
