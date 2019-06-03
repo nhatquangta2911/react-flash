@@ -5,7 +5,7 @@ export const toCardLink = (title, id) => {
 };
 
 export const getIdBySplitingPath = (url, prefix) => {
-   return url.split(prefix)[1].split("-")[0];
+   return url.split(prefix)[1];
  }
 
 const converter = (prefix, title, id) => {
