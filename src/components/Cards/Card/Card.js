@@ -13,19 +13,22 @@ export default class Card extends Component {
    }
 
    componentDidMount() {
-      CardApi.getRandom()
+      var uri = document.location.href;
+      var id = getIdBySplitingPath(uri, 'cards/card/');
+         CardApi.get(id)
          .then(res => {
             this.setState({
                card: res.data
             });
-            document.title = this.state.card[0].englishTitle;
+            document.title = this.state.card.englishTitle;
          })
          .catch(err => {
             this.setState({
                isError: true
             });
          });
-   }
+      }
+   
 
    render() {
       const { card, isError, isError404 } = this.state;
@@ -33,14 +36,14 @@ export default class Card extends Component {
          <div className="card-item-container">
             {isError && <p>Something Failed.</p>}
             {isError404 && <p>Not Found.</p>}
-            {card && card[0] && (
+            {card && (
                <div className="card-item">
-                  <h3>{card[0].englishTitle}</h3>
-                  <h5>{card[0].vietnameseTitle}</h5>
-                  <p>{card[0].type}</p>
-                  <img src={card[0].image} alt={card[0].englishTitle} />
-                  <p>{card[0].example}</p>
-                  <h5>{card[0].context}</h5>
+                  <h3>{card.englishTitle}</h3>
+                  <h5>{card.vietnameseTitle}</h5>
+                  <p>{card.type}</p>
+                  <img src={card.image} alt={card.englishTitle} />
+                  <p>{card.example}</p>
+                  <h5>{card.context}</h5>
                   {/* <p>{card[0].dateCreated}</p> */}
                   {/* <p>{card[0].isRemember}</p> */}
                </div>

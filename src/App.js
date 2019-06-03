@@ -27,7 +27,9 @@ export default class App extends Component {
                   <Route path="/movies" component={Movies} />
                   <Route path="/movies/:movie_id" component={Movie} />
                   <Route exact path="/cards" component={Cards} />
-                  <Route path="/cards/random" component={Card} />
+                  {/* <Route path="/cards/random" component={Card} /> */}
+                  <Route path="/cards/card/:id" component={Card} />
+
                </Switch>
             </div>
          </BrowserRouter>

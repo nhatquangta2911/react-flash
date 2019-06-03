@@ -13,7 +13,7 @@ export default class Cards extends Component {
    }
 
    componentDidMount() {
-      CardApi.list()
+      CardApi.getRecent()
          .then(res => {
             this.setState({
                cards: res.data

@@ -11,5 +11,8 @@ export default {
    },
    getRandom() {
       return Caller(prefix + '/random', 'GET');
+   },
+   getRecent() {
+      return Caller(prefix + '/recent', 'GET');
    }
 }
