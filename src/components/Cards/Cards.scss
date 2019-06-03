@@ -1,5 +1,9 @@
 @import "../../css/mixins.scss";
 
+.card-page-container {
+   display: flex;
+   flex-wrap: wrap;
+}
 .cards-item {
    display: flex;
    flex-direction: column;
@@ -51,5 +55,26 @@
       @include shadow;
       border-radius: 6px;
       margin-bottom: 40px;
+   }
+}
+
+@media only screen and (max-width: 1298px) {
+   .card-page-container {
+      display: flex;
+      flex-direction: row;
+   }
+   .cards-item {
+      flex-basis: 45%;
+      width: 70%;
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .card-page-container {
+      display: flex;
+      flex-direction: column;
+   }
+   .cards-item {
+      width: 70%;
    }
 }
