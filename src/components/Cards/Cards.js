@@ -2,6 +2,8 @@ import styles from "./Cards.scss";
 import React, { Component } from "react";
 import Card from "../Cards/Card";
 import CardApi from "../../api/CardApi";
+import {Link} from "react-router-dom";
+import { toCardLink } from "../../utils/Link";
 
 export default class Cards extends Component {
    constructor(props) {
@@ -29,16 +31,12 @@ export default class Cards extends Component {
    render() {
       const { cards, isError } = this.state;
       const listCards = cards && cards.map(card => (
+         <Link to={toCardLink(card._id)}>
          <div className="card-item" key={card._id}>
             <h3>{card.englishTitle}</h3>
-            <h5>{card.vietnameseTitle}</h5>
-            <img src={card.image} alt={card.englishTitle}/>
             <p>{card.example}</p>
-            {/* <p>{card.type}</p> */}
-            {/* <p>{card.context}</p> */}
-            {/* <p>{card.dateCreated}</p> */}
-            {/* <p>{card.isRemember}</p> */}
          </div>
+         </Link>
       ));
       return (
          <div className="card-page-container">
