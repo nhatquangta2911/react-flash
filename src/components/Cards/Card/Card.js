@@ -13,10 +13,6 @@ export default class Card extends Component {
    }
 
    componentDidMount() {
-      // try {
-      // var uri = document.location.href;
-      // var id = getIdBySplitingPath(uri, "cards/random/");
-      // if (!isNaN(id)) {
       CardApi.getRandom()
          .then(res => {
             this.setState({
@@ -29,12 +25,6 @@ export default class Card extends Component {
                isError: true
             });
          });
-      // }
-      // } catch (err) {
-      //    this.setState({
-      //       isError404: true
-      //    });
-      // }
    }
 
    render() {
