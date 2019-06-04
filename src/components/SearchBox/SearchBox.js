@@ -22,7 +22,8 @@ export default class SearchBox extends Component {
                data.push({ label: card.englishTitle, value: card._id });
             });
             callback(data);
-         });
+         })
+         .catch(err => console.log(err));
    }
 
    render() {

@@ -17,7 +17,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 export default class App extends Component {
    render() {
       return (
-         <BrowserRouter>
+         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="App">
                <Navbar />
                <SearchBox />
