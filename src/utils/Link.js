@@ -1,5 +1,6 @@
 import String from "./String";
 
+
 export const toCardLink = (id) => {
    return converter("cards", id);
 };
