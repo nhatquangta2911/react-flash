@@ -12,7 +12,8 @@ import Movie from "./components/Movies/Movie";
 import Cards from "./components/Cards/";
 import Card from "./components/Cards/Card";
 import CardsRecent from "./components/CardsRecent";
-import SearchBox from "./components/SearchBox/SearchBox";
+import SearchBox from "./components/SearchBox";
+import NotFound from "./components/NotFound"
 export default class App extends Component {
    render() {
       return (
@@ -30,7 +31,8 @@ export default class App extends Component {
                   <Route path="/movies/:movie_id" component={Movie} />
                   <Route exact path="/cards" component={Cards} />
                   {/* <Route path="/cards/random" component={Card} /> */}
-                  <Route path="/cards/:id" component={Card} />
+                  <Route exact path="/cards/:id" component={Card} />
+                  <Route exact path="*" component={NotFound}/>
 
                </Switch>
             </div>
