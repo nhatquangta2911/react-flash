@@ -1,0 +1,11 @@
+@import '../../css/mixins';
+
+.search-box-container {
+   background-color: #fff;
+   height: auto;
+   @include shadow;
+   margin-bottom: 10px;
+   // padding: 10px;
+   font-size: 1.3em;
+   color: #777;
+}

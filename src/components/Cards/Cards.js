@@ -4,6 +4,7 @@ import Card from "../Cards/Card";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import { toCardLink } from "../../utils/Link";
+import SearchBox from "../SearchBox/SearchBox";
 
 export default class Cards extends Component {
    constructor(props) {
