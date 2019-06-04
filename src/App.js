@@ -12,6 +12,7 @@ import Movie from "./components/Movies/Movie";
 import Cards from "./components/Cards/";
 import Card from "./components/Cards/Card";
 import CardsRecent from "./components/CardsRecent";
+import SearchBox from "./components/SearchBox/SearchBox";
 
 export default class App extends Component {
    render() {
@@ -19,6 +20,7 @@ export default class App extends Component {
          <BrowserRouter>
             <div className="App">
                <Navbar />
+               <SearchBox />
                <Switch>
                   <Route exact path="/" component={CardsRecent} />
                   <Route path="/about" component={About} />
