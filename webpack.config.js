@@ -47,8 +47,8 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
-      //  template: './dist/index.html'
+      // template: "./src/index.html"
+       template: './dist/index.html'
     })
   ]
 };
