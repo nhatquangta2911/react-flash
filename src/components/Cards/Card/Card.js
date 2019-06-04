@@ -13,8 +13,8 @@ export default class Card extends Component {
    }
 
    componentDidMount() {
-      var uri = document.location.href;
-      var id = getIdBySplitingPath(uri, 'cards/card/');
+      const uri = document.location.href;
+      const id = getIdBySplitingPath(uri, 'cards/card/');
          CardApi.get(id)
          .then(res => {
             this.setState({
@@ -26,6 +26,7 @@ export default class Card extends Component {
             this.setState({
                isError: true
             });
+            console.log(err);
          });
       }
    

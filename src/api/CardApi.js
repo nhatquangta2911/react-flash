@@ -7,7 +7,7 @@ export default {
       return Caller(prefix, 'GET');
    },
    get(cardId) {
-      return Caller(prefix + '/card/' + cardId, 'GET');
+      return Caller(prefix + 'card/' + cardId, 'GET');
    },
    getRandom() {
       return Caller(prefix + 'random', 'GET');
