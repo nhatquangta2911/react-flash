@@ -25,14 +25,14 @@ export default class App extends Component {
                   <Route exact path="/" component={CardsRecent} />
                   <Route path="/about" component={About} />
                   <Route path="/contact" component={Contact} />
-                  <Route path="/posts/:post_id" component={Post} />
-                  <Route path="/users/:user_id" component={User} />
-                  <Route path="/movies" component={Movies} />
-                  <Route path="/movies/:movie_id" component={Movie} />
+                  {/* <Route path="/posts/:post_id" component={Post} /> */}
+                  {/* <Route path="/users/:user_id" component={User} /> */}
+                  {/* <Route path="/movies" component={Movies} /> */}
+                  {/* <Route path="/movies/:movie_id" component={Movie} /> */}
                   <Route exact path="/cards" component={Cards} />
-                  <Route path="/cards/:id" component={Card} />
                   {/* <Route path="/cards/random" component={Card} /> */}
                </Switch>
+                  <Route path="/cards/:id" component={Card} />
             </div>
          </BrowserRouter>
       );
