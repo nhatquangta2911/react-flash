@@ -9,6 +9,7 @@
     "heroku-prebuild": "npm install --dev",
     "heroku-postbuild": "webpack -p"
   },
+  "proxy": "http://localhost:8080",
   "engines": {
     "node": "11.10.1",
     "npm": "6.9.0"
