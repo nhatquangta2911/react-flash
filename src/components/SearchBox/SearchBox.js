@@ -40,7 +40,7 @@ export default class SearchBox extends Component {
                   this.setState({
                      selectedCard: v.value
                   });
-                  document.location.href = toCardLink(v.value);
+                  window.location.href = toCardLink(v.value);
                }}
                theme={theme => ({
                   ...theme,
