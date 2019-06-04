@@ -11,6 +11,8 @@ import Movies from "./components/Movies";
 import Movie from "./components/Movies/Movie";
 import Cards from "./components/Cards/";
 import Card from "./components/Cards/Card";
+import CardsRecent from "./components/CardsRecent";
+import SearchBox from "./components/SearchBox/SearchBox";
 
 export default class App extends Component {
    render() {
@@ -18,8 +20,9 @@ export default class App extends Component {
          <BrowserRouter>
             <div className="App">
                <Navbar />
+               <SearchBox />
                <Switch>
-                  <Route exact path="/" component={Cards} />
+                  <Route exact path="/" component={CardsRecent} />
                   <Route path="/about" component={About} />
                   <Route path="/contact" component={Contact} />
                   <Route path="/posts/:post_id" component={Post} />
@@ -29,6 +32,7 @@ export default class App extends Component {
                   <Route exact path="/cards" component={Cards} />
                   {/* <Route path="/cards/random" component={Card} /> */}
                   <Route path="/cards/card/:id" component={Card} />
+
                </Switch>
             </div>
          </BrowserRouter>

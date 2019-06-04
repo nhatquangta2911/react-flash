@@ -1,0 +1,55 @@
+@import "../../css/mixins.scss";
+
+.cards-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   flex-basis: 30%;
+   background: #fff;
+   width: 30%;
+   height: auto;
+   margin: 30px auto 10px;
+   @include shadow;
+   color: #555;
+   padding: 20px 10px;
+
+   a {
+      text-decoration: none;
+   }
+
+   .type {
+      color: orange;
+   }
+
+   .hide-item {
+      display: none;
+      opacity: 0;
+   }
+
+   &:hover {
+      .hide-item {
+         display: block;
+         opacity: 1;
+         color: #888;
+      }
+   }
+
+   h4,
+   h5,
+   p,
+   img {
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+   }
+
+   img {
+      width: 80%;
+      height: 200px;
+      object-fit: cover;
+      @include shadow;
+      border-radius: 6px;
+      margin-bottom: 40px;
+   }
+}

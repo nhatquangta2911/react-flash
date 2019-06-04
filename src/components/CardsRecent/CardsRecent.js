@@ -1,10 +1,9 @@
-import styles from "./Cards.scss";
+import styles from "./CardsRecent.scss";
 import React, { Component } from "react";
 import Card from "../Cards/Card";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import { toCardLink } from "../../utils/Link";
-import SearchBox from "../SearchBox/SearchBox";
 
 export default class Cards extends Component {
    constructor(props) {
@@ -16,7 +15,7 @@ export default class Cards extends Component {
    }
 
    componentDidMount() {
-      CardApi.list()
+      CardApi.getRandom()
          .then(res => {
             this.setState({
                cards: res.data

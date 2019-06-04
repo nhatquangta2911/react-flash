@@ -10,9 +10,12 @@ export default {
       return Caller(prefix + 'card/' + cardId, 'GET');
    },
    getRandom() {
-      return Caller(prefix + '/random', 'GET');
+      return Caller(prefix + 'random/', 'GET');
    },
    getRecent() {
-      return Caller(prefix + '/recent', 'GET');
+      return Caller(prefix + 'recent/', 'GET');
+   },
+   search(query) {
+      return Caller(prefix + 'search/' + query, 'GET');
    }
 }
