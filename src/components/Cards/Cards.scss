@@ -16,8 +16,14 @@
    height: auto;
    margin: 10px 0 4px;
    @include shadow;
+   border-radius: 5px;
    color: #555;
-   padding: 5px 2px;
+
+   .flashcards-recent {
+      background-color: #ffd381b7;
+      border-radius: 5px;
+      height: 100%;
+   }
 
    .type {
       color: orange;
@@ -85,6 +91,7 @@
    .flashcards-page-container {
       display: flex;
       flex-direction: column;
+      font-size: 0.7em;
    }
    .flashcards-item {
       flex-basis: 95%;
