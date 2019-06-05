@@ -1,21 +1,23 @@
 @import "../../css/mixins.scss";
 
-.cards-item {
+.flashcards-page-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.flashcards-item {
    display: flex;
    flex-direction: column;
    align-items: center;
-   flex-basis: 30%;
+   flex-basis: 24.3%;
    background: #fff;
    width: 30%;
    height: auto;
-   margin: 30px auto 10px;
+   margin: 10px 0 4px;
    @include shadow;
    color: #555;
-   padding: 20px 10px;
-
-   a {
-      text-decoration: none;
-   }
+   padding: 5px 2px;
 
    .type {
       color: orange;
@@ -31,6 +33,7 @@
          display: block;
          opacity: 1;
          color: #888;
+         transition: opacity 1s;
       }
    }
 
@@ -45,11 +48,47 @@
    }
 
    img {
-      width: 80%;
+      width: 70%;
       height: 200px;
       object-fit: cover;
       @include shadow;
       border-radius: 6px;
       margin-bottom: 40px;
+   }
+}
+
+
+@media only screen and (max-width: 1500px) {
+   .flashcards-page-container {
+      display: flex;
+      flex-direction: row;
+   }
+   .flashcards-item {
+      flex-basis: 31.9%;
+      width: 70%;
+   }
+}
+
+@media only screen and (max-width: 1000px) {
+   .flashcards-page-container {
+      display: flex;
+      flex-direction: row;
+   }
+   .flashcards-item {
+      flex-basis: 48%;
+      margin: 10px auto;
+      width: 48%;
+   }
+}
+
+@media only screen and (max-width: 500px) {
+   .flashcards-page-container {
+      display: flex;
+      flex-direction: column;
+   }
+   .flashcards-item {
+      flex-basis: 95%;
+      margin: 10px auto;
+      width: 95%;
    }
 }
