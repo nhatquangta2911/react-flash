@@ -9,6 +9,7 @@
     "heroku-prebuild": "npm install --dev",
     "heroku-postbuild": "webpack -p"
   },
+  "proxy": "https://shawn-movie-rental.herokuapp.com",
   "engines": {
     "node": "11.10.1",
     "npm": "6.9.0"

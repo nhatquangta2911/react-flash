@@ -6,13 +6,16 @@ import App from "./App";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers/rootReducer";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const store = createStore(rootReducer);
 
 window.onload = function() {
    ReactDOM.render(
       <Provider store={store}>
-         <App />
+         <BrowserRouter>
+            <App />
+         </BrowserRouter>
       </Provider>,
       document.getElementById("root")
    );

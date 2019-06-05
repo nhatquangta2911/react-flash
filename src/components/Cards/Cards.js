@@ -34,7 +34,7 @@ export default class Cards extends Component {
       const listCards =
          cards &&
          cards.map(card => (
-            <div className="cards-item" key={card._id}>
+            <div className="flashcards-item" key={card._id}>
                <Link to={toCardLink(card._id)}>
                   <h4 className="hide-item">{card.englishTitle}</h4>
                   <h5>{card.vietnameseTitle}</h5>
@@ -46,7 +46,7 @@ export default class Cards extends Component {
             </div>
          ));
       return (
-         <div className="card-page-container">
+         <div className="flashcards-page-container">
             {isError && <p>Something went wrong...</p>}
             {listCards}
          </div>
