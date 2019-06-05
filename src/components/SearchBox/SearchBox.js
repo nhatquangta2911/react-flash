@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import CardApi from '../../api/CardApi';
 import { toCardLink } from '../../utils/Link';
 import AsyncSelect from "react-select/async";
+import {Link} from "react-router-dom";
 
 
 export default class SearchBox extends Component {
@@ -27,11 +28,20 @@ export default class SearchBox extends Component {
          });
    }
 
+   CustomOption = ({innerProps, isDisabled, value, label}) => {
+      return !isDisabled ? (
+         <div {...innerProps} style={{ padding: '15px'}}>
+            <Link to={toCardLink(value)}>{label}</Link>
+         </div>
+      ) : null;
+   }
+
    render() {
       return (
          <div className="search-box-container">
             <AsyncSelect 
                cacheOptions
+               components={{Option: this.CustomOption}}
                placeholder="Find Flashcard..."
                loadOptions={(v, c) => {
                   this.getCard(v, c);
@@ -41,7 +51,7 @@ export default class SearchBox extends Component {
                   this.setState({
                      selectedCard: v.value
                   });
-                  window.location.href = toCardLink(v.value);
+                  
                }}
                theme={theme => ({
                   ...theme,

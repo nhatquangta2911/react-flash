@@ -30,6 +30,25 @@ export default class Card extends Component {
          });
       }
 
+      componentDidUpdate() {
+         const uri = document.location.href;
+         const id = getIdBySplitingPath(uri, 'cards/');
+            CardApi.get(id)
+            .then(res => {
+               this.setState({
+                  card: res.data
+               });
+               document.title = this.state.card.englishTitle;
+            })
+            .catch(err => {
+               this.setState({
+                  isError: true
+               });
+               console.log(err);
+            });
+         }
+   
+
    render() {
       const { card, isError, isError404 } = this.state;
       return (
