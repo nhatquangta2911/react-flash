@@ -15,19 +15,17 @@ import SearchBox from "./components/SearchBox/SearchBox";
 export default class App extends Component {
    render() {
       return (
-         <BrowserRouter>
             <div className="App">
                <Navbar />
                <SearchBox />
                <Switch>
                   <Route exact path="/" component={CardsRecent} />
-                  <Route path="/about" component={About} />
-                  <Route path="/contact" component={Contact} />
                   <Route exact path="/cards" component={Cards} />
-                  <Route path="/cards/:id" component={Card} />
+                  <Route path="/about" component={About} />
+                  {/* <Route path="/contact" component={Contact} /> */}
                </Switch>
+                  <Route path="/cards/:id" component={Card} />
             </div>
-         </BrowserRouter>
       );
    }
  } 

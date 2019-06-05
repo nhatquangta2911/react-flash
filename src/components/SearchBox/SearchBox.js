@@ -4,6 +4,7 @@ import CardApi from '../../api/CardApi';
 import { toCardLink } from '../../utils/Link';
 import AsyncSelect from "react-select/async";
 
+
 export default class SearchBox extends Component {
    
    constructor(props) {
@@ -12,6 +13,7 @@ export default class SearchBox extends Component {
          selectedCard: null
       }
    }
+
 
    getCard(key, callback) {
       if(key.length === 0) return null;
@@ -39,7 +41,7 @@ export default class SearchBox extends Component {
                   this.setState({
                      selectedCard: v.value
                   });
-                  document.location.href = toCardLink(v.value);
+                  window.location.href = toCardLink(v.value);
                }}
                theme={theme => ({
                   ...theme,
