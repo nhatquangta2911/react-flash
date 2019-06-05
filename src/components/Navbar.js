@@ -13,8 +13,8 @@ const Navbar = (props) => {
                 <a className="left brand-logo"><span className="amber-text"><b>Shawn</b></span>FLASH</a>
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
-                    <li><NavLink to="/cards">Flashcards</NavLink></li> 
-                    <li><NavLink to="/about">About</NavLink></li>
+                    <li><Link to="/cards">Flashcards</Link></li> 
+                    <li><Link to="/about">About</Link></li>
                     {/* <li><NavLink to="/movies">Movies</NavLink></li>  */}
                 </ul>
             </div>

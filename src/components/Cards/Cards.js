@@ -34,19 +34,38 @@ export default class Cards extends Component {
       const listCards =
          cards &&
          cards.map(card => (
-            <div className="cards-item" key={card._id}>
-               <Link to={toCardLink(card._id)}>
-                  <h4 className="hide-item">{card.englishTitle}</h4>
-                  <h5>{card.vietnameseTitle}</h5>
-               </Link>
+            <div className="flashcards-item" key={card._id}>
+              
+               {cards.indexOf(card) === 0 && (
+               <div className="flashcards-recent">
+                 <Link to={toCardLink(card._id)}>
+                     <h4 className="hide-item">{card.englishTitle}</h4>
+                     <h5>{card.vietnameseTitle}</h5>
+                  </Link>
                   <p className="type">{card.type}</p>
                   <img src={card.image} alt={card.englishTitle} />
                   <p className="hide-item">{card.example}</p>
                   <p className="hide-item">{card.context}</p>
+               </div>
+               )}
+
+               {cards.indexOf(card) !== 0 && (
+               <div>
+                 <Link to={toCardLink(card._id)}>
+                     <h4 className="hide-item">{card.englishTitle}</h4>
+                     <h5>{card.vietnameseTitle}</h5>
+                  </Link>
+                  <p className="type">{card.type}</p>
+                  <img src={card.image} alt={card.englishTitle} />
+                  <p className="hide-item">{card.example}</p>
+                  <p className="hide-item">{card.context}</p>
+               </div>
+               )}
+             
             </div>
          ));
       return (
-         <div className="card-page-container">
+         <div className="flashcards-page-container">
             {isError && <p>Something went wrong...</p>}
             {listCards}
          </div>

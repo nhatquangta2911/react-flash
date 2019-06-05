@@ -17,26 +17,17 @@ import NotFound from "./components/NotFound"
 export default class App extends Component {
    render() {
       return (
-         <BrowserRouter>
             <div className="App">
                <Navbar />
-               <SearchBox />
-               <Switch>
+                <SearchBox />
+                  <Switch>
                   <Route exact path="/" component={CardsRecent} />
                   <Route path="/about" component={About} />
-                  <Route path="/contact" component={Contact} />
-                  <Route path="/posts/:post_id" component={Post} />
-                  <Route path="/users/:user_id" component={User} />
-                  <Route path="/movies" component={Movies} />
-                  <Route path="/movies/:movie_id" component={Movie} />
                   <Route exact path="/cards" component={Cards} />
-                  {/* <Route path="/cards/random" component={Card} /> */}
                   <Route exact path="/cards/:id" component={Card} />
                   <Route exact path="*" component={NotFound}/>
-
                </Switch>
             </div>
-         </BrowserRouter>
       );
    }
  } 

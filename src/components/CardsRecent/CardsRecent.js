@@ -45,7 +45,7 @@ export default class Cards extends Component {
             </div>
          ));
       return (
-         <div className="card-page-container">
+         <div className="cards-page-container">
             {isError && <p>Something went wrong...</p>}
             {listCards}
          </div>
