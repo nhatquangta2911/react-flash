@@ -1,13 +1,13 @@
 import axios from "axios";
 
-axios.get("http://jsonplaceholder.typicode.com/users").then(res => {
-   initState.users = [...res.data];
-});
+// axios.get("http://jsonplaceholder.typicode.com/users").then(res => {
+//    initState.users = [...res.data];
+// });
 
-axios.get("http://jsonplaceholder.typicode.com/posts").then(res => {
-let somePosts = res.data.slice(0,30)   
-initState.posts = [...somePosts];
-});
+// axios.get("http://jsonplaceholder.typicode.com/posts").then(res => {
+// let somePosts = res.data.slice(0,30)   
+// initState.posts = [...somePosts];
+// });
 
 const initState = {
    users: [],

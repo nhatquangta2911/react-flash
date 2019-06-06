@@ -52,6 +52,7 @@ export default class LoginForm extends Component {
                <input 
                   type="password"
                   name="password"
+                  autoComplete="new-password"
                   placeholder="Enter password"
                   value={this.state.password}
                   onChange={this.handleInputChange}
