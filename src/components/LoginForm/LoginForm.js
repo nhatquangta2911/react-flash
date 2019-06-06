@@ -45,6 +45,7 @@ export default class LoginForm extends Component {
                   type="email"
                   name="email"
                   placeholder="Enter email"
+                  autoComplete="new-email"
                   value={this.state.email}
                   onChange={this.handleInputChange}
                   required
