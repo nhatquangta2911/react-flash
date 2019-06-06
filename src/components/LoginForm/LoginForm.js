@@ -24,7 +24,6 @@ export default class LoginForm extends Component {
       AuthApi.auth(this.state)
          .then(res => {
             this.props.history.push('/');   
-            console.log(res);
          })
          .catch(err => {
             this.props.history.push('/auth');
@@ -45,6 +44,7 @@ export default class LoginForm extends Component {
                   type="email"
                   name="email"
                   placeholder="Enter email"
+                  autoComplete="new-email"
                   value={this.state.email}
                   onChange={this.handleInputChange}
                   required
@@ -52,6 +52,7 @@ export default class LoginForm extends Component {
                <input 
                   type="password"
                   name="password"
+                  autoComplete="new-password"
                   placeholder="Enter password"
                   value={this.state.password}
                   onChange={this.handleInputChange}
