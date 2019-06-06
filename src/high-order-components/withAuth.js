@@ -39,7 +39,7 @@ export default function withAuth(ComponentNeedToProtect) {
             return <p>LOADING...</p>;
          }
          if(redirect) {
-            return <Redirect to="/login" />
+            return <Redirect to="/auth" />
          }
          return (
             <React.Fragment>
