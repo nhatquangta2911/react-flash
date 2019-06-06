@@ -24,7 +24,6 @@ export default class LoginForm extends Component {
       AuthApi.auth(this.state)
          .then(res => {
             this.props.history.push('/');   
-            console.log(res);
          })
          .catch(err => {
             this.props.history.push('/auth');
