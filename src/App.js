@@ -12,6 +12,7 @@ import Card from "./components/Cards/Card";
 import CardsRecent from "./components/CardsRecent";
 import SearchBox from "./components/SearchBox/SearchBox";
 import LoginForm from "./components/LoginForm";
+import withAuth from "./high-order-components/withAuth";
 
 export default class App extends Component {
    render() {
@@ -22,7 +23,7 @@ export default class App extends Component {
                   <Switch>
                      <Route exact path="/" component={CardsRecent} />
                      <Route path="/about" component={About} />
-                     <Route exact path="/cards" component={Cards} />
+                     <Route exact path="/cards" component={withAuth(Cards)} />
                      <Route path="/cards/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
                   </Switch>
