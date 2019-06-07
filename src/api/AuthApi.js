@@ -8,5 +8,8 @@ export default {
    },
    checkToken() {
       return Caller(prefix + 'checkToken', 'GET');
+   },
+   logout() {
+      return Caller(prefix, 'GET');
    }
 }

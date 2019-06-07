@@ -7,37 +7,41 @@ export default function withAuth(ComponentNeedToProtect) {
       constructor() {
          super();
          this.state = {
-            loading: true,
-            redirect: false,
+            redirect: false
          };
       }
 
       componentDidMount() {
-         AuthApi.checkToken()
-            .then(res => {
-               if(res.status === 200) {
-                  this.setState({
-                     loading: false
-                  });
-               } else {
-                  this.setState({
-                     loading: true
-                  })
-               }
-            })
-            .catch(err => {
-               // console.error(err);
-               this.setState({
-                  loading: false,
-                  redirect: true
-               })
-            })
-      }
-      render() {
-         const {loading, redirect} = this.state;
-         if(loading) {
-            return <p>LOADING...</p>;
+         const token = window.localStorage.getItem('token');
+         if(!token) {
+            this.setState({
+               redirect: true
+            });
          }
+
+         // AuthApi.checkToken()
+         //    .then(res => {
+         //       if(res.status === 200) {
+         //          this.setState({
+         //             loading: false
+         //          });
+         //       } else {
+         //          this.setState({
+         //             loading: true
+         //          })
+         //       }
+         //    })
+         //    .catch(err => {
+         //       // console.error(err);
+         //       this.setState({
+         //          loading: false,
+         //          redirect: true
+         //       })
+         //    })
+      }
+      
+      render() {
+         const {redirect} = this.state;
          if(redirect) {
             return <Redirect to="/auth" />
          }

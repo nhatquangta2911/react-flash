@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./css/styles.scss";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -15,17 +15,21 @@ import LoginForm from "./components/LoginForm";
 import withAuth from "./high-order-components/withAuth";
 
 export default class App extends Component {
+   
    render() {
+      const token = window.localStorage.getItem('token');
       return (
             <div className="App">
                <Navbar />
                   <SearchBox />
                   <Switch>
+                     {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
                      <Route path="/about" component={About} />
                      <Route exact path="/cards" component={withAuth(Cards)} />
                      <Route path="/cards/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
+                     <Route path="/logout" component={LoginForm} />
                   </Switch>
             </div>
       );

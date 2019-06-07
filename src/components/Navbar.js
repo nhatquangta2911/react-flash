@@ -1,12 +1,16 @@
 import React from 'react'
 import {Link, NavLink, withRouter} from 'react-router-dom'
 
+const handleLogout = () => {
+    window.localStorage.removeItem('token');
+};
+
 const Navbar = (props) => {
 
     // setTimeout(() => {
     //     props.history.push('/about')
     // }, 2000)
-
+    const token = window.localStorage.getItem('token');
     return (
        <nav className="nav-wrapper cyan darken-1">
             <div className="container">
@@ -15,8 +19,8 @@ const Navbar = (props) => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/cards">Flashcards</Link></li> 
                     <li><Link to="/about">About</Link></li>
-                    <li><Link to="/auth">Login</Link></li>
-                    {/* <li><NavLink to="/movies">Movies</NavLink></li>  */}
+                    {!token && <li><Link to="/auth">Login</Link></li>}
+                    {token && <li onClick={handleLogout}><Link to="/">Logout</Link></li>}
                 </ul>
             </div>
        </nav>
