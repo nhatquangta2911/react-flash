@@ -1,5 +1,6 @@
 import styles from "./LoginForm.scss";
 import React, { Component } from "react";
+import {Redirect} from "react-router-dom";
 import AuthApi from "../../api/AuthApi";
 // import Cookies from "universal-cookie";
 export default class LoginForm extends Component {
@@ -10,6 +11,20 @@ export default class LoginForm extends Component {
          password: ""
       };
    }
+
+   // componentDidMount() {
+   //    const token = window.localStorage.getItem('token');
+   //    if(token) { 
+   //       this.setState({
+   //          isLogin: true,
+   //          email: token.email
+   //       });
+   //    } else {
+   //       this.setState({
+   //          isLogin: false
+   //       })
+   //    }
+   // }
 
    handleInputChange = event => {
       const { value, name } = event.target;
@@ -23,6 +38,7 @@ export default class LoginForm extends Component {
       event.preventDefault();
       AuthApi.auth(this.state)
          .then(res => {
+            window.localStorage.setItem('token', res.data);
             this.props.history.push("/cards");
          })
          .catch(err => {

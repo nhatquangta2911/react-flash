@@ -15,7 +15,9 @@ import LoginForm from "./components/LoginForm";
 import withAuth from "./high-order-components/withAuth";
 
 export default class App extends Component {
+   
    render() {
+      const token = window.localStorage.getItem('token');
       return (
             <div className="App">
                <Navbar />
@@ -27,6 +29,7 @@ export default class App extends Component {
                      <Route exact path="/cards" component={withAuth(Cards)} />
                      <Route path="/cards/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
+                     <Route path="/logout" component={LoginForm} />
                   </Switch>
             </div>
       );

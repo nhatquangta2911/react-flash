@@ -13,14 +13,11 @@ export default function withAuth(ComponentNeedToProtect) {
 
       componentDidMount() {
          const token = window.localStorage.getItem('token');
-         if(token) {
+         if(!token) {
             this.setState({
-               redirect: false
-            })
-         } 
-         this.setState({
-            redirect: true
-         });
+               redirect: true
+            });
+         }
 
          // AuthApi.checkToken()
          //    .then(res => {
@@ -42,6 +39,7 @@ export default function withAuth(ComponentNeedToProtect) {
          //       })
          //    })
       }
+      
       render() {
          const {redirect} = this.state;
          if(redirect) {
