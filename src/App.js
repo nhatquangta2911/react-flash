@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./css/styles.scss";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -21,6 +21,7 @@ export default class App extends Component {
                <Navbar />
                   <SearchBox />
                   <Switch>
+                     {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
                      <Route path="/about" component={About} />
                      <Route exact path="/cards" component={withAuth(Cards)} />
