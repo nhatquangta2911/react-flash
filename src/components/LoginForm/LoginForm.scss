@@ -1,2 +1,43 @@
 @import '../../css/mixins.scss';
 
+.login-form-container {
+   width: 40%;
+   height: auto;
+   margin: 50px auto;
+   @include shadow;
+   padding: 30px 50px;
+
+   p {
+      color: #50AEC1;
+      font-size: 1.8em;
+      margin-top: 0; 
+   }
+
+   .btn-submit {
+      margin-top: 20px;
+      color: #50AEC1;
+      font-weight: bold;
+      background-color: #fff;
+      border-radius: 4px;
+      padding: 7px 15px;
+   }
+}
+
+@media only screen and (max-width: 660px) {
+   .login-form-container {
+      width: 95%;
+      font-size: 0.8em;
+   }
+}
+
+@media only screen and (max-width: 1000px) {
+   .login-form-container {
+      width: 70%;
+   }
+}
+
+@media only screen and (max-width: 1400px) {
+   .login-form-container {
+      width: 55%;
+   }
+}

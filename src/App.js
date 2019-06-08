@@ -14,7 +14,6 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import LoginForm from "./components/LoginForm";
 import withAuth from "./high-order-components/withAuth";
 import Profile from "./components/Profile/Profile";
-
 export default class App extends Component {
    
    render() {

@@ -14,7 +14,7 @@ const Navbar = (props) => {
     const token = window.localStorage.getItem('token');
     const user = token && jwt.decode(token);
     return (
-       <nav className="nav-wrapper cyan darken-1">
+       <nav className="nav-extends cyan darken-1">
             <div className="container">
                 <a className="left brand-logo"><span className="amber-text"><b>Shawn</b></span>FLASH</a>
                 <ul className="right">
