@@ -79,5 +79,11 @@
    .profile-item-container {
       font-size: 0.8em;
       width: 80%;
+      .profile-item-left {
+         flex-basis: 40%;
+      }
+      .profile-item-right {
+         flex-basis: 60%;
+      }
    }
 }
