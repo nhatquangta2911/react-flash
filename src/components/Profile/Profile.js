@@ -1,6 +1,7 @@
 import styles from "./Profile.scss";
 import React, { Component } from "react";
 import jwt from "jsonwebtoken";
+import {Link} from "react-router-dom";
 
 export default class Profile extends Component {
    constructor(props) {
@@ -18,6 +19,10 @@ export default class Profile extends Component {
       });
    }
 
+   handleLogout = () => {
+      window.localStorage.removeItem('token');
+   }
+
    render() {
       const { user } = this.state;
       return (
@@ -26,17 +31,22 @@ export default class Profile extends Component {
                <img
                   src="https://cdn-images-1.medium.com/max/1200/1*04AytyejhdInMFZme7p88w.png"
                   alt="Profile Picture"
-               />
+                  />
             </div>
             <div className="profile-item-right">
-               {user && user.name && (
+               <div className="profile-title">
+                 {user && user.name && (
                   <p className="profile-item-name">{user.name}</p>
-               )}
+                  )} 
+                  {user && user.isAdmin && (
+                     <p className="profile-item-isVip">VIP</p>
+                     )}
+               </div>
                {user && user.email && (
                   <p className="profile-item-email">{user.email}</p>
-               )}
-               {user && user.isAdmin && (
-                  <p className="profile-item-isVip">VIP</p>
+                  )}
+               {user && (
+                  <p onClick={this.handleLogout} className="profile-item-logout"><Link to='/'>Log out</Link></p>
                )}
             </div>
          </div>
