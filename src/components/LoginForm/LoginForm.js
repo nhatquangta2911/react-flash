@@ -57,6 +57,7 @@ export default class LoginForm extends Component {
    render() {
       return (
          <div className="login-form-container">
+            <p>Log in</p>
             <form onSubmit={this.onSubmit}>
                <input
                   type="email"
@@ -76,7 +77,7 @@ export default class LoginForm extends Component {
                   onChange={this.handleInputChange}
                   required
                />
-               <input type="submit" value="Submit" />
+               <input className="btn-submit" type="submit" value="Submit" />
             </form>
          </div>
       );
