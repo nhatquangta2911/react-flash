@@ -56,7 +56,7 @@ export default class LoginForm extends Component {
 
    render() {
       return (
-         <div className="login-form-container">
+         <div className="login-form-containerr">
             <p>Log in</p>
             <form onSubmit={this.onSubmit}>
                <input
@@ -67,7 +67,7 @@ export default class LoginForm extends Component {
                   value={this.state.email}
                   onChange={this.handleInputChange}
                   required
-               />
+                  />
                <input
                   type="password"
                   name="password"
@@ -76,7 +76,7 @@ export default class LoginForm extends Component {
                   value={this.state.password}
                   onChange={this.handleInputChange}
                   required
-               />
+                  />
                <input className="btn-submit" type="submit" value="Submit" />
             </form>
          </div>
