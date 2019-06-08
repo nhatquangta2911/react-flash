@@ -15,7 +15,6 @@ export default class SearchBox extends Component {
       }
    }
 
-
    getCard(key, callback) {
       if(key.length === 0) return null;
       CardApi.search(key)
