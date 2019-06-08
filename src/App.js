@@ -21,7 +21,7 @@ export default class App extends Component {
       return (
             <div className="App">
                <Navbar />
-                  <SearchBox />
+                  {token && <SearchBox />}
                   <Switch>
                      {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
