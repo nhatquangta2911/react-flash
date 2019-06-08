@@ -12,7 +12,7 @@ const Navbar = (props) => {
     //     props.history.push('/about')
     // }, 2000)
     const token = window.localStorage.getItem('token');
-    const user = jwt.decode(token);
+    const user = token && jwt.decode(token);
     return (
        <nav className="nav-wrapper cyan darken-1">
             <div className="container">
