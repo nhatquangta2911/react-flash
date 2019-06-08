@@ -22,7 +22,7 @@ const Navbar = (props) => {
                     <li><Link to="/cards">Flashcards</Link></li> 
                     {/* <Link><Link to="/about">About</Link></Link> */}
                     {!token && <li><Link to="/auth">Login</Link></li>}
-                    {token && <li><Link to="/profile">Welcome <b>{user.name}</b></Link></li>}
+                    {token && user && user.name && <li><Link to="/profile">Welcome <b>{user.name}</b></Link></li>}
                     {token && <li onClick={handleLogout}><Link to="/">Logout</Link></li>}
                 </ul>
             </div>
