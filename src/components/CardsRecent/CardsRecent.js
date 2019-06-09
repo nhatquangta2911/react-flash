@@ -34,7 +34,9 @@ export default class Cards extends Component {
          cards &&
          cards.map(card => (
             <div className="cards-item" key={card._id}>
-               <Link to={toCardLink(card._id)}>
+             {card.isRemember && (
+                <div className="flashcards-random-is-remember">
+                 <Link to={toCardLink(card._id)}>
                   <h4 className="hide-item">{card.englishTitle}</h4>
                   <h5>{card.vietnameseTitle}</h5>
                </Link>
@@ -42,6 +44,21 @@ export default class Cards extends Component {
                   <img src={card.image} alt={card.englishTitle} />
                   <p className="hide-item">{card.example}</p>
                   <p className="hide-item">{card.context}</p>
+                </div>
+             )}  
+             {!card.isRemember && (
+                <div>
+                 <Link to={toCardLink(card._id)}>
+                  <h4 className="hide-item">{card.englishTitle}</h4>
+                  <h5>{card.vietnameseTitle}</h5>
+               </Link>
+                  <p className="type">{card.type}</p>
+                  <img src={card.image} alt={card.englishTitle} />
+                  <p className="hide-item">{card.example}</p>
+                  <p className="hide-item">{card.context}</p>
+                </div>
+             )}
+             
             </div>
          ));
       return (

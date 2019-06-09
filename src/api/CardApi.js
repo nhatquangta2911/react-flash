@@ -17,5 +17,17 @@ export default {
    },
    search(query) {
       return Caller(prefix + 'search/' + query, 'GET');
+   }, 
+   update(card, token) {
+      const cardBody = {
+         englishTitle: card.englishTitle,
+         vietnameseTitle: card.vietnameseTitle,
+         image: card.image,
+         example: card.example,
+         type: card.type,
+         context: card.context,
+         isRemember: card.isRemember
+      }
+      return Caller(prefix + card._id, 'PUT', cardBody, token);
    }
 }

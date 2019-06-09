@@ -36,8 +36,8 @@ export default class Cards extends Component {
          cards.map(card => (
             <div className="flashcards-item" key={card._id}>
               
-               {cards.indexOf(card) === 0 && (
-               <div className="flashcards-recent">
+               {card.isRemember && (
+               <div className="flashcards-is-remember">
                  <Link to={toCardLink(card._id)}>
                      <h4 className="hide-item">{card.englishTitle}</h4>
                      <h5>{card.vietnameseTitle}</h5>
@@ -49,7 +49,7 @@ export default class Cards extends Component {
                </div>
                )}
 
-               {cards.indexOf(card) !== 0 && (
+               {!card.isRemember && (
                <div>
                  <Link to={toCardLink(card._id)}>
                      <h4 className="hide-item">{card.englishTitle}</h4>
