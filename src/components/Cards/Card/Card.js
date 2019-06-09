@@ -55,7 +55,7 @@ export default class Card extends Component {
          <div className="card-item-container">
             {isError && <p>Something Failed.</p>}
             {isError404 && <p>Not Found.</p>}
-            {card && (
+            {card && !card.isRemember && (
                <div className="cards-item">
                   <h3>{card.englishTitle}</h3>
                   <h5>{card.vietnameseTitle}</h5>
@@ -63,6 +63,18 @@ export default class Card extends Component {
                   <img src={card.image} alt={card.englishTitle} />
                   <p>{card.example}</p>
                   <h5>{card.context}</h5>
+                  <p>{card.isRemember}</p>
+               </div>
+            )}
+             {card && card.isRemember && (
+               <div className="cards-item">
+                  <h3>{card.englishTitle}</h3>
+                  <h5>{card.vietnameseTitle}</h5>
+                  <p className="type">{card.type}</p>
+                  <img src={card.image} alt={card.englishTitle} />
+                  <p>{card.example}</p>
+                  <h5>{card.context}</h5>
+                  <p>{card.isRemember}</p>
                </div>
             )}
          </div>

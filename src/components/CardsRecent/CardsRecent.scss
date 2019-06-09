@@ -18,7 +18,13 @@
    margin: 30px auto 10px;
    @include shadow;
    color: #555;
-   padding: 20px 10px;
+
+.flashcards-random-is-remember {
+      background-color: rgba(0, 171, 193, 0.171);
+      border-radius: 5px;
+      height: 100%;
+      width: 100%;
+   }
 
    .type {
       color: orange;
