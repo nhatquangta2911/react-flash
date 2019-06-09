@@ -38,7 +38,7 @@ export default class Card extends Component {
                this.setState({
                   card: res.data
                });
-               document.title = this.state.card.englishTitle;
+               // document.title = this.state.card.englishTitle;
             })
             .catch(err => {
                this.setState({

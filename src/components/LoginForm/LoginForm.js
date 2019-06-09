@@ -12,6 +12,14 @@ export default class LoginForm extends Component {
       };
    }
 
+   componentDidMount() {
+      document.title = 'Login'
+   }
+   
+   componentDidUpdate() {
+      document.title = 'Login'
+   }
+
    // componentDidMount() {
    //    const token = window.localStorage.getItem('token');
    //    if(token) { 
