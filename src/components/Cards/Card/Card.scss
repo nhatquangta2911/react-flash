@@ -11,7 +11,7 @@
    margin: 20px auto 20px;
    @include shadow;
    color: #555;
-   padding: 30px 20px 0;
+   padding: 10px 20px 0;
 
    .type {
       color: orange;
@@ -45,7 +45,7 @@
    img {
       width: 100%;
       display: block;
-      margin: 0 auto;
+      margin: 20px auto 0;
       text-align: center;
    }
 

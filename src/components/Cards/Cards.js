@@ -27,6 +27,7 @@ export default class Cards extends Component {
                isError: true
             });
          });
+      document.title = 'All Flashcards';
    }
 
    render() {

@@ -17,6 +17,7 @@ export default class Profile extends Component {
       this.setState({
          user: user
       });
+      document.title = 'My Profile';
    }
 
    handleLogout = () => {

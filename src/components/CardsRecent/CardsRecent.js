@@ -26,7 +26,8 @@ export default class Cards extends Component {
                isError: true
             });
          });
-   }
+      document.title = 'Random cards';
+  }
 
    render() {
       const { cards, isError } = this.state;
