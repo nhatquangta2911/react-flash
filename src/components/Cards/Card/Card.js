@@ -80,10 +80,10 @@ export default class Card extends Component {
       const { card, isError, isError404 } = this.state;
       return (
          <div className="card-item-container">
-            {isError && <p>Something Failed.</p>}
+         {isError && <p>Something Failed.</p>}
             {isError404 && <p>Not Found.</p>}
             {card && !card.isRemember && (
-               <div className="cards-item">
+               <div className="cards-not-remembered-item">
                   <h3>{card.englishTitle}</h3>
                   <h5>{card.vietnameseTitle}</h5>
                   <p className="type">{card.type}</p>
@@ -94,7 +94,7 @@ export default class Card extends Component {
                </div>
             )}
              {card && card.isRemember && (
-               <div className="cards-item">
+               <div className="cards-remembered-item">
                   <h3>{card.englishTitle}</h3>
                   <h5>{card.vietnameseTitle}</h5>
                   <p className="type">{card.type}</p>
