@@ -8,7 +8,7 @@
    background: #fff;
    width: 30%;
    height: auto;
-   margin: 20px auto 20px;
+   margin: 40px auto 20px;
    @include shadow;
    color: #555;
    padding: 10px 20px 0;
@@ -74,7 +74,7 @@
    background: #D3F1F4;
    width: 30%;
    height: auto;
-   margin: 20px auto 20px;
+   margin: 40px auto 20px;
    @include shadow;
    color: #555;
    padding: 10px 20px 0;
@@ -128,5 +128,48 @@
       @include shadow;
       border-radius: 6px;
       margin-bottom: 20px;
+   }
+}
+
+
+@media only screen and (max-width: 1500px) {
+   .cards-not-remembered-item {
+      width: 40%;
+   }
+
+   .cards-remembered-item {
+      width: 40%;
+   }
+}
+
+
+@media only screen and (max-width: 1300px) {
+   .cards-not-remembered-item {
+      width: 50%;
+   }
+
+   .cards-remembered-item {
+      width: 50%;
+   }
+}
+
+
+@media only screen and (max-width: 1000px) {
+   .cards-not-remembered-item {
+      width: 70%;
+   }
+
+   .cards-remembered-item {
+      width: 70%;
+   }
+}
+
+@media only screen and (max-width: 660px) {
+   .cards-not-remembered-item {
+      width: 95%;
+   }
+
+   .cards-remembered-item {
+      width: 95%;
    }
 }
