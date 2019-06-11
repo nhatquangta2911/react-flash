@@ -21,7 +21,7 @@ const Navbar = (props) => {
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/cards">Flashcards</Link></li> 
-                    <li><Link to="/chat">Contact</Link></li> 
+                    <li><Link to="/chat">Chat Room</Link></li> 
                     {/* <Link><Link to="/about">About</Link></Link> */}
                     {!token && <li><Link to="/auth">Login</Link></li>}
                     {token && user && user.name && <li><Link to="/profile">Welcome <b>{user.name}</b></Link></li>}
