@@ -14,6 +14,7 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import LoginForm from "./components/LoginForm";
 import withAuth from "./high-order-components/withAuth";
 import Profile from "./components/Profile/Profile";
+import Chat from "./components/Chat";
 export default class App extends Component {
    
    render() {
@@ -31,6 +32,7 @@ export default class App extends Component {
                      <Route path="/auth" component={LoginForm} />
                      <Route path="/logout" component={LoginForm} />
                      <Route path="/profile" component={withAuth(Profile)} />
+                     <Route path="/chat" component={withAuth(Chat)} />
                   </Switch>
             </div>
       );
