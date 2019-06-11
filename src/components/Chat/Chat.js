@@ -53,6 +53,9 @@ export default class Chat extends Component {
          message: this.state.message,
          handle: this.state.handle
       });
+      this.setState({
+         message: ''
+      })
    };
 
    handleTyping = () => {
