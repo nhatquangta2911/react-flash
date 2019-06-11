@@ -24,7 +24,7 @@ export default class Chat extends Component {
             handle: user.name
          });
       }
-      document.title = 'Chat Room';
+      document.title = user && user.name && `Chat Room - ${user.name}`;
    }
 
    handleSocket = () => {
@@ -79,9 +79,9 @@ export default class Chat extends Component {
       const outputResult =
          output &&
          output.map(o => (
-            <p>
-               <strong>{o.handle}</strong>
-               {o.message}
+            <p key={output.indexOf(o)}>
+               <span id="item-handle">{o.handle}</span>
+                {o.message}
             </p>
          ));
       const feedbackOutput = feedback && (
@@ -97,22 +97,26 @@ export default class Chat extends Component {
                <div id="output">{outputResult}</div>
                <div id="feedback">{feedbackOutput}</div>
             </div>
-            <input
-               onChange={this.handleChangeHandle}
-               type="text"
-               id="handle"
-               placeholder="Handle"
-               value={handle}
-               disabled
-            />
-            <input
-               onChange={this.handleChangeMessage}
-               onKeyPress={this.handleTyping}
-               type="text"
-               id="message"
-               placeholder="Message"
-               value={message}
-            />
+            <div id="input-handle">
+               <input
+                  onChange={this.handleChangeHandle}
+                  type="text"
+                  id="handle"
+                  placeholder="Handle"
+                  value={handle}
+                  disabled
+               />
+            </div>
+            <div id="input-message">
+               <input
+                  onChange={this.handleChangeMessage}
+                  onKeyPress={this.handleTyping}
+                  type="text"
+                  id="message"
+                  placeholder="Message"
+                  value={message}
+                  />
+            </div>
             <button id="send" onClick={this.handleClick}>
                Send
             </button>
