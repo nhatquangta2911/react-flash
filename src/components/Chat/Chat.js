@@ -79,10 +79,13 @@ export default class Chat extends Component {
       const outputResult =
          output &&
          output.map(o => (
-            <p key={output.indexOf(o)}>
-               <span id="item-handle">{o.handle}</span>
-                {o.message}
-            </p>
+            <div id="chat-item-container" key={output.indexOf(o)}>
+               <div id="chat-item-handle">{o.handle}
+               </div>
+               <div id="chat-item-messages">
+                 <p>{o.message}</p> 
+               </div> 
+            </div>
          ));
       const feedbackOutput = feedback && (
          <p>
@@ -102,7 +105,6 @@ export default class Chat extends Component {
                   onChange={this.handleChangeHandle}
                   type="text"
                   id="handle"
-                  placeholder="Handle"
                   value={handle}
                   disabled
                />

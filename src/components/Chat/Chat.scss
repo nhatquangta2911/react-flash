@@ -20,16 +20,55 @@ h2 {
    height: 400px;
    overflow: auto;
    background: hsla(190, 48%, 54%, 0.074);
+   display: flex;
+   flex-direction: column;
 }
 
-#output p {
+#output {
    padding: 14px 0px;
    margin: 0 20px;
    // border-bottom: 1px solid #e9e9e9;
    color: #555;
    font-size: 14px;
-   overflow: hidden;
+   width: auto;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
    // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#chat-item-container {
+   display: flex;
+   flex-direction: column;
+   margin: 10px 0;
+}
+
+#chat-item-handle {
+   font-size: 12px;
+   font-weight: bold;
+   width: auto;
+   color: #00acc1;
+}
+
+#chat-item-messages {
+   font-size: 14px;
+   max-width: 100%;
+   width: fit-content;
+   background-color: #00abc11f;
+   height: fit-content;
+   color: #777;
+   border-radius: 7px;
+   display: flex;
+   flex-direction: column-reverse;
+   text-align: start;
+   flex-wrap: wrap;
+   padding: 0px 10px;
+}
+
+#chat-item-messages p {
+   width: auto;
+   max-width: 100%;
+   height: auto;
 }
 
 #feedback p {
@@ -38,51 +77,39 @@ h2 {
    margin: 0 20px;
 }
 
-#output p:nth-child(2n) {
-   color: #00acc1;
-   margin-right: 5px;
-   text-align: right;
-   margin-right: 14px;
-}
-
-#item-handle {
-   font-weight: bold;
-   margin-right: 5px;
-   padding: 5px 10px;
-   background: #00abc11f;
-   border-radius: 5px;
-}
-
-#output p:nth-child(2n + 1) {
-   color: #ffae00;
-   margin-right: 5px;
-}
-
 label {
    box-sizing: border-box;
    display: block;
    padding: 10px 20px;
 }
 
-#input-handle #input-message {
-   padding: 10px 20px;
+#input-message {
+   padding: 0px 10px;
    background: #eee;
-   border: 0;
    display: block;
-   color: #555555bd;
-   width: 50%;
+   color: hsla(0, 0%, 33%, 0.541);
    background: #fff;
-   border-bottom: 1px solid #eee;
-   font-size: 14px;
+   // border-bottom: 1px solid #eee;
 }
+
+#input-handle {
+   padding: 0px 10px;
+   background: #eee;
+   display: block;
+   color: hsla(0, 0%, 33%, 0.541);
+   background: #fff;
+   // border-bottom: 1px solid #eee;
+}
+
 
 button {
    background: hsl(45, 100%, 59%);
    color: #fff;
-   font-size: 16px;
+   font-size: 18px;
    border: 0;
-   padding: 10px 0;
+   padding: 15px 0;
    width: 100%;
+   margin-top: 10px;
    border-radius: 0 0 4px 4px;
 }
 
