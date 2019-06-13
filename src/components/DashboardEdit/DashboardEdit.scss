@@ -1,15 +1,45 @@
 @import '../../css/mixins.scss';
 
 .dashboard-edit-container {
-   background-color: hsla(42, 100%, 67%, 0.068);
    margin: 0px auto;
    border-radius: 5px;
    height: 80%;
    width: 90%;
+   display: flex;
+   flex-direction: column;
+
+   #vietnamese-title, #english-title, #example, #type, #image, #context {
+      font-size: 0.95em;
+   }
+
+   .dashboard-edit-button {
+      display: flex;
+      justify-content: flex-end;
+      .dashboard-edit-button-edit {
+         padding: 6px 30px;
+         background-color: #eef5f6;
+         color: #00acc1;
+         border-radius: 4px;
+         font-size: 1em;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 5px;
+      }
+      .dashboard-edit-button-cancel {
+         padding: 6px 20px;
+         color: #aaa;
+         border: 1px solid hsla(0, 0%, 67%, 0.163);
+         border-radius: 4px;
+         font-size: 1em;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 5px;
+      }
+   }
 
    .dashboard-edit-title {
       font-weight: bold;
       font-size: 1em;
-      color: #fbc520;
+      color: #50AEC1;
    }
 }

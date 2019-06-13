@@ -1,11 +1,35 @@
 @import '../../css/mixins.scss';
 
 .dashboard-edit-profile-container {
-   background-color: hsla(42, 100%, 67%, 0.068);
    margin: 0px auto;
    border-radius: 5px;
    height: 80%;
    width: 90%;
+
+   .dashboard-edit-profile-button {
+      display: flex;
+      justify-content: flex-end;
+      .dashboard-edit-profile-button-edit {
+         padding: 6px 30px;
+         background-color: #eef5f6;
+         color: #00acc1;
+         border-radius: 4px;
+         font-size: 1em;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 5px;
+      }
+      .dashboard-edit-profile-button-cancel {
+         padding: 6px 20px;
+         color: #aaa;
+         border: 1px solid hsla(0, 0%, 67%, 0.163);
+         border-radius: 4px;
+         font-size: 1em;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 5px;
+      }
+   }
 
    .dashboard-edit-profile-title {
       font-weight: bold;
