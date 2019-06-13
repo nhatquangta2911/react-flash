@@ -95,6 +95,10 @@ export default class Chat extends Component {
          </p>
       );
       return (
+         <div>
+         <div id="chat-room-title">
+            <p>Chat Room</p>
+         </div>
          <div id="flash-chat">
             <div id="chat-window">
                <div id="output">{outputResult}</div>
@@ -107,7 +111,7 @@ export default class Chat extends Component {
                   id="handle"
                   value={handle}
                   disabled
-               />
+                  />
             </div>
             <div id="input-message">
                <input
@@ -123,6 +127,7 @@ export default class Chat extends Component {
                Send
             </button>
          </div>
+      </div>
       );
    }
 }
