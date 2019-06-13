@@ -47,8 +47,7 @@ export default class LoginForm extends Component {
       AuthApi.auth(this.state)
          .then(res => {
             window.localStorage.setItem('token', res.data);
-            // this.props.history.push("/profile");
-            document.location.href = '/profile';
+            this.props.history.push("/profile");
          })
          .catch(err => {
             this.props.history.push("/auth");
