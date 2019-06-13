@@ -5,6 +5,7 @@ import Chat from '../Chat';
 import DashBoardAdd from '../DashBoardAdd/DashBoardAdd';
 import DashboardEdit from '../DashboardEdit/DashboardEdit';
 import DashBoardEditProfile from '../DashBoardEditProfile/DashBoardEditProfile';
+import DashBoardAllCards from '../DashBoardAllCards/DashBoardAllCards';
 
 export default class DashBoard extends Component {
    render() {
@@ -14,6 +15,7 @@ export default class DashBoard extends Component {
                   <div className="dashboard-left-side">
                      <ul>
                         <p>Management Page</p>
+                        <li><Link to="/dashboard/all-cards">Show All Cards</Link></li>
                         <li><Link to="/dashboard/add">Add Card</Link></li>
                         <li><Link to="/dashboard/edit">Edit Card</Link></li>
                         <li><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>
@@ -25,6 +27,7 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/add" component={DashBoardAdd} />
                               <Route path="/dashboard/edit" component={DashboardEdit} />
                               <Route path="/dashboard/edit-profile" component={DashBoardEditProfile} />
+                              <Route path="/dashboard/all-cards" component={DashBoardAllCards} />
                            </Switch>
                      </div>
                   </BrowserRouter>

@@ -1,0 +1,10 @@
+@import '../../css/mixins.scss';
+
+.dashboard-all-cards-container {
+   margin: 0px auto;
+   border-radius: 5px;
+   height: 80%;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+}
