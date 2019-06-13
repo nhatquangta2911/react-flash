@@ -1,18 +1,17 @@
-@import '../../css/mixins';
+@import "../../css/mixins";
 
 .dashboard-container {
    display: flex;
    width: 60%;
    flex-direction: row;
    justify-content: space-around;
-   //TODO: Change to auto
-   height: 700px;
+   height: auto;
    @include shadow;
-   margin: 30px auto;   
+   margin: 30px auto;
 
    .dashboard-left-side {
       flex-basis: 25%;
-      background-color: #EEF5F6;
+      background-color: #eef5f6;
       border-radius: 6px 0 0 6px;
       display: flex;
       flex-direction: column;
@@ -36,14 +35,14 @@
          background-color: hsla(0, 0%, 100%, 0.698);
          margin: 20px auto;
          width: 90%;
-         border-radius: 4px; 
- 
+         border-radius: 4px;
+
          &:first-of-type {
             margin: 0 auto;
          }
 
          a {
-            color: #00ACC1;
+            color: #00acc1;
             width: fit-content;
             font-weight: bold;
             margin: 0 auto;
@@ -53,18 +52,27 @@
    }
 
    .dashboard-right-side {
+      padding: 20px 0;
       border-radius: 0 10px 10px 0;
       flex-basis: 75%;
       background-color: #fff;
    }
 }
 
-
-
 @media only screen and (max-width: 768px) {
    .dashboard-container {
       width: 95%;
       flex-direction: column;
+
+      .dashboard-left-side {
+         flex-direction: row;
+      }
+   }
+}
+
+@media only screen and (max-width: 1168px) {
+   .dashboard-container {
+      width: 95%;
 
       .dashboard-left-side {
          flex-direction: row;
