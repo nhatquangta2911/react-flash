@@ -22,8 +22,7 @@ export default class App extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         token: '',
-         isChatRoom: false
+         token: null
       }
    }
 
@@ -34,7 +33,7 @@ export default class App extends Component {
    //          hasSearchBox: false
    //       });
    //    } else {
-   //       this.setState({
+         //       this.setState({
    //          hasSearchBox: true
    //       })
    //    }
@@ -45,7 +44,6 @@ export default class App extends Component {
          token: window.localStorage.getItem('token')
       });
    }
-
    
    componentWillReceiveProps() {
       this.setState({
@@ -54,7 +52,7 @@ export default class App extends Component {
    }
 
    render() {
-      const { token, isChatRoom } = this.state;
+      const { token } = this.state;
       return ( 
             <div className="App">
                   <Navbar />

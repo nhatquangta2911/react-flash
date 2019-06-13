@@ -17,7 +17,7 @@ export default class LoginForm extends Component {
    }
    
    componentDidUpdate() {
-      document.title = 'Login'
+      // document.title = 'Login'
    }
 
    // componentDidMount() {
@@ -47,7 +47,8 @@ export default class LoginForm extends Component {
       AuthApi.auth(this.state)
          .then(res => {
             window.localStorage.setItem('token', res.data);
-            this.props.history.push("/cards");
+            // this.props.history.push("/profile");
+            document.location.href = '/profile';
          })
          .catch(err => {
             this.props.history.push("/auth");
