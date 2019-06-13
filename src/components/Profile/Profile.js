@@ -22,8 +22,7 @@ export default class Profile extends Component {
 
    handleLogout = () => {
       window.localStorage.removeItem('token');
-      // this.props.history.push('/auth');
-      document.location.href = '/auth';
+      this.props.history.push('/auth');
    }
 
    render() {
