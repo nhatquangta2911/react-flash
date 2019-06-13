@@ -17,12 +17,46 @@ import Profile from "./components/Profile/Profile";
 import Chat from "./components/Chat";
 export default class App extends Component {
    
+   constructor(props) {
+      super(props);
+      this.state = {
+         token: '',
+         isChatRoom: false
+      }
+   }
+
+   // componentWillMount() {
+   //    let url = document.location.href.split('8080')[1];
+   //    if(url === '/chat') {
+   //       this.setState({
+   //          hasSearchBox: false
+   //       });
+   //    } else {
+   //       this.setState({
+   //          hasSearchBox: true
+   //       })
+   //    }
+   // }
+
+   componentDidMount() {
+      this.setState({
+         token: window.localStorage.getItem('token')
+      });
+   }
+
+   
+   componentWillReceiveProps() {
+      this.setState({
+         token: window.localStorage.getItem('token')
+      });
+   }
+
    render() {
-      const token = window.localStorage.getItem('token');
-      return (
+      const { token, isChatRoom } = this.state;
+      return ( 
             <div className="App">
                <Navbar />
-                  {token && <SearchBox />}
+                  {token && !window.location.href.includes('chat') && !window.location.href.includes('profile') && <SearchBox />}
                   <Switch>
                      {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
