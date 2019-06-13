@@ -24,6 +24,19 @@ h2 {
    flex-direction: column;
 }
 
+#chat-room-title {
+   p {
+      font-size: 1.5em;
+      color: #00ACC1;
+      background-color: hsla(190, 48%, 54%, 0.074);;
+      width: fit-content;
+      margin: 40px auto 0;
+      font-weight: bold;
+      padding: 2px 15px;
+      border-radius: 10px;
+   }
+}
+
 #output {
    padding: 14px 0px;
    margin: 0 20px;

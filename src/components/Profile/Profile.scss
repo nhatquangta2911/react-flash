@@ -25,18 +25,19 @@
       flex-basis: 70%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      justify-content: space-between;
       padding: 10px 20px;
 
       .profile-title {
+         height: 23%;
          display: flex;
          flex-direction: row;
-         align-items: center;
+         align-items: flex-start;
 
          .profile-item-name {
             font-weight: bold;
             color: #50aec1;
-            font-size: 1.6em;
+            font-size: 1.4em;
          }
 
          .profile-item-isVip {
@@ -47,23 +48,43 @@
             border-radius: 4px;
             font-size: 0.9em;
             margin-left: 8px;
+            margin-bottom: 0;
          }
       }
 
       .profile-item-email {
+         height: 23%;
          color: #888;
          margin-top: 5px;
       }
 
       .profile-item-logout {
+         height: auto;
+         margin-bottom: 5px;
+         margin-top: 5px;
          background-color: #f2f2f2;
-         padding: 2px 12px 2px;
+         padding: 2px 15px 2px;
          font-weight: bold;
          border-radius: 4px;
-         font-size: 1.2em;
+         font-size: 1em;
          align-self: flex-end;
          a {
             color: rgba(233, 82, 97, 0.728);
+         }
+      }
+
+      .profile-item-manage {
+         height: auto;
+         margin-top: 5px;
+         margin-bottom: 5px;
+         background-color: #f2f2f2;
+         padding: 2px 15px 2px;
+         font-weight: bold;
+         border-radius: 4px;
+         font-size: 1em;
+         align-self: flex-end;
+         a {
+            color: #00ACC1;
          }
       }
    }

@@ -1,0 +1,73 @@
+@import '../../css/mixins';
+
+.dashboard-container {
+   display: flex;
+   width: 60%;
+   flex-direction: row;
+   justify-content: space-around;
+   //TODO: Change to auto
+   height: 700px;
+   @include shadow;
+   margin: 30px auto;
+
+   .dashboard-left-side {
+      flex-basis: 25%;
+      background-color: #EEF5F6;
+      border-radius: 6px 0 0 6px;
+      display: flex;
+      flex-direction: column;
+
+      ul {
+         margin: 0 auto;
+         width: 100%;
+
+         p {
+            width: fit-content;
+            margin: 0 auto;
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #fbc520;
+            padding: 40px 0;
+         }
+      }
+
+      li {
+         padding: 5px 0;
+         background-color: hsla(0, 0%, 100%, 0.698);
+         margin: 20px auto;
+         width: 90%;
+         border-radius: 4px; 
+ 
+         &:first-of-type {
+            margin: 0 auto;
+         }
+
+         a {
+            color: #00ACC1;
+            width: fit-content;
+            font-weight: bold;
+            margin: 0 auto;
+            display: block;
+         }
+      }
+   }
+
+   .dashboard-right-side {
+      border-radius: 0 10px 10px 0;
+      flex-basis: 75%;
+      background-color: #fff;
+   }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+   .dashboard-container {
+      width: 95%;
+      flex-direction: column;
+
+      .dashboard-left-side {
+         flex-direction: row;
+      }
+   }
+}

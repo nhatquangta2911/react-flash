@@ -15,14 +15,50 @@ import LoginForm from "./components/LoginForm";
 import withAuth from "./high-order-components/withAuth";
 import Profile from "./components/Profile/Profile";
 import Chat from "./components/Chat";
+import DashBoard from "./components/DashBoard/DashBoard";
+import DashBoardAdd from "./components/DashBoardAdd/DashBoardAdd";
 export default class App extends Component {
    
+   constructor(props) {
+      super(props);
+      this.state = {
+         token: '',
+         isChatRoom: false
+      }
+   }
+
+   // componentWillMount() {
+   //    let url = document.location.href.split('8080')[1];
+   //    if(url === '/chat') {
+   //       this.setState({
+   //          hasSearchBox: false
+   //       });
+   //    } else {
+   //       this.setState({
+   //          hasSearchBox: true
+   //       })
+   //    }
+   // }
+
+   componentDidMount() {
+      this.setState({
+         token: window.localStorage.getItem('token')
+      });
+   }
+
+   
+   componentWillReceiveProps() {
+      this.setState({
+         token: window.localStorage.getItem('token')
+      });
+   }
+
    render() {
-      const token = window.localStorage.getItem('token');
-      return (
+      const { token, isChatRoom } = this.state;
+      return ( 
             <div className="App">
-               <Navbar />
-                  {token && <SearchBox />}
+                  <Navbar />
+                  {token && !document.location.href.includes('chat') && !document.location.href.includes('profile') && !document.location.href.includes('dashboard') && <SearchBox />}
                   <Switch>
                      {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
@@ -33,6 +69,7 @@ export default class App extends Component {
                      <Route path="/logout" component={LoginForm} />
                      <Route path="/profile" component={withAuth(Profile)} />
                      <Route path="/chat" component={withAuth(Chat)} />
+                     <Route path="/dashboard" component={withAuth(DashBoard)} />
                   </Switch>
             </div>
       );
