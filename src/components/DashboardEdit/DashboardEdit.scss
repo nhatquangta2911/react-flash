@@ -1,0 +1,15 @@
+@import '../../css/mixins.scss';
+
+.dashboard-edit-container {
+   background-color: hsla(42, 100%, 67%, 0.068);
+   margin: 0px auto;
+   border-radius: 5px;
+   height: 80%;
+   width: 90%;
+
+   .dashboard-edit-title {
+      font-weight: bold;
+      font-size: 1em;
+      color: #fbc520;
+   }
+}
