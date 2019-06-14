@@ -24,6 +24,18 @@ export default class DashBoardAllCards extends Component {
       document.title = "Manage All Cards";
    }
 
+   componentWillReceiveProps() {
+      CardApi.list()
+         .then(res => {
+            this.setState({
+               isLoading: false,
+               cards: res.data
+            });
+         })
+         .catch(err => {});
+      document.title = "Manage All Cards";
+   }
+
    render() {
       const { isLoading, cards } = this.state;
       const cardsResult =

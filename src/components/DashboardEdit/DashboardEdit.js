@@ -2,6 +2,20 @@ import styles from "./DashboardEdit.scss";
 import React, { Component } from "react";
 
 export default class DashboardEdit extends Component {
+
+   constructor(props) {
+      super(props);
+      this.state = {
+         isLoading: true,
+         id: '',
+         card: ''
+      }
+   }
+
+   componentDidMount() {
+      
+   }
+
    render() {
       return (
          <div className="dashboard-edit-container">
