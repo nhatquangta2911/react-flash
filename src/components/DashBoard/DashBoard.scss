@@ -2,7 +2,7 @@
 
 .dashboard-container {
    display: flex;
-   width: 60%;
+   width: 70%;
    flex-direction: row;
    justify-content: space-around;
    height: auto;
@@ -10,7 +10,7 @@
    margin: 30px auto;
 
    .dashboard-left-side {
-      flex-basis: 25%;
+      flex-basis: 20%;
       background-color: #eef5f6;
       border-radius: 6px 0 0 6px;
       display: flex;
@@ -54,7 +54,7 @@
    .dashboard-right-side {
       padding: 20px 0;
       border-radius: 0 10px 10px 0;
-      flex-basis: 75%;
+      flex-basis: 80%;
       background-color: #fff;
    }
 }
