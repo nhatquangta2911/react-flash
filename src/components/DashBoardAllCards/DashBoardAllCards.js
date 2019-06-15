@@ -36,8 +36,22 @@ export default class DashBoardAllCards extends Component {
       document.title = "Manage All Cards";
    }
 
+   handleDelete = (id) => {
+      const token = window.localStorage.getItem('token');
+      CardApi.delete(id, token)
+         .then(res => {
+            this.props.history.push('/dashboard/all-cards');
+         })
+         .catch(err => {
+            this.setState({
+               isError: true
+            });
+            console.log(err);
+         })
+   }
+
    render() {
-      const { isLoading, cards } = this.state;
+      const { isLoading, cards, isError } = this.state;
       const cardsResult =
          cards &&
          cards.map(c => (
@@ -56,7 +70,7 @@ export default class DashBoardAllCards extends Component {
                   <Link to={{pathname: '/dashboard/edit/' + c._id}}>
                      <p className="dashboard-all-cards-item-right-edit">EDIT</p>
                   </Link>
-                  <p className="dashboard-all-cards-item-right-delete">
+                  <p onClick={() => this.handleDelete(c._id)} className="dashboard-all-cards-item-right-delete">
                      Delete
                   </p>
                </div>
@@ -73,6 +87,7 @@ export default class DashBoardAllCards extends Component {
                </Link>
             </div>
             {isLoading && <p>Loading...</p>}
+            {isError && <p>Something went wrong!!!</p>}
             {cardsResult}
          </div>
       );
