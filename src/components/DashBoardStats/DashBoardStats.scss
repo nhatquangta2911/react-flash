@@ -1,0 +1,70 @@
+@import "../../css/mixins.scss";
+
+.dashboard-stats-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px;
+
+   a {
+      text-decoration: none;
+   }
+
+   p {
+      color: #999;
+   }
+
+   .dashboard-title-number {
+      font-weight: bold;
+      color: #E98BAA;
+      font-size: 3em;
+   }
+
+   .dashboard-stats-total-cards {
+      flex-basis: 30%;
+      display: flex;
+      justify-content: center;
+      height: 120px;
+      border-radius: 4px;
+      background-color: #eef5f6;
+   }
+
+   .dashboard-stats-total-not-remembered-cards {
+      flex-basis: 30%;
+      display: flex;
+      justify-content: center;
+      background-color: #eef5f6;
+      height: 120px;
+      border-radius: 4px;
+   }
+
+   .dashboard-stats-total-users {
+      flex-basis: 30%;
+      display: flex;
+      justify-content: center;
+      background-color: #eef5f6;
+      height: 120px;
+      border-radius: 4px;
+   }
+}
+
+@media only screen and (max-width: 660px) {
+   .dashboard-stats-container {
+      flex-direction: column;
+      height: 400px;
+      justify-content: space-between;
+      .dashboard-stats-total-cards {
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+      .dashboard-stats-total-not-remembered-cards {
+         width: 100%;
+      }
+      .dashboard-stats-total-users {
+         width: 100%;
+      }
+   }
+}
