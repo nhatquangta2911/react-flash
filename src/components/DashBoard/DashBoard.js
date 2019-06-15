@@ -6,6 +6,7 @@ import DashBoardAdd from '../DashBoardAdd/DashBoardAdd';
 import DashboardEdit from '../DashboardEdit/DashboardEdit';
 import DashBoardEditProfile from '../DashBoardEditProfile/DashBoardEditProfile';
 import DashBoardAllCards from '../DashBoardAllCards/DashBoardAllCards';
+import Card from '../Cards/Card';
 
 export default class DashBoard extends Component {
    render() {
@@ -28,6 +29,7 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/edit" component={DashboardEdit} />
                               <Route path="/dashboard/edit-profile" component={DashBoardEditProfile} />
                               <Route path="/dashboard/all-cards" component={DashBoardAllCards} />
+                              <Route path="/dashboard/cards/:id" component={Card} />
                            </Switch>
                      </div>
                   </BrowserRouter>

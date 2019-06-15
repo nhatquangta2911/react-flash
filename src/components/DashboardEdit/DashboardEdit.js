@@ -9,12 +9,14 @@ export default class DashboardEdit extends Component {
          isLoading: true,
          id: "",
          card: {
+            _id: '',
             englishTitle: '',
             vietnameseTitle: '',
             example: '',
             context: '',
             type: '',
-            image: ''
+            image: '',
+            isRemember: ''
          }
       };
    }
@@ -31,11 +33,13 @@ export default class DashboardEdit extends Component {
             this.setState({
                isLoading: false,
                card: {
+                  _id: res.data._id,
                   englishTitle: res.data.englishTitle,
                   vietnameseTitle: res.data.vietnameseTitle,
                   example: res.data.example,
                   context: res.data.context,
                   type: res.data.type,
+                  isRemember: res.data.isRemember,
                   image: res.data.image
                }
             });
@@ -50,12 +54,14 @@ export default class DashboardEdit extends Component {
             this.setState({
                isLoading: false,
                card: {
+                  _id: res.data._id,
                   englishTitle: res.data.englishTitle,
                   vietnameseTitle: res.data.vietnameseTitle,
                   example: res.data.example,
                   context: res.data.context,
                   type: res.data.type,
-                  image: res.data.image
+                  image: res.data.image,
+                  isRemember: res.data.isRemember
                }
             });
          })
@@ -72,12 +78,19 @@ export default class DashboardEdit extends Component {
    } 
 
    handleSubmit = () => {
-      console.log(this.state.card);
+      const token = window.localStorage.getItem('token');
+      CardApi.update(this.state.card, token)
+         .then(res => {})
+         .catch(err => {
+            this.setState({
+               isLoading: true
+            });
+         })
+      this.props.history.push(`/dashboard/cards/${this.state.id}`);
    }
 
    render() {
       const { isLoading, id, card } = this.state;
-      console.log(card);
       return (
          <div>
             {isLoading && <p className="dashboard-loading">Loading...</p>}
