@@ -53,7 +53,7 @@ export default class DashBoardAllCards extends Component {
                   </div>
                </Link>
                <div className="dashboard-all-cards-item-right">
-                  <Link to="/dashboard/edit">
+                  <Link to={{pathname: '/dashboard/edit/' + c._id}}>
                      <p className="dashboard-all-cards-item-right-edit">EDIT</p>
                   </Link>
                   <p className="dashboard-all-cards-item-right-delete">

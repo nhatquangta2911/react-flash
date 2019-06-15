@@ -25,9 +25,9 @@ export default class DashboardEdit extends Component {
                isLoading: false,
                card: res.data
             });
+            document.title = `Edit Card - ${res.data.englishTitle}`;
          })
          .catch(err => {});
-      document.title = `Edit Card - ${this.state.card.englishTitle}`;
    }
 
    componentWillReceiveProps() {
@@ -39,7 +39,7 @@ export default class DashboardEdit extends Component {
             });
          })
          .catch(err => {});
-      document.title = `Edit Card - ${this.state.card.englishTitle}`;
+      document.title = `Edit Card - ${res.data.englishTitle}`;
    }
 
    render() {
@@ -57,6 +57,7 @@ export default class DashboardEdit extends Component {
                            placeholder="English Title"
                            id="english-title"
                            value={card.englishTitle}
+                           onChange={this.handleChange}
                         />
                      </div>
                   )}
