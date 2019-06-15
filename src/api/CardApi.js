@@ -9,6 +9,9 @@ export default {
    get(cardId) {
       return Caller(prefix + 'card/' + cardId, 'GET');
    },
+   add(card, token) {
+      return Caller(prefix, 'POST', card, token );
+   },
    getRandom() {
       return Caller(prefix + 'random', 'GET');
    },
@@ -29,5 +32,8 @@ export default {
          isRemember: card.isRemember
       }
       return Caller(prefix + card._id, 'PUT', cardBody, token);
+   },
+   delete(cardId, token) {
+      return Caller(prefix + cardId, 'DELETE', {}, token);
    }
 }
