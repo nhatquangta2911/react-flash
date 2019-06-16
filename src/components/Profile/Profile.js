@@ -48,7 +48,7 @@ export default class Profile extends Component {
                   <p className="profile-item-email">{user.email}</p>
                   )}
                {user && (
-                     <p className="profile-item-manage"><Link to='/dashboard/stats'>Manage cards</Link></p>
+                     <p className="profile-item-manage"><Link to='/dashboard/stats' onClick={this.forceUpdate}>Manage cards</Link></p>
                )}
                {user && (
                   <p onClick={this.handleLogout} className="profile-item-logout"><Link to='/' onClick={this.forceUpdate}>Log out</Link></p>
