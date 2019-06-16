@@ -2,6 +2,7 @@ import styles from "./LoginForm.scss";
 import React, { Component } from "react";
 import {Redirect} from "react-router-dom";
 import AuthApi from "../../api/AuthApi";
+import { Link } from "react-router-dom";
 // import Cookies from "universal-cookie";
 export default class LoginForm extends Component {
    constructor(props) {
@@ -85,7 +86,7 @@ export default class LoginForm extends Component {
                   onChange={this.handleInputChange}
                   required
                   />
-               <input className="btn-submit" type="submit" value="Submit" />
+                  <input onClick={this.forceUpdate} className="btn-submit" type="submit" value="Submit" />
             </form>
          </div>
       );

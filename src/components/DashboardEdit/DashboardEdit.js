@@ -2,6 +2,7 @@ import styles from "./DashboardEdit.scss";
 import React, { Component } from "react";
 import { getIdBySplitingPath } from "../../utils/Link";
 import CardApi from "../../api/CardApi";
+import { Link } from "react-router-dom";
 export default class DashboardEdit extends Component {
    constructor(props) {
       super(props);
@@ -166,7 +167,9 @@ export default class DashboardEdit extends Component {
                      />
                   </div>
                   <div className="dashboard-edit-button">
-                     <p className="dashboard-edit-button-cancel">Cancel</p>
+                     <Link to="/dashboard/all-cards">
+                        <p className="dashboard-edit-button-cancel">Cancel</p>
+                     </Link>
                      <p onClick={this.handleSubmit} className="dashboard-edit-button-edit">Edit</p>
                   </div>
                </div>
