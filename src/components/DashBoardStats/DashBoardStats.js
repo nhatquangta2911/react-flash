@@ -95,14 +95,14 @@ export default class DashBoardStats extends Component {
             {!isLoading && !isError && (
                <div className="dashboard-stats-container">
                   <div onClick={this.handleClickToTotalCards} className="dashboard-stats-total-cards">
-                     <p className="dashboard-title-number">{totalCards}</p>
-                     <p>Total</p>
+                        <p className="dashboard-title-number">{totalCards}</p>
+                        <p>Total</p>
                   </div>
                   <div onClick={this.handleClickToCardsNotRemembered} className="dashboard-stats-total-not-remembered-cards">
                      <p className="dashboard-title-number">
-                        {totalNotRememberedCards}
-                     </p>
-                     <p>Not Remember</p>
+                           {totalNotRememberedCards}
+                      </p>
+                      <p>Not Remember</p>
                   </div>
                   <div className="dashboard-stats-total-users">
                      <p className="dashboard-title-number">{totalUsers}</p>
