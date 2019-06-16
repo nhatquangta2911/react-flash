@@ -1,6 +1,7 @@
 import styles from './DashBoardAdd.scss';
 import React, { Component } from 'react'
 import CardApi from '../../api/CardApi';
+import { Link } from 'react-router-dom';
 
 export default class DashBoardAdd extends Component {
 
@@ -102,7 +103,9 @@ export default class DashBoardAdd extends Component {
                />
             </div>
             <div className="dashboard-add-button">
-               <p className="dashboard-add-button-cancel">Cancel</p>
+               <Link to="/dashboard/all-cards">
+                  <p className="dashboard-add-button-cancel">Cancel</p>
+               </Link>
                <p onClick={this.handleAdd} className="dashboard-add-button-add">Add</p>
             </div>
          </div>
