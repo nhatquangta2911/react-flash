@@ -3,45 +3,76 @@
 .dashboard-stats-container {
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+   justify-content: space-around;
    align-items: center;
    padding: 20px;
 
    p {
       color: #999;
+      font-size: 0.85em;
    }
 
    .dashboard-title-number {
       font-weight: bold;
-      color: #E98BAA;
+      color: #888;
       font-size: 3em;
    }
 
    .dashboard-stats-total-cards {
       cursor: pointer;
-      flex-basis: 30%;
+      flex-basis: 28%;
       display: flex;
       justify-content: center;
+      align-items: center;
+      border-left: 5px solid rgba(0, 171, 193, 0.383);
+      &:hover {
+         @include shadow;
+         opacity: 0.4;
+         transition: opacity 0.5s;
+      }
+      .dashboard-title-number {
+         margin-right: 10px;
+      }
       height: 120px;
       border-radius: 4px;
       background-color: #eef5f6;
    }
 
    .dashboard-stats-total-not-remembered-cards {
-      flex-basis: 30%;
+      flex-basis: 28%;
       cursor: pointer;
       display: flex;
+      align-items: center;
+      border-left: 5px solid rgba(247, 171, 200, 0.493);
+      &:hover {
+         @include shadow;
+         opacity: 0.4;
+         transition: opacity 0.5s;
+      }
+      .dashboard-title-number {
+         margin-right: 10px;
+      }
       justify-content: center;
-      background-color: #eef5f6;
+      background-color: #f7abc824;
       height: 120px;
       border-radius: 4px;
    }
 
    .dashboard-stats-total-users {
-      flex-basis: 30%;
+      flex-basis: 28%;
       display: flex;
+      align-items: center;
+      border-left: 5px solid #ffd04e4b;
+      &:hover {
+         @include shadow;
+         opacity: 0.4;
+         transition: opacity 0.5s;
+      }
+      .dashboard-title-number {
+         margin-right: 10px;
+      }
       justify-content: center;
-      background-color: #eef5f6;
+      background-color: hsla(45, 100%, 69%, 0.171);
       height: 120px;
       border-radius: 4px;
    }
@@ -50,19 +81,35 @@
 @media only screen and (max-width: 660px) {
    .dashboard-stats-container {
       flex-direction: column;
-      height: 400px;
+      height: auto;
       justify-content: space-between;
+
       .dashboard-stats-total-cards {
          width: 100%;
+         margin-bottom: 20px;
          display: flex;
-         flex-direction: column;
          align-items: center;
+         .dashboard-title-number {
+            margin-right: 10px;
+         }
       }
       .dashboard-stats-total-not-remembered-cards {
          width: 100%;
+         margin-bottom: 20px;
+         display: flex;
+         align-items: center;
+         .dashboard-title-number {
+            margin-right: 10px;
+         }
       }
       .dashboard-stats-total-users {
          width: 100%;
+         margin-bottom: 20px;
+         display: flex;
+         align-items: center;
+         .dashboard-title-number {
+            margin-right: 10px;
+         }
       }
    }
 }
