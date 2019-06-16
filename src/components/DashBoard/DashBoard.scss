@@ -49,9 +49,25 @@
             display: block;
          }
       }
+      #nowon {
+         padding: 5px 0;
+         background-color: hsla(0, 0%, 100%, 0.698);
+         margin: 20px auto;
+         width: 90%;
+         border-radius: 4px;
+
+         a {
+            color: #EC8FA9;
+            width: fit-content;
+            font-weight: bold;
+            margin: 0 auto;
+            display: block;
+         }
+      }
    }
 
    .dashboard-right-side {
+      padding: 10px 0;
       border-radius: 0 10px 10px 0;
       flex-basis: 80%;
       background-color: #fff;

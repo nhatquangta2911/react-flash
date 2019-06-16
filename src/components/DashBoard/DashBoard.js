@@ -9,20 +9,27 @@ import DashBoardAllCards from '../DashBoardAllCards/DashBoardAllCards';
 import Card from '../Cards/Card';
 import DashBoardStats from '../DashBoardStats/DashBoardStats';
 import DashBoardAllCardsNotRemembered from '../DashBoardAllCardsNotRemembered/DashBoardAllCardsNotRemembered';
+import { isRegExp } from 'util';
 
 export default class DashBoard extends Component {
    render() {
+      const url = document.location.href.split('/dashboard')[1];
       return (
          <div>
             <div className="dashboard-container">
                   <div className="dashboard-left-side">
                      <ul>
                         <p>Management Page</p>
-                        <li><Link to="/dashboard">Stats</Link></li>
-                        <li><Link to="/dashboard/all-cards">Show All Cards</Link></li>
-                        <li><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED YET</Link></li>
-                        <li><Link to="/dashboard/add">Add Card</Link></li>
-                        <li><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>
+                        {url === '' && <li id="nowon"><Link to="/dashboard">Stats</Link></li>}
+                        {url !== '' && <li><Link to="/dashboard">Stats</Link></li>}
+                        {url === '/all-cards' &&<li id="nowon"><Link to="/dashboard/all-cards">Show All Cards</Link></li>}
+                        {url !== '/all-cards' &&<li><Link to="/dashboard/all-cards">Show All Cards</Link></li>}                        
+                        {url === '/add' && <li id="nowon"><Link to="/dashboard/add">Add Card</Link></li>}
+                        {url !== '/add' && <li><Link to="/dashboard/add">Add Card</Link></li>}                        
+                        {url === '/edit-profile' && <li id="nowon"><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>}
+                        {url !== '/edit-profile' && <li><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>}
+                        {url === '/all-cards-not-remembered' && <li id="nowon"><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED</Link></li>}
+                        {url !== '/all-cards-not-remembered' && <li><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED</Link></li>}
                      </ul>
                   </div>
                   <BrowserRouter>
