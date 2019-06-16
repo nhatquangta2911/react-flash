@@ -72,6 +72,14 @@ export default class DashBoardStats extends Component {
          });
    }
 
+   handleClickToTotalCards = () => {
+      this.props.history.push('/dashboard/all-cards');
+   }
+
+   handleClickToCardsNotRemembered = () => {
+      this.props.history.push('/dashboard/all-cards-not-remembered');
+   }
+
    render() {
       const {
          isLoading,
@@ -86,13 +94,11 @@ export default class DashBoardStats extends Component {
             {isLoading && <p>Loading...</p>}
             {!isLoading && !isError && (
                <div className="dashboard-stats-container">
-                  <div className="dashboard-stats-total-cards">
-                     <Link to="/dashboard/all-cards">
-                        <p className="dashboard-title-number">{totalCards}</p>
-                     </Link>
+                  <div onClick={this.handleClickToTotalCards} className="dashboard-stats-total-cards">
+                     <p className="dashboard-title-number">{totalCards}</p>
                      <p>Total</p>
                   </div>
-                  <div className="dashboard-stats-total-not-remembered-cards">
+                  <div onClick={this.handleClickToCardsNotRemembered} className="dashboard-stats-total-not-remembered-cards">
                      <p className="dashboard-title-number">
                         {totalNotRememberedCards}
                      </p>

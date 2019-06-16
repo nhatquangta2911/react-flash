@@ -7,10 +7,6 @@
    align-items: center;
    padding: 20px;
 
-   a {
-      text-decoration: none;
-   }
-
    p {
       color: #999;
    }
@@ -22,6 +18,7 @@
    }
 
    .dashboard-stats-total-cards {
+      cursor: pointer;
       flex-basis: 30%;
       display: flex;
       justify-content: center;
@@ -32,6 +29,7 @@
 
    .dashboard-stats-total-not-remembered-cards {
       flex-basis: 30%;
+      cursor: pointer;
       display: flex;
       justify-content: center;
       background-color: #eef5f6;

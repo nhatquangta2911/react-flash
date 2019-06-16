@@ -8,6 +8,7 @@ import DashBoardEditProfile from '../DashBoardEditProfile/DashBoardEditProfile';
 import DashBoardAllCards from '../DashBoardAllCards/DashBoardAllCards';
 import Card from '../Cards/Card';
 import DashBoardStats from '../DashBoardStats/DashBoardStats';
+import DashBoardAllCardsNotRemembered from '../DashBoardAllCardsNotRemembered/DashBoardAllCardsNotRemembered';
 
 export default class DashBoard extends Component {
    render() {
@@ -19,6 +20,7 @@ export default class DashBoard extends Component {
                         <p>Management Page</p>
                         <li><Link to="/dashboard">Stats</Link></li>
                         <li><Link to="/dashboard/all-cards">Show All Cards</Link></li>
+                        <li><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED YET</Link></li>
                         <li><Link to="/dashboard/add">Add Card</Link></li>
                         <li><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>
                      </ul>
@@ -32,6 +34,7 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/edit-profile" component={DashBoardEditProfile} />
                               <Route path="/dashboard/all-cards" component={DashBoardAllCards} />
                               <Route path="/dashboard/cards/:id" component={Card} />
+                              <Route path="/dashboard/all-cards-not-remembered" component={DashBoardAllCardsNotRemembered} />
                            </Switch>
                      </div>
                   </BrowserRouter>
