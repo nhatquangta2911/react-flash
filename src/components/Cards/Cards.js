@@ -5,11 +5,13 @@ import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import { toCardLink } from "../../utils/Link";
 import SearchBox from "../SearchBox/SearchBox";
+import Loading from "../Loading/Loading";
 
 export default class Cards extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         isLoading: true,
          cards: null,
          isError: false
       };
@@ -19,6 +21,7 @@ export default class Cards extends Component {
       CardApi.list()
          .then(res => {
             this.setState({
+               isLoading: false,
                cards: res.data
             });
          })
@@ -31,7 +34,7 @@ export default class Cards extends Component {
    }
 
    render() {
-      const { cards, isError } = this.state;
+      const { isLoading, cards, isError } = this.state;
       const listCards =
          cards &&
          cards.map(card => (
@@ -67,6 +70,7 @@ export default class Cards extends Component {
          ));
       return (
          <div className="flashcards-page-container">
+            {isLoading && <Loading message="Loading all cards..." />}
             {isError && <p>Something went wrong...</p>}
             {listCards}
          </div>

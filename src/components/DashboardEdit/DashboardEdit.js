@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { getIdBySplitingPath } from "../../utils/Link";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 export default class DashboardEdit extends Component {
    constructor(props) {
       super(props);
@@ -94,7 +95,7 @@ export default class DashboardEdit extends Component {
       const { isLoading, id, card } = this.state;
       return (
          <div>
-            {isLoading && <p className="dashboard-loading">Loading...</p>}
+            {isLoading && <Loading message="Loading..." />}
             {!isLoading && (
                <div className="dashboard-edit-container">
                   <p className="dashboard-edit-title">Edit card</p>

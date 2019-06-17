@@ -4,11 +4,13 @@ import Card from "../Cards/Card";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import { toCardLink } from "../../utils/Link";
+import Loading from "../Loading/Loading";
 
 export default class Cards extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         isLoading: true,
          cards: null,
          isError: false
       };
@@ -18,6 +20,7 @@ export default class Cards extends Component {
       CardApi.getRandom()
          .then(res => {
             this.setState({
+               isLoading: false,
                cards: res.data
             });
          })
@@ -30,7 +33,7 @@ export default class Cards extends Component {
   }
 
    render() {
-      const { cards, isError } = this.state;
+      const { isLoading, cards, isError } = this.state;
       const listCards =
          cards &&
          cards.map(card => (
@@ -64,6 +67,7 @@ export default class Cards extends Component {
          ));
       return (
          <div className="cards-page-container">
+            {isLoading && <Loading message="Loading 4 random cards..." />}
             {isError && <p>Something went wrong...</p>}
             {listCards}
          </div>
