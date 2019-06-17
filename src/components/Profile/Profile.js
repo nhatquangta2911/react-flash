@@ -2,6 +2,7 @@ import styles from "./Profile.scss";
 import React, { Component } from "react";
 import jwt from "jsonwebtoken";
 import {Link} from "react-router-dom";
+import Toast from "../Toast/Toast";
 
 export default class Profile extends Component {
    constructor(props) {
@@ -21,6 +22,7 @@ export default class Profile extends Component {
    }
 
    handleLogout = () => {
+      Toast.success('Logged out');
       window.localStorage.removeItem('token');
       this.props.history.push('/auth');
    }
@@ -51,7 +53,7 @@ export default class Profile extends Component {
                      <p className="profile-item-manage"><Link to='/dashboard/stats'>Manage cards</Link></p>
                )}
                {user && (
-                  <p onClick={this.handleLogout} className="profile-item-logout"><Link to='/' onClick={this.forceUpdate}>Log out</Link></p>
+                  <p onClick={this.handleLogout} className="profile-item-logout"><Link to='/'>Log out</Link></p>
                )}
             </div>
          </div>

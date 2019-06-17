@@ -2,6 +2,7 @@ import styles from "./Card.scss";
 import React, { Component } from "react";
 import { getIdBySplitingPath } from "../../../utils/Link";
 import CardApi from "../../../api/CardApi";
+import Toast from "../../Toast/Toast";
 export default class Card extends Component {
    constructor(props) {
       super(props);
@@ -65,14 +66,14 @@ export default class Card extends Component {
                this.setState({
                   card: res.data
                });
-               console.log(res.data);
                document.title = this.state.card.englishTitle;
+               Toast.success('Updated');
             })
             .catch(err => {
                this.setState({
                   isError: true
                });
-               console.log(err);
+               Toast.error('Something went wrong');
             });
       }
 
@@ -80,7 +81,6 @@ export default class Card extends Component {
       const { card, isError, isError404 } = this.state;
       return (
          <div className="card-item-container">
-         {isError && <p>Something Failed.</p>}
             {isError404 && <p>Not Found.</p>}
             {card && !card.isRemember && (
                <div className="cards-not-remembered-item">
