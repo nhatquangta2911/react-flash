@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import {Redirect} from "react-router-dom";
 import AuthApi from "../../api/AuthApi";
 import { Link } from "react-router-dom";
+import Toast from "../Toast/Toast";
 // import Cookies from "universal-cookie";
 export default class LoginForm extends Component {
    constructor(props) {
@@ -47,6 +48,7 @@ export default class LoginForm extends Component {
       event.preventDefault();
       AuthApi.auth(this.state)
          .then(res => {
+            Toast.success('Logged in');
             window.localStorage.setItem('token', res.data);
             this.props.history.push("/profile");
          })
