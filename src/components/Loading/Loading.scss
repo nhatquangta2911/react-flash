@@ -1,0 +1,21 @@
+@import '../../css/mixins.scss';
+
+.loading-container {
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   width: 90%;
+   padding: 30px 0;
+
+   img {
+      width: 25%;
+      height: 100%;
+      align-self: center;
+   }
+
+   p {
+      font-size: 0.9em;
+      align-self: center;
+      color: #888;
+   }
+}

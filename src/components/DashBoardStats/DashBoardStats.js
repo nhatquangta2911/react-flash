@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import CardApi from "../../api/CardApi";
 import UserApi from "../../api/UserApi";
 import { Link } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 export default class DashBoardStats extends Component {
    constructor(props) {
@@ -91,7 +92,7 @@ export default class DashBoardStats extends Component {
       return (
          <div>
             {isError && <p>Something went wrong</p>}
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <Loading message="Waiting for getting data..."/>}
             {!isLoading && !isError && (
                <div className="dashboard-stats-container">
                   <div onClick={this.handleClickToTotalCards} className="dashboard-stats-total-cards">
