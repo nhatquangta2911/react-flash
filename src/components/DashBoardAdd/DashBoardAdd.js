@@ -2,6 +2,7 @@ import styles from './DashBoardAdd.scss';
 import React, { Component } from 'react'
 import CardApi from '../../api/CardApi';
 import { Link } from 'react-router-dom';
+import Toast from '../Toast/Toast';
 
 export default class DashBoardAdd extends Component {
 
@@ -33,8 +34,9 @@ export default class DashBoardAdd extends Component {
       CardApi.add(this.state.card, window.localStorage.getItem('token'))
          .then(res => {
             this.props.history.push(`/dashboard/cards/${res.data._id}`);
+            Toast.success(`Created Card`);
          })
-         .catch(err => {})
+         .catch(err => {});
    }
 
    render() {

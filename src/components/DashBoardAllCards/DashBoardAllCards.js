@@ -2,6 +2,7 @@ import styles from "./DashBoardAllCards.scss";
 import React, { Component } from "react";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
+import Toast from "../Toast/Toast";
 export default class DashBoardAllCards extends Component {
    constructor(props) {
       super(props);
@@ -41,12 +42,13 @@ export default class DashBoardAllCards extends Component {
       CardApi.delete(id, token)
          .then(res => {
             this.props.history.push('/dashboard/all-cards');
+            Toast.success('Deleted');
          })
          .catch(err => {
             this.setState({
                isError: true
             });
-            console.log(err);
+            Toast.error('You can not delete this card.');
          })
    }
 

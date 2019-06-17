@@ -17,6 +17,7 @@ import Profile from "./components/Profile/Profile";
 import Chat from "./components/Chat";
 import DashBoard from "./components/DashBoard/DashBoard";
 import DashBoardAdd from "./components/DashBoardAdd/DashBoardAdd";
+import { ToastContainer } from "react-toastify";
 export default class App extends Component {
    
    constructor(props) {
@@ -56,6 +57,7 @@ export default class App extends Component {
       return ( 
             <div className="App">
                   <Navbar />
+                  <ToastContainer />
                   {token && !document.location.href.includes('chat') && !document.location.href.includes('profile') && !document.location.href.includes('dashboard') && <SearchBox />}
                   <Switch>
                      {/* <Redirect from="/" to="/auth" exact /> */}

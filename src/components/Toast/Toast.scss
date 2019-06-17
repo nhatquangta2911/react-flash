@@ -1,0 +1,64 @@
+@import '../../css/mixins.scss';
+
+.green-toast {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.toast-container {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   border-radius: 3px; 
+   height: 60px;
+
+   img {
+      flex-basis: 20%;
+      height: 80%;
+      margin: auto 10px;
+   }
+
+
+   .toast-content {
+      flex-basis: 80%;
+      margin-left: 10px; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .toast-title {
+         font-size: 1em;
+         font-weight: bold;
+         color: #44D788;
+         margin: 1px 0;
+      }
+      .toast-title-error {
+         font-size: 1em;
+         font-weight: bold;
+         color: #FA461C;
+         margin: 1px 0;
+      }
+      .toast-title-info {
+         font-size: 1em;
+         font-weight: bold;
+         color: #0087D7;
+         margin: 1px 0;
+      }
+      .toast-message {
+         font-size: 1em;
+         color: #888;
+         margin: 0;
+      }
+   }
+
+}  
+
+.progress-toast {
+   width: 200px;
+}
+
+.green-toast{
+   color: #44D788;
+   border-left: 5px solid #44D788;
+   width: 100%;
+}
