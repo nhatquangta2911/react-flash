@@ -53,7 +53,7 @@ export default {
             ...option,
             autoClose: 3000,
             className: "blue-toast",
-            progressClassName: "progress-toast",
+            hideProgressBar: true,
             closeButton: false
          }
       );

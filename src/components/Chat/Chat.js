@@ -25,10 +25,15 @@ export default class Chat extends Component {
             handle: user.name
          });
       }
+      this.handleSocket(); 
       document.title = user && user.name && `Chat Room - ${user.name}`;
-      this.handleSocket();
    }
-
+   
+   componentWillUnmount() {
+      this.state.socket.disconnect();      
+   
+   }
+   
    handleSocket = () => {
       this.state.socket.on("click", data => {
          Toast.notify(`From ${data.handle}`);        
@@ -50,9 +55,9 @@ export default class Chat extends Component {
             feedback: data
          });
       });
-     
+      
    };
-
+   
    handleClick = () => {
       if(this.state.message.length === 0) return;
 
