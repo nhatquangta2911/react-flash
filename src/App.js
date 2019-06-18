@@ -18,6 +18,7 @@ import Chat from "./components/Chat";
 import DashBoard from "./components/DashBoard/DashBoard";
 import DashBoardAdd from "./components/DashBoardAdd/DashBoardAdd";
 import { ToastContainer } from "react-toastify";
+import { CircleArrow  as ScrollUpButton } from "react-scroll-up-button";
 export default class App extends Component {
    
    constructor(props) {
@@ -71,6 +72,7 @@ export default class App extends Component {
                      <Route path="/chat" component={withAuth(Chat)} />
                      <Route path="/dashboard" component={withAuth(DashBoard)} />
                   </Switch>
+                  <ScrollUpButton />
             </div>
       );
    }
