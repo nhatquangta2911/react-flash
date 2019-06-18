@@ -3,6 +3,7 @@ import io from "socket.io-client";
 import styles from "./Chat.scss";
 import { CircleArrow  as ScrollUpButton } from "react-scroll-up-button";
 import jwt from "jsonwebtoken";
+import Toast from "../Toast";
 export default class Chat extends Component {
    constructor(props) {
       super(props);
@@ -17,7 +18,6 @@ export default class Chat extends Component {
    }
 
    componentDidMount() {
-      this.handleSocket();
       const token = window.localStorage.getItem('token');
       const user = jwt.decode(token);
       if (user) {
@@ -26,9 +26,13 @@ export default class Chat extends Component {
          });
       }
       document.title = user && user.name && `Chat Room - ${user.name}`;
+      this.handleSocket();
    }
 
    handleSocket = () => {
+      this.state.socket.on("click", data => {
+         Toast.notify(`From ${data.handle}`);        
+      });
       this.state.socket.on("chat", data => {
          this.setState({
             output: [
@@ -46,21 +50,26 @@ export default class Chat extends Component {
             feedback: data
          });
       });
+     
    };
 
    handleClick = () => {
       if(this.state.message.length === 0) return;
+
       this.state.socket.emit("chat", {
          message: this.state.message,
          handle: this.state.handle
       });
-      this.setState({
-         message: ''
+      this.state.socket.emit("click", {
+         handle: this.state.handle
       });
       document.getElementById('feedback').scrollIntoView();
       window.setTimeout(() => {
          document.getElementById('bottom').scrollIntoView();
       }, 1000);
+      this.setState({
+         message: ''
+      });
    };
 
    handleTyping = () => {
