@@ -17,7 +17,8 @@ h2 {
    border-radius: 4px;
 }
 #chat-window {
-   height: 400px;
+   max-height: 600px;
+   min-height: 350px;
    overflow: auto;
    background: hsla(190, 48%, 54%, 0.074);
    display: flex;
@@ -87,7 +88,7 @@ h2 {
 #feedback p {
    color: #aaa;
    padding: 14px 0px;
-   margin: 0 20px;
+   margin: 0 20px 40px;
 }
 
 label {

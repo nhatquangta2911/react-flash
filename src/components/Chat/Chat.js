@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
 import styles from "./Chat.scss";
+import { CircleArrow  as ScrollUpButton } from "react-scroll-up-button";
 import jwt from "jsonwebtoken";
 export default class Chat extends Component {
    constructor(props) {
@@ -55,7 +56,11 @@ export default class Chat extends Component {
       });
       this.setState({
          message: ''
-      })
+      });
+      document.getElementById('feedback').scrollIntoView();
+      window.setTimeout(() => {
+         document.getElementById('bottom').scrollIntoView();
+      }, 1000);
    };
 
    handleTyping = () => {
@@ -101,8 +106,10 @@ export default class Chat extends Component {
          </div>
          <div id="flash-chat">
             <div id="chat-window">
+               <div id="top"></div>
                <div id="output">{outputResult}</div>
                <div id="feedback">{feedbackOutput}</div>
+               <div id="bottom"></div>
             </div>
             <div id="input-handle">
                <input
