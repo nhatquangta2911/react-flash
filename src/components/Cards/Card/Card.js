@@ -2,11 +2,13 @@ import styles from "./Card.scss";
 import React, { Component } from "react";
 import { getIdBySplitingPath } from "../../../utils/Link";
 import CardApi from "../../../api/CardApi";
+import Loading from "../../Loading";
 import Toast from "../../Toast/Toast";
 export default class Card extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         isLoading: true,
          card: null,
          isError: null,
          isError404: null
@@ -19,6 +21,7 @@ export default class Card extends Component {
          CardApi.get(id)
          .then(res => {
             this.setState({
+               isLoading: false,
                card: res.data
             });
             document.title = this.state.card.englishTitle;
@@ -37,6 +40,7 @@ export default class Card extends Component {
             CardApi.get(id)
             .then(res => {
                this.setState({
+                  isLoading: false,
                   card: res.data
                });
                // document.title = this.state.card.englishTitle;
@@ -78,9 +82,10 @@ export default class Card extends Component {
       }
 
    render() {
-      const { card, isError, isError404 } = this.state;
+      const { isLoading, card, isError, isError404 } = this.state;
       return (
          <div className="card-item-container">
+            {isLoading && <Loading message="Loading card..." />}
             {isError404 && <p>Not Found.</p>}
             {card && !card.isRemember && (
                <div className="cards-not-remembered-item">
