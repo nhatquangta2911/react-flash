@@ -40,10 +40,10 @@ export default {
          }
       );
    },
-   notify(message, title='Info!', option = {}) {
+   notify(message, title=`You've got a new message!`, option = {}) {
       return toast(
       <div className="toast-container">
-            <img src="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/08-512.png"/>
+            <img src="https://cdn.dribbble.com/users/4874/screenshots/1776423/inboxiconanimation_30.gif"/>
             <div className="toast-content">
                <p className="toast-title-info">{title}</p>
                <p className="toast-message">{message}</p>
@@ -51,7 +51,7 @@ export default {
        </div>,
          {
             ...option,
-            autoClose: 2000,
+            autoClose: 3000,
             className: "blue-toast",
             progressClassName: "progress-toast",
             closeButton: false

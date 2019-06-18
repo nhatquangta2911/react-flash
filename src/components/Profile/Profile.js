@@ -22,8 +22,8 @@ export default class Profile extends Component {
    }
 
    handleLogout = () => {
+      window.localStorage.clear();
       Toast.success('Logged out');
-      window.localStorage.removeItem('token');
       this.props.history.push('/auth');
    }
 
