@@ -90,7 +90,6 @@ export default class DashBoardAllCardsNotRemembered extends Component {
                </Link>
             </div>
             {isLoading && <p>Loading...</p>}
-            {isError && <p>Something went wrong!!!</p>}
             {cardsResult}
          </div>
       );

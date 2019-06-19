@@ -89,7 +89,6 @@ export default class DashBoardAllCards extends Component {
                </Link>
             </div>
             {isLoading && <p>Loading...</p>}
-            {isError && <p>Something went wrong!!!</p>}
             {cardsResult}
          </div>
       );
