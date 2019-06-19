@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import Toast from "../Toast/Toast";
+import jwt from "jsonwebtoken";
 export default class DashBoardAllCards extends Component {
    constructor(props) {
       super(props);
@@ -72,9 +73,9 @@ export default class DashBoardAllCards extends Component {
                   <Link to={{pathname: '/dashboard/edit/' + c._id}}>
                      <p className="dashboard-all-cards-item-right-edit">EDIT</p>
                   </Link>
-                  <p onClick={() => this.handleDelete(c._id)} className="dashboard-all-cards-item-right-delete">
+                  {jwt.decode(window.localStorage.getItem('token')).isAdmin && <p onClick={() => this.handleDelete(c._id)} className="dashboard-all-cards-item-right-delete">
                      Delete
-                  </p>
+                  </p>}
                </div>
             </div>
          ));
