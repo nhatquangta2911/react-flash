@@ -19,6 +19,7 @@ import DashBoard from "./components/DashBoard/DashBoard";
 import DashBoardAdd from "./components/DashBoardAdd/DashBoardAdd";
 import { ToastContainer } from "react-toastify";
 import { CircleArrow  as ScrollUpButton } from "react-scroll-up-button";
+import Register from "./components/Register/Register";
 export default class App extends Component {
    
    constructor(props) {
@@ -67,6 +68,7 @@ export default class App extends Component {
                      <Route exact path="/cards" component={withAuth(Cards)} />
                      <Route path="/cards/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
+                     <Route path="/register" component={Register} />
                      <Route path="/logout" component={LoginForm} />
                      <Route path="/profile" component={withAuth(Profile)} />
                      <Route path="/chat" component={withAuth(Chat)} />
