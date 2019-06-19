@@ -86,6 +86,7 @@ export default class LoginForm extends Component {
                   />
                   <input onClick={this.forceUpdate} className="btn-submit" type="submit" value="Submit" />
             </form>
+            <Link to="/register"><p className="register-title">Not registered yet?</p></Link>
          </div>
       );
    }

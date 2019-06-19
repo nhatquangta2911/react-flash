@@ -5,5 +5,8 @@ const prefix = 'users/';
 export default {
    list() {
       return Caller(prefix, 'GET');
+   },
+   register(user) {
+      return Caller(prefix, 'POST', user);
    }
 }
