@@ -6,6 +6,10 @@
    justify-content: space-between;
 }
 
+.blue-toast {
+   height: auto;
+}
+
 .toast-container {
    display: flex;
    flex-direction: row;
@@ -39,13 +43,13 @@
          margin: 1px 0;
       }
       .toast-title-info {
-         font-size: 1em;
+         font-size: 0.95em;
          font-weight: bold;
          color: #0087D7;
          margin: 1px 0;
       }
       .toast-message {
-         font-size: 1em;
+         font-size: 0.85em;
          color: #888;
          margin: 0;
       }

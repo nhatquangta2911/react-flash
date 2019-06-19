@@ -53,10 +53,8 @@ export default class LoginForm extends Component {
             this.props.history.push("/profile");
          })
          .catch(err => {
+            Toast.error("Username or password might not correct");
             this.props.history.push("/auth");
-            setTimeout(() => {
-               Toast.error("Username or password might not correct");
-            }, 200);
             this.setState({
                password: ""
             });
