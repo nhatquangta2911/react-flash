@@ -121,7 +121,7 @@ export default class DashboardEdit extends Component {
             {!isLoading && (
                <div className="dashboard-edit-container">
                   <p className="dashboard-edit-title">Edit card</p>
-                  {card && card.englishTitle && (
+            
                      <div className="dashboard-edit-english-title">
                         <input
                            type="text"
@@ -133,6 +133,7 @@ export default class DashboardEdit extends Component {
                            }}
                         />
                      </div>
+                  
                   <div className="dashboard-edit-vietnamese-title">
                      <input
                         type="text"
