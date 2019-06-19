@@ -17,7 +17,7 @@ export default {
             ...option,
             autoClose: 2000,
             className: "green-toast",
-            progressClassName: "progress-toast",
+            hideProgressBar: true,
             closeButton: false
          }
       );
@@ -35,7 +35,7 @@ export default {
             ...option,
             autoClose: 2000,
             className: "red-toast",
-            progressClassName: "progress-toast",
+            hideProgressBar: true,
             closeButton: false
          }
       );
@@ -51,7 +51,7 @@ export default {
        </div>,
          {
             ...option,
-            autoClose: 3000,
+            autoClose: 5000,
             className: "blue-toast",
             hideProgressBar: true,
             closeButton: false

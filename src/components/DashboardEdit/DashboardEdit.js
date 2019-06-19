@@ -4,6 +4,7 @@ import { getIdBySplitingPath } from "../../utils/Link";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import Toast from "../Toast/Toast";
 export default class DashboardEdit extends Component {
    constructor(props) {
       super(props);
@@ -50,6 +51,7 @@ export default class DashboardEdit extends Component {
          .catch(err => {});
    }
 
+   
    componentWillReceiveProps() {
       CardApi.get(this.state.id)
          .then(res => {
@@ -80,6 +82,24 @@ export default class DashboardEdit extends Component {
    } 
 
    handleSubmit = () => {
+      if(this.state.card.englishTitle.length < 4) {
+         Toast.notify('English Title must have at least 4 characters', 'Invalid input');
+      } else {
+         if(this.state.card.vietnameseTitle.length < 4) {
+            Toast.notify('Vietnamese Title must have at least 4 characters', 'Invalid input');
+         } else {
+            if(this.state.card.example.length < 10) {
+               Toast.notify('Example must have at least 10 characters', 'Invalid input');
+            } else {
+               if(this.state.card.context.length < 3) {
+                  Toast.notify('Context must have at least 3 characters', 'Invalid input');
+               } else {
+                  if(this.state.card.type.length < 3) {
+                     Toast.notify('Type must have at least 3 characters', 'Invalid input');
+                  } else {
+                     if(!this.state.card.image.endsWith('gif') && !this.state.card.image.endsWith('png') && !this.state.card.image.endsWith('jpg')) {
+                        Toast.notify('Image link must end with .gif .png or .jpg', 'Invalid input');
+                     } else {
       const token = window.localStorage.getItem('token');
       CardApi.update(this.state.card, token)
          .then(res => {})
@@ -89,7 +109,9 @@ export default class DashboardEdit extends Component {
             });
          })
       this.props.history.push(`/dashboard/cards/${this.state.id}`);
+      }
    }
+}}}}}
 
    render() {
       const { isLoading, id, card } = this.state;
@@ -99,7 +121,7 @@ export default class DashboardEdit extends Component {
             {!isLoading && (
                <div className="dashboard-edit-container">
                   <p className="dashboard-edit-title">Edit card</p>
-                  {card && card.englishTitle && (
+            
                      <div className="dashboard-edit-english-title">
                         <input
                            type="text"
@@ -111,7 +133,7 @@ export default class DashboardEdit extends Component {
                            }}
                         />
                      </div>
-                  )}
+                  
                   <div className="dashboard-edit-vietnamese-title">
                      <input
                         type="text"
