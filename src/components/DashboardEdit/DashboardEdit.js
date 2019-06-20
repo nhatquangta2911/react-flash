@@ -5,6 +5,7 @@ import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import Toast from "../Toast/Toast";
+import Modal from "react-materialize/lib/Modal";
 export default class DashboardEdit extends Component {
    constructor(props) {
       super(props);
@@ -26,7 +27,7 @@ export default class DashboardEdit extends Component {
 
    componentWillMount() {
       this.setState({
-         id: getIdBySplitingPath(document.location.href, "edit/")
+         id: getIdBySplitingPath(document.location.href, "edit/") 
       });
    }
 
@@ -121,7 +122,6 @@ export default class DashboardEdit extends Component {
             {!isLoading && (
                <div className="dashboard-edit-container">
                   <p className="dashboard-edit-title">Edit card</p>
-            
                      <div className="dashboard-edit-english-title">
                         <input
                            type="text"
@@ -131,7 +131,7 @@ export default class DashboardEdit extends Component {
                            onChange={event => {
                               this.setFormData(event.target.id, event.target.value);
                            }}
-                        />
+                           />
                      </div>
                   
                   <div className="dashboard-edit-vietnamese-title">
@@ -143,7 +143,7 @@ export default class DashboardEdit extends Component {
                         onChange={event => {
                            this.setFormData(event.target.id, event.target.value);
                         }}
-                     />
+                        />
                   </div>
                   <div className="dashboard-edit-example">
                      <input
@@ -151,10 +151,10 @@ export default class DashboardEdit extends Component {
                          placeholder="Example" 
                          id="example" 
                          onChange={event => {
-                           this.setFormData(event.target.id, event.target.value);
-                        }}
-                        value={this.state.card.example}
-                     />
+                            this.setFormData(event.target.id, event.target.value);
+                           }}
+                           value={this.state.card.example}
+                           />
                   </div>
                   <div className="dashboard-edit-context">
                      <input
@@ -165,7 +165,7 @@ export default class DashboardEdit extends Component {
                            this.setFormData(event.target.id, event.target.value);
                         }}
                         value={this.state.card.context}
-                     />
+                        />
                   </div>
                   <div className="dashboard-edit-type">
                      <input 
@@ -176,7 +176,7 @@ export default class DashboardEdit extends Component {
                            this.setFormData(event.target.id, event.target.value);
                         }}
                         value={this.state.card.type}
-                     />
+                        />
                   </div>
                   <div className="dashboard-edit-image">
                      <input 
@@ -187,7 +187,7 @@ export default class DashboardEdit extends Component {
                            this.setFormData(event.target.id, event.target.value);
                         }}
                         value={this.state.card.image}
-                     />
+                        />
                   </div>
                   <div className="dashboard-edit-button">
                      <Link to="/dashboard/all-cards">
