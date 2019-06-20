@@ -5,6 +5,7 @@ import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import { toCardLink } from "../../utils/Link";
 import Loading from "../Loading/Loading";
+import { Parallax as ParallaxUI } from "react-materialize";
 
 export default class Cards extends Component {
    constructor(props) {
@@ -66,10 +67,15 @@ export default class Cards extends Component {
             </div>
          ));
       return (
+         <div>
+         <ParallaxUI image={<img id="parallax-image" src="https://images.template.net/wp-content/uploads/2016/11/16135851/Cartoon-Gif-Animated1.gif"/>} />
+         {/* <div>4 Random Cards</div> */}
          <div className="cards-page-container">
             {isLoading && <Loading message="Loading 4 random cards..." />}
             {isError && <p>Something went wrong...</p>}
             {listCards}
+         </div>
+         <ParallaxUI image={<img src="https://img1.akspic.com/image/123021-geometric_shape-cube-blue-triangle-light_blue-3840x2160.jpg"/>} />         
          </div>
       );
    }
