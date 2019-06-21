@@ -92,7 +92,6 @@ export default class DashBoardStats extends Component {
       } = this.state;
       return (
          <div>
-            {isError && <p>Something went wrong</p>}
             {isLoading && <Loading message="Waiting for getting data..."/>}
             {!isLoading && !isError && (
                <div className="dashboard-stats-container">

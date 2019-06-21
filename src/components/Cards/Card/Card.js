@@ -17,7 +17,7 @@ export default class Card extends Component {
 
    componentDidMount() {
       const uri = document.location.href;
-      const id = getIdBySplitingPath(uri, 'cards/');
+      const id = getIdBySplitingPath(uri, 'card/');
          CardApi.get(id)
          .then(res => {
             this.setState({

@@ -1,5 +1,26 @@
 @import "../../css/mixins.scss";
 
+.flashcards-page-wrapper {
+   display: flex;
+   flex-direction: column;
+
+   .pagination-container {
+      width: 70%;
+      margin: 10px auto;
+      text-align: center;
+
+      .pagination-item {
+         padding: 4px 10px;
+         border-radius: 4px;
+         background-color: #fff;
+         margin: 5px;
+         color: #888;
+         cursor: pointer;
+      }
+   }
+
+}
+
 .flashcards-page-container {
    display: flex;
    flex-wrap: wrap;
