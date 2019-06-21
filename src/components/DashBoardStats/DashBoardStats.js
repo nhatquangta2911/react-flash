@@ -5,6 +5,7 @@ import UserApi from "../../api/UserApi";
 import { Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import { ToastContainer, toast } from 'react-toastify';
+import PieChart from "../PieChart/PieChart";
 
 export default class DashBoardStats extends Component {
    constructor(props) {
@@ -111,6 +112,12 @@ export default class DashBoardStats extends Component {
                   </div>
                </div>
             )}
+            {totalCards && totalNotRememberedCards && <div className="dashboard-stats-pie-chart">
+               <PieChart 
+                  totalCards={totalCards}
+                  totalNotRememberedCards={totalNotRememberedCards}
+               />
+            </div>}
          </div>
       );
    }

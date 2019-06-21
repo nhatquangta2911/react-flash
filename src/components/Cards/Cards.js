@@ -50,12 +50,20 @@ export default class Cards extends Component {
                <span className="pagination-item">Prev</span>
             </Link>}
 
-            {pageNumber && totalPages && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
+            {pageNumber && totalPages && pageNumber != 1 && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
                <Link to={{ pathname: `${p}` }}>
                   {p && pageNumber && p == pageNumber && <span className="pagination-item-now-on">{p}</span>}
                   {p && pageNumber && p != pageNumber && <span className="pagination-item">{p}</span>}
                </Link>
             ))}
+
+            {pageNumber && totalPages && pageNumber == 1 && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
+               <Link to={{ pathname: `${p}` }}>
+                  {p && p == 1 && <span className="pagination-item-now-on">Newest</span>}
+                  {p && pageNumber && p != pageNumber && <span className="pagination-item">{p}</span>}
+               </Link>
+            ))}
+            
 
             {pageNumber && pageNumber < totalPages && <Link to={{ pathname: `${parseInt(this.state.pageNumber) + 1}` }}>
                <span className="pagination-item">Next</span>
