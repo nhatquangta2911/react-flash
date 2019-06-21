@@ -119,6 +119,32 @@
 }
 
 @media only screen and (max-width: 500px) {
+   .pagination-container {
+      width: 90%;
+      margin: 10px auto;
+      text-align: center;
+      display: none;
+
+      .pagination-item {
+         padding: 2px 5px;
+         border-radius: 4px;
+         background-color: #fff;
+         margin: 5px;
+         font-size: 0.8em;
+         color: #888;
+         cursor: pointer;
+      }
+
+      .pagination-item-now-on {
+         padding: 2px 5px;
+         border-radius: 4px;
+         background-color: #D3F1F4;
+         margin: 5px;
+         font-size: 0.8em;
+         color: #888;
+         cursor: pointer;
+      }
+   }
    .flashcards-page-container {
       display: flex;
       flex-direction: column;
