@@ -112,9 +112,12 @@ export default class DashBoardStats extends Component {
                   </div>
                </div>
             )}
-            <div className="dashboard-stats-pie-chart">
-               <PieChart />
-            </div>
+            {totalCards && totalNotRememberedCards && <div className="dashboard-stats-pie-chart">
+               <PieChart 
+                  totalCards={totalCards}
+                  totalNotRememberedCards={totalNotRememberedCards}
+               />
+            </div>}
          </div>
       );
    }
