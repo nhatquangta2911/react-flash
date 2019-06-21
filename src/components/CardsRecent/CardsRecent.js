@@ -72,7 +72,6 @@ export default class Cards extends Component {
          {/* <div>4 Random Cards</div> */}
          <div className="cards-page-container">
             {isLoading && <Loading message="Loading 4 random cards..." />}
-            {isError && <p>Something went wrong...</p>}
             {listCards}
          </div>
          <ParallaxUI image={<img src="https://img1.akspic.com/image/123021-geometric_shape-cube-blue-triangle-light_blue-3840x2160.jpg"/>} />         

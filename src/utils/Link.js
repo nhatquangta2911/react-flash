@@ -1,7 +1,7 @@
 import String from "./String";
 
 export const toCardLink = (id) => {
-   return converter("cards", id);
+   return converter("cards/card", id);
 };
 
 export const getIdBySplitingPath = (url, prefix) => {

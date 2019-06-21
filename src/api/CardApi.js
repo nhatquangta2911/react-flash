@@ -35,5 +35,8 @@ export default {
    },
    delete(cardId, token) {
       return Caller(prefix + cardId, 'DELETE', {}, token);
+   },
+   getByPage(index) {
+      return Caller(prefix + 'page/' + index, 'GET');
    }
 }

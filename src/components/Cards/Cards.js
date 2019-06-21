@@ -11,18 +11,27 @@ export default class Cards extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         pageNumber: '',
+         totalPages: '',
          isLoading: true,
          cards: null,
          isError: false
       };
    }
 
+   componentWillMount() {
+      this.setState({
+         pageNumber: document.location.href.split('cards/')[1]
+      })
+   }
+
    componentDidMount() {
-      CardApi.list()
+      CardApi.getByPage(this.state.pageNumber)
          .then(res => {
             this.setState({
                isLoading: false,
-               cards: res.data
+               cards: res.data.cards,
+               totalPages: res.data.numberOfPages
             });
          })
          .catch(() => {
@@ -34,7 +43,25 @@ export default class Cards extends Component {
    }
 
    render() {
-      const { isLoading, cards, isError } = this.state;
+      const { pageNumber, totalPages, isLoading, cards, isError } = this.state;
+      const pagination = (
+         <div className="pagination-container">
+            {pageNumber && pageNumber > 1 && <Link to={{ pathname: `${parseInt(this.state.pageNumber) - 1}` }}>
+               <span className="pagination-item">Prev</span>
+            </Link>}
+
+            {pageNumber && totalPages && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
+               <Link to={{ pathname: `${p}` }}>
+                  {p && pageNumber && p == pageNumber && <span className="pagination-item-now-on">{p}</span>}
+                  {p && pageNumber && p != pageNumber && <span className="pagination-item">{p}</span>}
+               </Link>
+            ))}
+
+            {pageNumber && pageNumber < totalPages && <Link to={{ pathname: `${parseInt(this.state.pageNumber) + 1}` }}>
+               <span className="pagination-item">Next</span>
+            </Link>}
+         </div>
+      );
       const listCards =
          cards &&
          cards.map(card => (
@@ -69,10 +96,12 @@ export default class Cards extends Component {
             </div>
          ));
       return (
-         <div className="flashcards-page-container">
-            {isLoading && <Loading message="Loading all cards..." />}
-            {isError && <p>Something went wrong...</p>}
-            {listCards}
+         <div className="flashcards-page-wrapper">
+            {pagination}
+            <div className="flashcards-page-container">
+               {isLoading && <Loading message="Loading all cards..." />}
+               {listCards}
+            </div>
          </div>
       );
    }
