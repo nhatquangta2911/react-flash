@@ -46,15 +46,18 @@ export default class Cards extends Component {
       const { pageNumber, totalPages, isLoading, cards, isError } = this.state;
       const pagination = (
          <div className="pagination-container">
-            {pageNumber && pageNumber > 1 && <Link to={{ pathname: `${this.state.pageNumber - 1}` }}>
+            {pageNumber && pageNumber > 1 && <Link to={{ pathname: `${parseInt(this.state.pageNumber) - 1}` }}>
                <span className="pagination-item">Prev</span>
             </Link>}
-            {totalPages && Array.from(Array(totalPages), (x, index) => index + 1).map(p => 
-               (<Link to={{ pathname: `${p}` }}>
-                  <span className="pagination-item">{p}</span>
-                </Link>)
-            )}
-            {pageNumber && pageNumber < totalPages && <Link to={{ pathname: `${this.state.pageNumber + 1}` }}>
+
+            {pageNumber && totalPages && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
+               <Link to={{ pathname: `${p}` }}>
+                  {p && pageNumber && p == pageNumber && <span className="pagination-item-now-on">{p}</span>}
+                  {p && pageNumber && p != pageNumber && <span className="pagination-item">{p}</span>}
+               </Link>
+            ))}
+
+            {pageNumber && pageNumber < totalPages && <Link to={{ pathname: `${parseInt(this.state.pageNumber) + 1}` }}>
                <span className="pagination-item">Next</span>
             </Link>}
          </div>
