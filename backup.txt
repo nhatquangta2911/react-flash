@@ -1,4 +1,0 @@
-<h1 id="title">My React App!</h1>
-<p>{ Math.random() * 100 }</p>
-<p>My name is { this.state.name }</p>
-<p>{ console.log(this) }</p>s
