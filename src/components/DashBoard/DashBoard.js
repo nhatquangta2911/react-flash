@@ -59,7 +59,7 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/edit" component={DashboardEdit} />
                               <Route path="/dashboard/edit-profile" component={DashBoardEditProfile} />
                               <Route path="/dashboard/all-cards" component={DashBoardAllCards} />
-                              <Route path="/dashboard/cards/:id" component={Card} />
+                              <Route path="/dashboard/cards/card/:id" component={Card} />
                               <Route path="/dashboard/all-cards-not-remembered" component={DashBoardAllCardsNotRemembered} />
                            </Switch>
                      </div>

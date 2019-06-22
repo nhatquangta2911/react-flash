@@ -59,7 +59,7 @@ export default class DashBoardAllCards extends Component {
          cards &&
          cards.map(c => (
             <div className="dashboard-all-cards-item" key={c._id}>
-               <Link to={{pathname: '/dashboard/cards/' + c._id}}>
+               <Link to={{pathname: '/dashboard/cards/card/' + c._id}}>
                   <div className="dashboard-all-cards-item-left">
                      <p className="dashboard-all-cards-item-left-english-title">
                         {c.englishTitle}
