@@ -9,6 +9,7 @@ import DashBoardAllCards from '../DashBoardAllCards/DashBoardAllCards';
 import Card from '../Cards/Card';
 import DashBoardStats from '../DashBoardStats/DashBoardStats';
 import DashBoardAllCardsNotRemembered from '../DashBoardAllCardsNotRemembered/DashBoardAllCardsNotRemembered';
+import DashBoardMy from '../DashBoardMy/DashBoardMy';
 
 export default class DashBoard extends Component {
 
@@ -49,6 +50,8 @@ export default class DashBoard extends Component {
                         {url !== '/edit-profile' && <li><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>}
                         {url === '/all-cards-not-remembered' && <li id="nowon"><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED</Link></li>}
                         {url !== '/all-cards-not-remembered' && <li><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED</Link></li>}
+                        {url === '/my' && <li id="nowon"><Link to="/dashboard/my">My Own Cards</Link></li>}
+                        {url !== '/my' && <li><Link to="/dashboard/my">My Own Cards</Link></li>}
                      </ul>
                   </div>
                   <BrowserRouter>
@@ -59,8 +62,9 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/edit" component={DashboardEdit} />
                               <Route path="/dashboard/edit-profile" component={DashBoardEditProfile} />
                               <Route path="/dashboard/all-cards" component={DashBoardAllCards} />
-                              <Route path="/dashboard/cards/:id" component={Card} />
+                              <Route path="/dashboard/cards/card/:id" component={Card} />
                               <Route path="/dashboard/all-cards-not-remembered" component={DashBoardAllCardsNotRemembered} />
+                              <Route path="/dashboard/my" component={DashBoardMy} />
                            </Switch>
                      </div>
                   </BrowserRouter>

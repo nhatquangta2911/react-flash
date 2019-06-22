@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import CardApi from '../../api/CardApi';
 import { Link } from 'react-router-dom';
 import Toast from '../Toast/Toast';
+import jwt from 'jsonwebtoken';
 
 export default class DashBoardAdd extends Component {
 
@@ -17,9 +18,16 @@ export default class DashBoardAdd extends Component {
             context: '',
             type: '',
             image: '',
-            isRemember: ''
+            isRemember: '',
+            user: ''
          }
       }
+   }
+
+   componentWillMount() {
+      this.setState({
+         user: jwt.decode(window.localStorage.getItem('token'))
+      })
    }
 
    setFormData = (key, value) => {
@@ -69,7 +77,7 @@ export default class DashBoardAdd extends Component {
                      } else {
                            CardApi.add(this.state.card, window.localStorage.getItem('token'))
                            .then(res => {
-                              this.props.history.push(`/dashboard/cards/${res.data._id}`);
+                              this.props.history.push(`/dashboard/cards/card/${res.data._id}`);
                               Toast.success(`Created Card`);
                            })
                            .catch(err => {
@@ -85,7 +93,6 @@ export default class DashBoardAdd extends Component {
    }
 
    render() {
-      const { isValid, card } = this.state;
       return (
          <div className="dashboard-add-container">
             <p className="dashboard-add-title">Add new card</p>

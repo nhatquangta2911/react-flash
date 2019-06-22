@@ -1,10 +1,11 @@
-import styles from "./DashBoardAllCards.scss";
+import styles from "./DashBoardMy.scss";
 import React, { Component } from "react";
 import CardApi from "../../api/CardApi";
 import { Link } from "react-router-dom";
 import Toast from "../Toast/Toast";
 import jwt from "jsonwebtoken";
-export default class DashBoardAllCards extends Component {
+
+export default class DashBoardMy extends Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -15,7 +16,7 @@ export default class DashBoardAllCards extends Component {
    }
 
    componentDidMount() {
-      CardApi.list()
+      CardApi.getMyCards(window.localStorage.getItem('token'))
          .then(res => {
             this.setState({
                isLoading: false,
@@ -27,7 +28,7 @@ export default class DashBoardAllCards extends Component {
    }
 
    componentWillReceiveProps() {
-      CardApi.list()
+      CardApi.getMyCards(window.localStorage.getItem('token'))
          .then(res => {
             this.setState({
                isLoading: false,
@@ -49,7 +50,7 @@ export default class DashBoardAllCards extends Component {
             this.setState({
                isError: true
             });
-            Toast.error('You can not delete this card.');
+            Toast.error('Something went wrong');
          })
    }
 
@@ -57,9 +58,9 @@ export default class DashBoardAllCards extends Component {
       const { isLoading, cards, isError } = this.state;
       const cardsResult =
          cards &&
-         cards.map(c => (
+         cards.filter(c => !c.isRemember).map(c => (
             <div className="dashboard-all-cards-item" key={c._id}>
-               <Link to={{pathname: '/dashboard/cards/card/' + c._id}}>
+               <Link to={{pathname: '/dashboard/cards/' + c._id}}>
                   <div className="dashboard-all-cards-item-left">
                      <p className="dashboard-all-cards-item-left-english-title">
                         {c.englishTitle}
@@ -82,7 +83,7 @@ export default class DashBoardAllCards extends Component {
       return (
          <div className="dashboard-all-cards-container">
             <div className="dashboard-all-cards-header">
-               {cards && <p className="dashboard-all-cards-header-title"><span id="number-title">{cards.length} </span>Cards in total</p>}
+               {cards && <p className="dashboard-all-cards-header-title"><span id="number-title">{cards.filter(c => !c.isRemember).length} </span>Cards of yours</p>}
                <Link to="/dashboard/add">
                   <p className="dashboard-all-cards-header-add-new">
                      Add New Card

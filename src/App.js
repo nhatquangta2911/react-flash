@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "./css/styles.scss";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Movies from "./components/Movies";
-import Movie from "./components/Movies/Movie";
+import { Route, Switch } from "react-router-dom";
 import Cards from "./components/Cards/";
 import Card from "./components/Cards/Card";
 import CardsRecent from "./components/CardsRecent";
@@ -16,7 +11,6 @@ import withAuth from "./high-order-components/withAuth";
 import Profile from "./components/Profile/Profile";
 import Chat from "./components/Chat";
 import DashBoard from "./components/DashBoard/DashBoard";
-import DashBoardAdd from "./components/DashBoardAdd/DashBoardAdd";
 import { ToastContainer } from "react-toastify";
 import { CircleArrow  as ScrollUpButton } from "react-scroll-up-button";
 import Register from "./components/Register/Register";
@@ -54,6 +48,12 @@ export default class App extends Component {
       });
    }
 
+   componentWillUnmount() {
+      this.setState({
+         token: ''
+      })
+   }
+
    render() {
       const { token } = this.state;
       return ( 
@@ -64,7 +64,6 @@ export default class App extends Component {
                   <Switch>
                      {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
-                     <Route path="/about" component={About} />
                      <Route exact path="/cards/:id" component={withAuth(Cards)} />
                      <Route path="/cards/card/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
