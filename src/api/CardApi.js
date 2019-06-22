@@ -9,6 +9,9 @@ export default {
    get(cardId) {
       return Caller(prefix + 'card/' + cardId, 'GET');
    },
+   getMyCards(token) {
+      return Caller(prefix + 'my/', 'GET', {}, token);
+   },
    add(card, token) {
       return Caller(prefix, 'POST', card, token );
    },

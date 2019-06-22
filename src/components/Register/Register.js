@@ -11,7 +11,8 @@ export default class Register extends Component {
          name: '',
          email: '',
          password: '',
-         checkedPassword: ''
+         checkedPassword: '',
+         avatarPicture: ''
       }
    }
 
@@ -31,7 +32,8 @@ export default class Register extends Component {
          UserApi.register({
             name: this.state.name,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            avatarPicture: this.state.avatarPicture
          })
          .then(res => {
             Toast.success('You are now our member.');
@@ -56,7 +58,6 @@ export default class Register extends Component {
    }
    
    render() {
-      const {name, email, password, checkedPassword} = this.state;
       return (
          <div className="register-form-container">
             <p>Register page</p>
@@ -69,6 +70,14 @@ export default class Register extends Component {
                   value={this.state.name}
                   onChange={this.handleInputChange}
                   required
+                  />
+               <input
+                  type="text"
+                  name="avatarPicture"
+                  placeholder="Enter Your Photo"
+                  autoComplete="new-avatar"
+                  value={this.state.avatarPicture}
+                  onChange={this.handleInputChange}
                   />
                <input
                   type="email"
