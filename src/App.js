@@ -54,6 +54,12 @@ export default class App extends Component {
       });
    }
 
+   componentWillUnmount() {
+      this.setState({
+         token: ''
+      })
+   }
+
    render() {
       const { token } = this.state;
       return ( 
@@ -65,7 +71,7 @@ export default class App extends Component {
                      {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
                      <Route path="/about" component={About} />
-                     <Route exact path="/cards/:id" component={withAuth(Cards)} />
+                     <Route path="/cards/:id" component={withAuth(Cards)} />
                      <Route path="/cards/card/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
                      <Route path="/register" component={Register} />
