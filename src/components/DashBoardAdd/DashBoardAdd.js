@@ -11,7 +11,6 @@ export default class DashBoardAdd extends Component {
       super(props);
       this.state = {
          card: {
-            _id: '',
             englishTitle: '',
             vietnameseTitle: '',
             example: '',
@@ -24,10 +23,22 @@ export default class DashBoardAdd extends Component {
       }
    }
 
-   componentWillMount() {
+   componentDidMount() {
+      const userId = jwt.decode(window.localStorage.getItem('token'))._id;
       this.setState({
-         user: jwt.decode(window.localStorage.getItem('token'))
-      })
+         card: {
+            user: userId
+         }
+      });
+   }
+
+   componentWillReceiveProps() {
+      const userId = jwt.decode(window.localStorage.getItem('token'))._id;
+      this.setState({
+         card: {
+            user: userId
+         }
+      });
    }
 
    setFormData = (key, value) => {

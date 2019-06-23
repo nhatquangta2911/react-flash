@@ -103,13 +103,15 @@ export default class DashboardEdit extends Component {
                      } else {
       const token = window.localStorage.getItem('token');
       CardApi.update(this.state.card, token)
-         .then(res => {})
+      .then(res => {
+         this.props.history.push(`/dashboard/cards/card/${this.state.id}`);
+         Toast.success("Edited Card");
+      })
          .catch(err => {
             this.setState({
                isLoading: true
             });
          })
-      this.props.history.push(`/dashboard/cards/${this.state.id}`);
       }
    }
 }}}}}

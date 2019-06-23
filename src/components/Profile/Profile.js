@@ -3,22 +3,45 @@ import React, { Component } from "react";
 import jwt from "jsonwebtoken";
 import {Link} from "react-router-dom";
 import Toast from "../Toast/Toast";
-
+import UserApi from "../../api/UserApi";
+import Loading from '../Loading';
 export default class Profile extends Component {
    constructor(props) {
       super(props);
       this.state = {
+         isLoading: true,
          user: null
       };
    }
 
    componentDidMount() {
       const token = window.localStorage.getItem("token");
-      const user = jwt.decode(token);
-      this.setState({
-         user: user
-      });
-      document.title = 'My Profile';
+      const userId = jwt.decode(token)._id;
+      UserApi.get(userId)
+         .then(res => {
+            this.setState({
+               isLoading: false,
+               user: res.data
+            });
+            document.title = `Hi ${res.data.name} ~ `;   
+         })
+         .catch(err => {
+         })
+   }
+
+   componentWillReceiveProps() {
+      const token = window.localStorage.getItem("token");
+      const userId = jwt.decode(token)._id;
+      UserApi.get(userId)
+         .then(res => {
+            this.setState({
+               isLoading: false,
+               user: res.data
+            });
+            document.title = `Hi ${res.data.name} ~ `;   
+         })
+         .catch(err => {
+         })
    }
 
    handleLogout = () => {
@@ -28,9 +51,10 @@ export default class Profile extends Component {
    }
 
    render() {
-      const { user } = this.state;
+      const { isLoading, user } = this.state;
       return (
          <div className="profile-item-container">
+            {isLoading && <Loading message="Loading Profile..."/>}
             <div className="profile-item-left">
                {user && user.avatarPicture && <img
                   // src="https://cdn-images-1.medium.com/max/1200/1*04AytyejhdInMFZme7p88w.png"
