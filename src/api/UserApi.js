@@ -8,5 +8,8 @@ export default {
    },
    register(user) {
       return Caller(prefix, 'POST', user);
+   },
+   get(userId) {
+      return Caller(prefix + 'user/' + userId, 'GET');
    }
 }
