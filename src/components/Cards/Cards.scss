@@ -14,46 +14,70 @@
          border-radius: 4px;
          background-color: #fff;
          margin: 5px;
-         color: #888;
+         color: #666;
          cursor: pointer;
       }
 
       .pagination-item-now-on {
          padding: 4px 10px;
          border-radius: 4px;
-         background-color: #D3F1F4;
+         background-color: #d3f1f4;
          margin: 5px;
-         color: #888;
+         color: #666;
          cursor: pointer;
       }
    }
-
 }
 
 .flashcards-page-container {
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-around;
+   justify-content: space-evenly;
+   padding: 0px 30px;
 }
 
 .flashcards-item {
    display: flex;
    flex-direction: column;
    align-items: center;
-   flex-basis: 24.3%;
+   flex-basis: 22%;
    background: #fff;
-   width: 30%;
    height: auto;
-   margin: 10px 0 4px;
+   margin: 15px 0 4px;
    @include shadow;
    border-radius: 5px;
-   color: #555;
+   color: #333;
+   opacity: 1;
+   text-align: center;
 
    .flashcards-is-remember {
-      background-color: rgba(0, 171, 193, 0.171);
+      background-color: rgba(255, 255, 255, 0.171);
       border-radius: 5px;
       height: 100%;
       width: 100%;
+      opacity: 0.15;
+      position: relative;
+   }
+
+   .flashcards-is-not-remember {
+      background-color: #ffffff2a;
+      border-radius: 5px;
+      height: 100%;
+      width: 100%;
+      position: relative;
+   }
+
+   .card-englishTitle {
+      position: absolute;
+      top: 30%;
+      left: 0;
+      font-weight: bold;
+      font-size: 2em;
+   }
+
+   .card-example {
+      position: absolute;
+      top: 70%;
    }
 
    .type {
@@ -61,39 +85,68 @@
    }
 
    .hide-item {
-      display: none;
       opacity: 0;
+      width: fit-content;
    }
 
    &:hover {
       .hide-item {
-         display: block;
          opacity: 1;
-         color: #888;
-         transition: opacity 1s;
+         width: 100%;
+         padding: 0 auto;
+         color: #666;
+      }
+      .flashcards-is-remember {
+         position: relative;
+         img {
+            opacity: 0.08;
+            width: 100%;
+            transition: opacity 0.7s;
+            
+         }
+         .card-example {
+            top: 70%;
+            position: absolute;
+         }
+      }
+      .flashcards-is-not-remembered {
+         position: relative;
+         img {
+            opacity: 0.08;
+            transition: opacity 0.7s;
+            width: 100%;
+         }
+         .card-example {
+            position: absolute;
+            top: 70%;
+         }
       }
    }
 
-   h4,
-   h5,
    p,
    img {
       width: 100%;
       display: block;
-      margin: 20px auto;
+      margin: 0px auto ;
       text-align: center;
    }
 
+   .card-vietnameseTitle {
+      margin-bottom: 20px;
+      margin-top: 20px;
+      font-size: 1.2em;
+      padding: 0 10px;
+      font-weight: bold;
+   }
+
    img {
-      width: 70%;
-      height: 200px;
+      width: 100%;
+      height: 190px;
       object-fit: cover;
-      @include shadow;
-      border-radius: 6px;
-      margin-bottom: 40px;
+      border-radius: 0 0 5px 5px;
+      opacity: 0.95;
    }
 }
-
 
 @media only screen and (max-width: 1500px) {
    .flashcards-page-container {
@@ -138,7 +191,7 @@
       .pagination-item-now-on {
          padding: 2px 5px;
          border-radius: 4px;
-         background-color: #D3F1F4;
+         background-color: #d3f1f4;
          margin: 5px;
          font-size: 0.8em;
          color: #888;

@@ -1,11 +1,25 @@
 @import "../../css/mixins.scss";
 
+.super-title {
+   font-weight: bold;
+   font-size: 3em;
+   margin: 50px 0 20px;
+   text-align: center;
+   color: #999;
+
+   img {
+      width: 50px;
+      height: 100%;
+      margin-left: 3px;
+   }
+}
 
 .cards-page-container {
    display: flex;
    flex-wrap: wrap;
-   justify-content: flex-start;
-   padding: 5px 0 40px;
+   justify-content: space-evenly;
+   background-color: #ffffffff;
+   padding: 0 0 50px;
 }
 
 .cards-item {
@@ -91,6 +105,9 @@
 }
 
 @media only screen and (max-width: 500px) {
+   .super-title {
+      font-size: 1.5em;
+   }
    .cards-page-container {
       display: flex;
       flex-direction: column;
