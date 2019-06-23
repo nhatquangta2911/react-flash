@@ -22,10 +22,33 @@ export default class Cards extends Component {
    componentWillMount() {
       this.setState({
          pageNumber: document.location.href.split('cards/')[1]
-      })
+      });
    }
 
    componentDidMount() {
+      this.setState({
+         pageNumber: document.location.href.split('cards/')[1]
+      });
+      CardApi.getByPage(this.state.pageNumber)
+         .then(res => {
+            this.setState({
+               isLoading: false,
+               cards: res.data.cards,
+               totalPages: res.data.numberOfPages
+            });
+         })
+         .catch(() => {
+            this.setState({
+               isError: true
+            });
+         });
+      document.title = 'All Flashcards';
+   }
+
+   componentWillReceiveProps() {
+      this.setState({
+         pageNumber: document.location.href.split('cards/')[1]
+      });
       CardApi.getByPage(this.state.pageNumber)
          .then(res => {
             this.setState({
@@ -50,20 +73,16 @@ export default class Cards extends Component {
                <span className="pagination-item">Prev</span>
             </Link>}
 
-            {pageNumber && totalPages && pageNumber != 1 && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
-               <Link to={{ pathname: `${p}` }}>
+            {pageNumber && pageNumber != 1 && <Link to={{ pathname: `${pageNumber - 5 > 1 ? pageNumber - 5 : 1}` }}><span className="pagination-item">..</span></Link>}
+
+            {pageNumber && totalPages && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (p &&
+               <Link to={p && { pathname: `${p}` }}> 
                   {p && pageNumber && p == pageNumber && <span className="pagination-item-now-on">{p}</span>}
                   {p && pageNumber && p != pageNumber && <span className="pagination-item">{p}</span>}
                </Link>
-            ))}
-
-            {pageNumber && totalPages && pageNumber == 1 && Array.from(Array(totalPages), (x, index) => index + 1).map(p => (
-               <Link to={{ pathname: `${p}` }}>
-                  {p && p == 1 && <span className="pagination-item-now-on">Newest</span>}
-                  {p && pageNumber && p != pageNumber && <span className="pagination-item">{p}</span>}
-               </Link>
-            ))}
-            
+            )).splice(pageNumber - 1, 5)}
+         
+            {pageNumber && pageNumber <= totalPages - 5 && <Link to={{ pathname: `${parseInt(pageNumber) + 5}` }}><span className="pagination-item">..</span></Link>}
 
             {pageNumber && pageNumber < totalPages && <Link to={{ pathname: `${parseInt(this.state.pageNumber) + 1}` }}>
                <span className="pagination-item">Next</span>
