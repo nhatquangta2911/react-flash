@@ -11,5 +11,8 @@ export default {
    },
    get(userId) {
       return Caller(prefix + 'user/' + userId, 'GET');
+   },
+   getBest() {
+      return Caller(prefix + 'best', 'GET');
    }
 }

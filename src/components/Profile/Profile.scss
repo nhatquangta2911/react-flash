@@ -1,6 +1,22 @@
 @import "../../css/mixins.scss";
 
+.profile-chart-container {
+   display: flex;
+   justify-content: center;
+   width: 55%;
+   margin: 30px auto;
+}
+
+.chart-container {
+   flex-basis: 35%;
+   margin: 0px 15px;
+   p {
+      margin: 0;
+   }
+}
+
 .profile-item-container {
+   flex-basis: 60%;
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -8,8 +24,8 @@
    @include shadow;
    border-radius: 5px;
    width: 30%;
-   height: auto;
-   margin: 70px auto;
+   height: fit-content;
+   margin: 0px auto;
 
    .profile-item-left {
       flex-basis: 35%;
@@ -109,6 +125,20 @@
    }
 }
 
+@media only screen and (max-width: 1400px) {
+   .profile-chart-container {
+      flex-direction: column;
+      align-items: center;
+   }
+   .profile-item-container {
+      width: 80%;
+   }
+   .chart-container {
+      width: 80%;
+      margin-top: 20px; 
+   }
+}
+
 @media only screen and (max-width: 660px) {
    .profile-item-container {
       font-size: 0.8em;
@@ -119,5 +149,8 @@
       .profile-item-right {
          flex-basis: 60%;
       }
+   }
+   .profile-chart-container {
+      flex-direction: column;
    }
 }
