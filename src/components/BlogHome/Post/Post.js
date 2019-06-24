@@ -24,6 +24,7 @@ export default class Post extends Component {
       return (
          <div className="post-item-container" key={post._id}>
             {isLoading && <Loading />}
+            <img src={post.image}/>
             <p>{post.title}</p>
             <p>{post.header}</p>
             <p>{post.content}</p>
