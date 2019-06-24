@@ -42,6 +42,7 @@ export default class UserChart extends Component {
 
    render() {
       const { isLoading, users } = this.state;
+      const CHART_SIZE = 5;
       const usersChart = users && users.map(user => (
          <div className="user-chart-item">
             {users.indexOf(user) === 0 && 
@@ -51,7 +52,7 @@ export default class UserChart extends Component {
             <p className="user-chart-item-name">{user.name}</p>
             <p className="user-chart-item-score">{user.score}</p>
          </div>
-      ));
+      )).splice(0, CHART_SIZE);
       return (
          <div className="users-chart-container">
             {isLoading && <Loading message="Loading top users..."/>}
