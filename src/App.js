@@ -14,6 +14,7 @@ import DashBoard from "./components/DashBoard/DashBoard";
 import { ToastContainer } from "react-toastify";
 import { CircleArrow  as ScrollUpButton } from "react-scroll-up-button";
 import Register from "./components/Register/Register";
+import BlogHome from "./components/BlogHome/BlogHome";
 export default class App extends Component {
    
    constructor(props) {
@@ -60,11 +61,13 @@ export default class App extends Component {
             <div className="App">
                   <Navbar />
                   <ToastContainer />
-                  {token && !document.location.href.includes('chat') && !document.location.href.includes('profile') && !document.location.href.includes('dashboard') && <SearchBox />}
+                  {token && !document.location.href.includes('chat') && !document.location.href.includes('profile') && !document.location.href.includes('dashboard') &&
+                  !document.location.href.includes('blogs') && <SearchBox />}
                   <Switch>
                      {/* <Redirect from="/" to="/auth" exact /> */}
                      <Route exact path="/" component={CardsRecent} />
                      <Route exact path="/cards/:id" component={withAuth(Cards)} />
+                     <Route path="/blogs" component={BlogHome} />
                      <Route path="/cards/card/:id" component={Card} />
                      <Route path="/auth" component={LoginForm} />
                      <Route path="/register" component={Register} />

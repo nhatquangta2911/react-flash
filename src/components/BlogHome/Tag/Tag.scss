@@ -1,0 +1,12 @@
+@import '../../../css/mixins.scss';
+
+.tags-container {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+
+   .tags-name {
+      flex-basis: 40%;
+   }
+}

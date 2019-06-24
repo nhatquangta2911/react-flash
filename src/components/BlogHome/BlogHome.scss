@@ -1,0 +1,62 @@
+@import "../../css/mixins.scss";
+
+.blog-home-container {
+   width: 70%;
+   background-color: #fff;
+   height: auto;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   margin: 20px auto;
+   
+   .blog-home-left {
+      flex-basis: 65%;
+      display: flex;
+      flex-direction: column;
+      background-color: #f7f7f7;
+      padding: 10px 20px;
+   }
+
+   .blog-home-right {
+      flex-basis: 33%;
+      display: flex;
+      flex-direction: column;
+
+      .blog-home-tags {
+         background-color: #f7f7f7;
+      }
+
+      .blog-home-chart {
+         background-color: #f7f7f7;
+         margin-top: 10px;
+      }
+
+   }
+}
+
+@media only screen and (max-width: 1300px) {
+   .blog-home-container {
+      width: 95%;
+   }
+}
+
+@media only screen and (max-width: 1000px) {
+   .blog-home-container {
+      width: 80%;
+      flex-direction: column;
+      .blog-home-right {
+         margin-top: 10px;
+      }
+   }
+}  
+
+@media only screen and (max-width: 700px) {
+   .blog-home-container {
+      width: 95%;
+      flex-direction: column;
+      .blog-home-right {
+         margin-top: 10px;
+      }
+   }
+}  
+

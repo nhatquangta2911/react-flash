@@ -20,6 +20,7 @@ const Navbar = (props) => {
                 <a id="shawn-logo" className="left brand-logo"><span className="amber-text"><b>Shawn</b></span>FLASH</a>
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
+                    <li><Link to="/blogs">Blogs</Link></li>
                     <li><Link to="/cards/1">Flashcards</Link></li> 
                     <li><Link to="/chat">Chat Room</Link></li> 
                     {/* <Link><Link to="/about">About</Link></Link> */}
