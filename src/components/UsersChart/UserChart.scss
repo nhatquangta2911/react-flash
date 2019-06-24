@@ -1,0 +1,52 @@
+@import '../../css/mixins';
+
+.users-chart-container {
+   width: 100%;
+   @include shadow;
+   background-color: #fff;
+   color: #888;
+   border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+   
+   .user-chart-item {
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0px 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f1f1dc;
+      align-items: center;
+
+      .user-chart-item-rank {
+         flex-basis: 20%;
+         font-size: 1.5em;
+         font-weight: bold;
+         color: #00ACC1;
+         text-align: center;
+      }
+
+      .rank-best {
+         color: #EC8FA9;
+         font-size: 1.5em;
+      }
+
+      span {
+         font-size: 0.9em;
+      }
+
+      .user-chart-item-name {
+         flex-basis: 60%;
+         color: #aaa;
+         font-size: 1.1em;
+      }
+
+      .user-chart-item-score {
+         flex-basis: 15%;
+         color: #F8BE6F;
+         font-weight: bold;
+         font-size: 1.1em;
+         text-align: center;
+      }
+   }
+}
