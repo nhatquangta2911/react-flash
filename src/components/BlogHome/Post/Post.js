@@ -7,7 +7,7 @@ export default class Post extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         isLoading: true, 
+         isLoading: true,
          post: ''
       }
    }
@@ -19,19 +19,42 @@ export default class Post extends Component {
       })
    }
 
+   componentWillReceiveProps() {
+      this.setState({
+         isLoading: false,
+         post: this.props.post
+      })
+   }
+
    render() {
       const { isLoading, post } = this.state;
+      const dateCreated = post && post.dateCreated;
+      const dateResult = dateCreated.split('T')[0];
+      const timeResult = dateCreated.split('T')[1] && dateCreated.split('T')[1].split('.')[0];
       return (
          <div className="post-item-container" key={post._id}>
             {isLoading && <Loading />}
-            <img src={post.image}/>
-            <p>{post.title}</p>
-            <p>{post.header}</p>
-            <p>{post.content}</p>
-            <p>{post.views} views</p>
-            <p>{post.likes && post.likes.length} likes</p>
-            <p>by {post.user && post.user.name}</p>
-            <p>at {post.dateCreated}</p>
+            <img className="post-item-image-title" src={post.image}/>
+            <div className="post-item-wrapper">
+               <p className="post-item-title">{post.title}</p>
+               <div className="post-item-info">
+                  <img src={post.user && post.user.avatarPicture}></img>
+                  <div className="post-item-info-right">
+                     <p className="post-item-info-username">{post.user && post.user.name}</p>
+                     <p className="post-item-info-datetime">{dateResult} | {timeResult}</p>
+                  </div>
+               </div>
+               {/* <p>{post.content}</p> */}
+               <div className="post-item-header">{post.content}</div>
+               <div className="post-item-stats">
+                  <p><span>{post.views}</span> views</p>
+                  <p><span id="like">{post.likes && post.likes.length}</span> likes</p>
+                  <p><span>0</span> comments</p>
+               </div>
+               <div className="post-item-tags">
+                  <span>Tags: </span> {post.tags && post.tags.map(post => <p className="post-item-tag" key={post._id}>{post.name}</p>)}
+               </div>
+            </div>
          </div>
       )
    }

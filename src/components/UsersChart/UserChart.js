@@ -44,7 +44,7 @@ export default class UserChart extends Component {
       const { isLoading, users } = this.state;
       const CHART_SIZE = 5;
       const usersChart = users && users.map(user => (
-         <div className="user-chart-item">
+         <div className="user-chart-item" key={user._id}>
             {users.indexOf(user) === 0 && 
             <p className="user-chart-item-rank rank-best">1<span className="rank-suffix">st</span></p>}
             {users.indexOf(user) !== 0 && 

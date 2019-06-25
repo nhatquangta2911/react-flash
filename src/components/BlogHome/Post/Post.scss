@@ -3,15 +3,110 @@
 .post-item-container {
    width: 100%;
    border-radius: 5px;
-   margin: 0 auto 20px;
+   margin: 0 auto 15px;
    background-color: #fff;
-   margin: 0 0 10px;
    display: flex;
    flex-direction: column;
    @include shadow;
 
-   img {
+   p {
+      margin: 0;
+      color: #333;
+   }
+
+   .post-item-wrapper {
+      padding: 15px;
+   }
+
+   .post-item-image-title {
       width: 100%;
+      height: 300px;
+      object-fit: cover;
       border-radius: 5px 5px 0 0;
    }
+
+   .post-item-title {
+      font-weight: bold;
+      color: #333;
+      font-size: 1.5em;
+      margin: 0 0 10px;
+   }
+
+   .post-item-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 10px 0 15px;
+
+      img {
+         width: 4em;
+         height: 4em;
+         border-radius: 50%;
+         margin: auto 0;
+         margin-right: 10px;
+      }
+
+      .post-item-info-right {
+         display: flex;
+         flex-direction: column;
+
+         .post-item-info-username {
+            font-weight: bold;
+         }
+         
+         .post-item-info-datetime {
+            color: #888;
+            font-size: 0.85em;
+         }
+      }
+   }
+
+   .post-item-header {
+      color: #555;
+      line-height: 1.9em;
+   }
+
+   .post-item-stats {
+      display: flex;
+      justify-content: flex-end;
+
+      p {
+         margin: 10px 15px;
+         font-size: 0.8em;
+      }
+
+      span {
+         font-weight: bold;
+         font-size: 2em;
+         margin: 0 2px;
+      }
+
+      #like {
+         color: #00ACC1;
+      }
+   }
+
+   .post-item-tags {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      span {
+         padding: 5px 0;
+         font-weight: bold;
+      }
+
+      .post-item-tag {
+         &:first-of-type {
+            margin-left: 10px;
+         }
+         font-size: 0.95em;
+         padding: 3px 10px;
+         background-color: rgba(0, 0, 0, 0.047);
+         border-radius: 4px;
+         margin-right: 10px;
+         color: #777;
+         font-weight: bold;
+      }
+   }
+
 }

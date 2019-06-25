@@ -56,11 +56,7 @@ export default class BlogHome extends Component {
                   <Tag />
                </div>
                <div className="blog-home-chart">
-                  <p>1</p>
-                  <p>2</p>
-                  <p>3</p>
-                  <p>4</p>
-                  <p>5</p>
+                  <Loading />
                </div>
             </div>
          </div>
