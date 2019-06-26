@@ -1,6 +1,7 @@
 import styles from './Post.scss';
 import React, { Component } from 'react'
 import Loading from '../../Loading';
+import BlogApi from '../../../api/BlogApi';
 
 export default class Post extends Component {
 
@@ -8,26 +9,39 @@ export default class Post extends Component {
       super(props);
       this.state = {
          isLoading: true,
-         post: ''
+         post: '',
+         comments: ''
       }
    }
 
    componentDidMount() {
+      BlogApi.getComments(this.props.post._id)
+         .then(res => {
+            this.setState({
+               comments: res.data.length
+            });
+         });
       this.setState({
          isLoading: false,
          post: this.props.post
-      })
+      });
    }
 
    componentWillReceiveProps() {
+      BlogApi.getComments(this.props.post._id)
+      .then(res => {
+         this.setState({
+            comments: res.data.length
+         });
+      });
       this.setState({
          isLoading: false,
          post: this.props.post
-      })
+      });
    }
 
    render() {
-      const { isLoading, post } = this.state;
+      const { isLoading, post, comments } = this.state;
       const dateCreated = post && post.dateCreated;
       const dateResult = dateCreated.split('T')[0];
       const timeResult = dateCreated.split('T')[1] && dateCreated.split('T')[1].split('.')[0];
@@ -49,7 +63,7 @@ export default class Post extends Component {
                <div className="post-item-stats">
                   <p><span>{post.views}</span> views</p>
                   <p><span id="like">{post.likes && post.likes.length}</span> likes</p>
-                  <p><span>0</span> comments</p>
+                  <p><span>{comments && comments}</span> comments</p>
                </div>
                <div className="post-item-tags">
                   <span>Tags: </span> {post.tags && post.tags.map(post => <p className="post-item-tag" key={post._id}>{post.name}</p>)}

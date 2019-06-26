@@ -11,5 +11,8 @@ export default {
    }, 
    view(blogId) {
       return Caller(prefix + '/view/' + blogId, 'GET');
+   },
+   getComments(blogId) {
+      return Caller('comments/post/' + blogId, 'GET');
    }
 }
