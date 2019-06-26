@@ -11,7 +11,7 @@ export default class Cards extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         pageNumber: "",
+         pageNumber: document.location.href.split("cards/")[1],
          totalPages: "",
          isLoading: true,
          cards: null,
@@ -19,16 +19,7 @@ export default class Cards extends Component {
       };
    }
 
-   componentWillMount() {
-      this.setState({
-         pageNumber: document.location.href.split("cards/")[1]
-      });
-   }
-
    componentDidMount() {
-      this.setState({
-         pageNumber: document.location.href.split("cards/")[1]
-      });
       CardApi.getByPage(this.state.pageNumber)
          .then(res => {
             this.setState({
@@ -45,25 +36,25 @@ export default class Cards extends Component {
       document.title = "All Flashcards";
    }
 
-   componentWillReceiveProps() {
-      this.setState({
-         pageNumber: document.location.href.split("cards/")[1]
-      });
-      CardApi.getByPage(this.state.pageNumber)
-         .then(res => {
-            this.setState({
-               isLoading: false,
-               cards: res.data.cards,
-               totalPages: res.data.numberOfPages
-            });
-         })
-         .catch(() => {
-            this.setState({
-               isError: true
-            });
-         });
-      document.title = "All Flashcards";
-   }
+   // componentWillReceiveProps() {
+   //    this.setState({
+   //       pageNumber: document.location.href.split("cards/")[1]
+   //    });
+   //    CardApi.getByPage(this.state.pageNumber)
+   //       .then(res => {
+   //          this.setState({
+   //             isLoading: false,
+   //             cards: res.data.cards,
+   //             totalPages: res.data.numberOfPages
+   //          });
+   //       })
+   //       .catch(() => {
+   //          this.setState({
+   //             isError: true
+   //          });
+   //       });
+   //    document.title = "All Flashcards";
+   // }  
 
    render() {
       const { pageNumber, totalPages, isLoading, cards, isError } = this.state;
@@ -93,7 +84,7 @@ export default class Cards extends Component {
                   .map(
                      p =>
                         p && (
-                           <Link to={p && { pathname: `${p}` }}>
+                           <Link to={p && { pathname: `${p}` }} key={p}>
                               {p && pageNumber && p == pageNumber && (
                                  <span className="pagination-item-now-on">
                                     {p}
