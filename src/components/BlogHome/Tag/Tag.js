@@ -24,16 +24,16 @@ export default class Tag extends Component {
          .catch(err => {})
    }
 
-   componentWillReceiveProps() {
-      TagApi.list()
-         .then(res => {
-            this.setState({
-               isLoading: false,
-               tags: res.data
-            })
-         })
-         .catch(err => {})
-   }
+   // componentWillReceiveProps() {
+   //    TagApi.list()
+   //       .then(res => {
+   //          this.setState({
+   //             isLoading: false,
+   //             tags: res.data
+   //          })
+   //       })
+   //       .catch(err => {})
+   // }
 
    render() {
       const { isLoading, tags } = this.state;
