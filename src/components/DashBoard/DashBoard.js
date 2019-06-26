@@ -10,6 +10,7 @@ import Card from '../Cards/Card';
 import DashBoardStats from '../DashBoardStats/DashBoardStats';
 import DashBoardAllCardsNotRemembered from '../DashBoardAllCardsNotRemembered/DashBoardAllCardsNotRemembered';
 import DashBoardMy from '../DashBoardMy/DashBoardMy';
+import TextArea from '../TextArea/TextArea';
 
 export default class DashBoard extends Component {
 
@@ -52,6 +53,8 @@ export default class DashBoard extends Component {
                         {url !== '/all-cards-not-remembered' && <li><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED</Link></li>}
                         {url === '/my' && <li id="nowon"><Link to="/dashboard/my">My Own Cards</Link></li>}
                         {url !== '/my' && <li><Link to="/dashboard/my">My Own Cards</Link></li>}
+                        {url === '/addPost' && <li id="nowon"><Link to="/dashboard/my">Blogs</Link></li>}
+                        {url !== '/addPost' && <li><Link to="/dashboard/addPost">Blog</Link></li>}
                      </ul>
                   </div>
                   <BrowserRouter>
@@ -65,6 +68,7 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/cards/card/:id" component={Card} />
                               <Route path="/dashboard/all-cards-not-remembered" component={DashBoardAllCardsNotRemembered} />
                               <Route path="/dashboard/my" component={DashBoardMy} />
+                              <Route path="/dashboard/addPost" component={TextArea} />
                            </Switch>
                      </div>
                   </BrowserRouter>
