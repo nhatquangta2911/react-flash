@@ -49,7 +49,8 @@ export default class BlogHome extends Component {
          <div className="blog-home-container">
             <div className="blog-home-left">
                {isLoading && <Loading message="Loading Posts..." />}
-               {posts && posts.map(post => <Post post={post} key={post._id}/>)}
+               {posts && posts.filter(post => posts.indexOf(post) <= 1).map(post => <Post post={post} key={post._id} isNewest={true}/>)}
+               {posts && posts.filter(post => posts.indexOf(post) > 1).map(post => <Post post={post} key={post._id}/>)}
             </div>
             <div className="blog-home-right">
                <div className="blog-home-tags">
