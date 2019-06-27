@@ -11,6 +11,7 @@ import DashBoardStats from '../DashBoardStats/DashBoardStats';
 import DashBoardAllCardsNotRemembered from '../DashBoardAllCardsNotRemembered/DashBoardAllCardsNotRemembered';
 import DashBoardMy from '../DashBoardMy/DashBoardMy';
 import TextArea from '../TextArea/TextArea';
+import DashBoardBlogAdd from '../DashBoardBlogAdd/DashBoardBlogAdd';
 
 export default class DashBoard extends Component {
 
@@ -68,7 +69,7 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/cards/card/:id" component={Card} />
                               <Route path="/dashboard/all-cards-not-remembered" component={DashBoardAllCardsNotRemembered} />
                               <Route path="/dashboard/my" component={DashBoardMy} />
-                              <Route path="/dashboard/addPost" component={TextArea} />
+                              <Route path="/dashboard/addPost" component={DashBoardBlogAdd} />
                            </Switch>
                      </div>
                   </BrowserRouter>

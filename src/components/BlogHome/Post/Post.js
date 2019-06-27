@@ -2,6 +2,7 @@ import styles from './Post.scss';
 import React, { Component } from 'react'
 import Loading from '../../Loading';
 import BlogApi from '../../../api/BlogApi';
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 export default class Post extends Component {
 
@@ -59,7 +60,7 @@ export default class Post extends Component {
                   </div>
                </div>
                {/* <p>{post.content}</p> */}
-               <div className="post-item-header">{post.content}</div>
+               <div className="post-item-header">{ReactHtmlParser(post.content)}</div>
                <div className="post-item-stats">
                   <p><span>{post.views}</span> views</p>
                   <p><span id="like">{post.likes && post.likes.length}</span> likes</p>
