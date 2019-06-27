@@ -14,5 +14,8 @@ export default {
    },
    getComments(blogId) {
       return Caller('comments/post/' + blogId, 'GET');
+   },
+   add(post, token) {
+      return Caller(prefix, 'POST', post, token);
    }
 }
