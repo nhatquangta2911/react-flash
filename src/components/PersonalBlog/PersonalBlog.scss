@@ -1,0 +1,15 @@
+@import '../../css/mixins';
+
+.personal-blog-container {
+   display: flex;
+   flex-direction: column;
+   padding: 0;
+
+   .personal-blog-my {
+      width: 65%;
+      margin: 0 auto;
+      height: auto;
+      background-color: #eee;
+      padding: 20px 10%;
+   }
+}

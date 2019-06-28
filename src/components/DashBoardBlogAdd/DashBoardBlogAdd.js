@@ -58,7 +58,7 @@ export default class DashBoardBlogAdd extends Component {
       }
       BlogApi.add(post, window.localStorage.getItem('token'))
          .then(res => {
-            this.props.history.push(`blog/${res.data._id}`);
+            this.props.history.push('/blogs');
             Toast.success('Created Blog');
          })
          .catch(err => {

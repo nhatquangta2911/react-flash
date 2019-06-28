@@ -1,0 +1,8 @@
+router.get('/my/:id', async (req, res) => {
+   const blogs = await Blog.find({ 
+      user: {
+         _id: req.params.id
+      }
+   }).populate('tags').populate('user');
+   res.send(blogs);
+});

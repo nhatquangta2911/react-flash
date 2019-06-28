@@ -2,17 +2,17 @@
 
 .profile-chart-container {
    display: flex;
-   justify-content: center;
+   justify-content: space-between;
    width: 65%;
    margin: 30px auto;
 }
 
 .chart-container {
-   flex-basis: 40%;
-   margin: 0px 15px;
+   flex-basis: 45%;
    p {
       margin: 0;
    }
+   margin-left: 1%;
 }
 
 .profile-item-container {
@@ -24,7 +24,7 @@
    @include shadow;
    border-radius: 5px;
    width: 30%;
-   height: fit-content;
+   height: auto;
    margin: 0px auto;
 
    .profile-item-left {
