@@ -38,9 +38,10 @@ export default class Feed extends Component {
          <div className="feed-container">
             {isLoading && <Loading message="Loading post..."/>}
             {posts && posts.map(post => <Post post={post} key={post._id}/>)}
-            {!isLoading && <div className="feed-info">
+            {!isLoading && userInfo && userInfo.name && <div className="feed-info">
                <p>Hi I'm {userInfo.name} !</p>
             </div>}
+            {!userInfo && <p>Nothing here. Come back later on.</p>}
          </div>
       )
    }

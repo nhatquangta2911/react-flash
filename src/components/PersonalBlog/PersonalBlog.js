@@ -30,9 +30,10 @@ export default class PersonalBlog extends Component {
       return (
          <div className="personal-blog-container">
             <Profile />
-            {isLoading && <Loading message="Loading..."/>}
             <div className="personal-blog-my">
-               {posts && posts.map(post => <Post post={post} />)}
+               {isLoading && <Loading message="Loading..."/>}
+               {posts && posts.length === 0 && <Loading message="Loading..."/>}
+               {posts && posts.length !== 0 && posts.map(post => <Post post={post} key={post._id} />)}
             </div>
          </div>
       )

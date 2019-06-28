@@ -95,7 +95,9 @@ export default class Post extends Component {
                         </div>
                         </Link>
                         {!extended && (
-                           <Link to={{ pathname: `/blog/${post._id}` }}>
+                           <Link to={{ 
+                              pathname: `/blog/${post._id}`
+                           }}>
                               <p className="post-item-info-read-more">
                                  Read more
                               </p>

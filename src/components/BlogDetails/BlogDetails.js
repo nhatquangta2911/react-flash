@@ -39,12 +39,12 @@ export default class BlogDetails extends Component {
    }
 
    render() {
-      const {isLoading, post} = this.state;
+      const {id, isLoading, post} = this.state;
       return (
          <div className="blog-details-container">
             {isLoading && <Loading message="Loading..." />}
             <Post post={post} key={post._id} extended={true}/>
-            <Comments comments={post.comments} />
+            <Comments ofPost={post._id} />
          </div>
       )
    }
