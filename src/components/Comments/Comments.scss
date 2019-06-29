@@ -6,13 +6,44 @@
    border-radius: 5px;
    padding: 10px 20px;
    margin: 20px 0 50px;
+   border-top: 4px solid #999;
 
    p {
       margin: 0;
    }
 
    .comments-header {
-      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+   }
+
+   .comments-title {
       font-size: 1.3em;
+      font-weight: bold;
+      color: #444;
+      margin: 10px 0;
+   }
+
+   .comments-item {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+
+      .comments-user {
+         color: hsla(190, 48%, 54%, 0.822);
+         font-size: 0.9em;
+         font-weight: bold;
+         span {
+            font-weight: normal;
+            color: #666;
+         }
+      }
+
+      .comments-content {
+         color: #666;
+         font-size: 0.9em;
+         margin-top: 5px;
+      }
+
    }
 }
