@@ -1,9 +1,10 @@
 import styles from "./LoginForm.scss";
 import React, { Component } from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import AuthApi from "../../api/AuthApi";
 import { Link } from "react-router-dom";
 import Toast from "../Toast/Toast";
+import Loading from "../Loading";
 // import Cookies from "universal-cookie";
 export default class LoginForm extends Component {
    constructor(props) {
@@ -15,16 +16,12 @@ export default class LoginForm extends Component {
    }
 
    componentDidMount() {
-      document.title = 'Login'
+      document.title = "Login";
    }
    
-   componentDidUpdate() {
-      // document.title = 'Login'
-   }
-
    // componentDidMount() {
    //    const token = window.localStorage.getItem('token');
-   //    if(token) { 
+   //    if(token) {
    //       this.setState({
    //          isLogin: true,
    //          email: token.email
@@ -48,8 +45,8 @@ export default class LoginForm extends Component {
       event.preventDefault();
       AuthApi.auth(this.state)
          .then(res => {
-            Toast.success('Logged in');
-            window.localStorage.setItem('token', res.data);
+            Toast.success("Logged in");
+            window.localStorage.setItem("token", res.data);
             this.props.history.push("/profile");
          })
          .catch(err => {
@@ -63,31 +60,38 @@ export default class LoginForm extends Component {
 
    render() {
       return (
-         <div className="login-form-containerr">
-            <p>Log in</p>
-            <form onSubmit={this.onSubmit}>
-               <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter email"
-                  autoComplete="new-email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  required
+            <div className="login-form-containerr">
+               <p>Log in</p>
+               <form onSubmit={this.onSubmit}>
+                  <input
+                     type="email"
+                     name="email"
+                     placeholder="Enter email"
+                     autoComplete="new-email"
+                     value={this.state.email}
+                     onChange={this.handleInputChange}
+                     required
                   />
-               <input
-                  type="password"
-                  name="password"
-                  autoComplete="new-password"
-                  placeholder="Enter password"
-                  value={this.state.password}
-                  onChange={this.handleInputChange}
-                  required
+                  <input
+                     type="password"
+                     name="password"
+                     autoComplete="new-password"
+                     placeholder="Enter password"
+                     value={this.state.password}
+                     onChange={this.handleInputChange}
+                     required
                   />
-                  <input onClick={this.forceUpdate} className="btn-submit" type="submit" value="Submit" />
-            </form>
-            <Link to="/register"><p className="register-title">Not registered yet?</p></Link>
-         </div>
+                  <input
+                     onClick={this.forceUpdate}
+                     className="btn-submit"
+                     type="submit"
+                     value="Submit"
+                  />
+               </form>
+               <Link to="/register">
+                  <p className="register-title">Not registered yet?</p>
+               </Link>
+            </div>
       );
    }
 }

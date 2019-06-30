@@ -26,5 +26,8 @@ export default {
    },
    getMy(userId) {
       return Caller(prefix + 'my/' + userId, 'GET');
+   }, 
+   addComment(content, post, token) {
+      return Caller('comments/', 'POST', { content, post }, token);
    }
 }

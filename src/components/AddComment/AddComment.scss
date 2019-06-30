@@ -1,0 +1,26 @@
+@import '../../css/mixins.scss';
+
+.add-comment-container {
+   border-radius: 5px;
+   @include shadow;
+   padding: 10px 20px 10px;
+   font-size: 0.9em;
+   color: #555;
+   font-weight: bold;
+   display: flex;
+   flex-direction: column;
+
+   input {
+      color: #555;
+   }
+
+   .btn-send-comment {
+      align-self: flex-end;
+      padding: 3px 10px;
+      background-color: #eee;
+      color: #50AEC1;
+      border-radius: 3px;
+      cursor: pointer;
+   }
+
+}

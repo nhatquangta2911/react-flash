@@ -4,6 +4,7 @@ import BlogApi from '../../api/BlogApi';
 import Loading from '../Loading';
 import Post from '../BlogHome/Post/Post';
 import Comments from '../Comments/Comments';
+import AddComment from '../AddComment';
 
 export default class BlogDetails extends Component {
 
@@ -44,6 +45,7 @@ export default class BlogDetails extends Component {
          <div className="blog-details-container">
             {isLoading && <Loading message="Loading..." />}
             <Post post={post} key={post._id} extended={true}/>
+            <AddComment post={post._id} />
             <Comments ofPost={post._id} />
          </div>
       )

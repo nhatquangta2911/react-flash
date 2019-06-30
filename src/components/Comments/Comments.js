@@ -11,13 +11,27 @@ export default class Comments extends Component {
       super(props);
       this.state = {
          isLoading: true,
-         ofPost: document.location.href.split('blog/')[1],
          comments: ''
       }
    }
 
    componentDidMount() {
-     CommentApi.getComments(this.state.ofPost)
+     const ofPost = document.location.href.split('blog/')[1]; 
+     CommentApi.getComments(ofPost)
+         .then(res => {
+            this.setState({
+               isLoading: false,
+               comments: res.data
+            });
+         })
+         .catch(err => {
+            Toast.error('Something went wrong. Please try again!');
+         })
+   }
+
+   componentWillReceiveProps() {
+     const ofPost = document.location.href.split('blog/')[1]; 
+     CommentApi.getComments(ofPost)
          .then(res => {
             this.setState({
                isLoading: false,
@@ -30,16 +44,18 @@ export default class Comments extends Component {
    }
 
    render() {
-      const { isLoading, ofPost, comments } = this.state;
+      const { isLoading, comments } = this.state;
       const commentsResult = comments && comments.map(comment => (
-         <div>
-            <p>{comment && comment.content}</p>
+         <div className="comments-item" key={comment.length > 0 && comment._id}>
+            <p className="comments-user"><Link to={{ pathname: `/feed/${comment.user && comment.user._id}` }}>{comment.user && comment.user.name}</Link>  <span>| {comment.dateCreated && comment.dateCreated.split('T')[0] + ' - ' + comment.dateCreated.split('T')[1].split('.')[0]}</span></p>
+            <p className="comments-content">{comment && comment.content}</p>
          </div>
       ));
       return (
          <div className="comments-container">
             {isLoading && <Loading message="Loading comments..."/>}
-            {!isLoading && comments && <div className="comments-header">{commentsResult}</div>}
+            {!isLoading && comments && <div className="comments-header"><p className="comments-title">Comments ({comments && comments.length})</p>
+            {commentsResult}</div>}
          </div>
       )
    }
