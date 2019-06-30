@@ -1,5 +1,5 @@
 import styles from "./LoginForm.scss";
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import AuthApi from "../../api/AuthApi";
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ export default class LoginForm extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         isLoading: false,
          email: "",
          password: ""
       };
@@ -19,11 +18,7 @@ export default class LoginForm extends Component {
    componentDidMount() {
       document.title = "Login";
    }
-
-   componentDidUpdate() {
-      // document.title = 'Login'
-   }
-
+   
    // componentDidMount() {
    //    const token = window.localStorage.getItem('token');
    //    if(token) {
@@ -47,9 +42,6 @@ export default class LoginForm extends Component {
 
    //TODO: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2VkNDliNGQ2NjNkNTQ4YmNlYTY3ZjAiLCJlbWFpbCI6InNoYXduLmFkbWluQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTU1OTgzMDE1NCwiZXhwIjoxNTU5ODMzNzU0fQ.iV462ANax4u4NILpF5NIIqc8fUk7LNMaTz8Zryx-BP4
    onSubmit = event => {
-      this.setState({
-         isLoading: true
-      });
       event.preventDefault();
       AuthApi.auth(this.state)
          .then(res => {
@@ -67,10 +59,7 @@ export default class LoginForm extends Component {
    };
 
    render() {
-      const { isLoading } = this.state;
       return (
-         <Fragment>
-            {isLoading && <Loading message="Loading..."/>}
             <div className="login-form-containerr">
                <p>Log in</p>
                <form onSubmit={this.onSubmit}>
@@ -103,7 +92,6 @@ export default class LoginForm extends Component {
                   <p className="register-title">Not registered yet?</p>
                </Link>
             </div>
-         </Fragment>
       );
    }
 }
