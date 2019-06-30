@@ -54,6 +54,7 @@ export default class Post extends Component {
    handleLike = () => {
       BlogApi.like(this.state.post._id, window.localStorage.getItem('token'))
          .then(res => {
+            window.location.reload();
             Toast.success('You liked this post.');
          })
          .catch(err => {
