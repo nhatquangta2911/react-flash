@@ -16,7 +16,15 @@ export default class DashBoardAllPosts extends Component {
    }
 
    handleDelete = (id) => {
-
+      const token = window.localStorage.getItem('token');
+      BlogApi.delete(id, token)
+         .then(res => {
+            document.location.reload();
+            Toast.success('Deteted Post');
+         })
+         .catch(err => {
+            Toast.error('Something went wrong. Please try again!');
+         });
    }
 
    componentDidMount() {
@@ -46,7 +54,7 @@ export default class DashBoardAllPosts extends Component {
                   <Link to={{ pathname: `/dashboard/editPost/${post._id}` }}>
                      <p className="dashboard-all-posts-item-edit">EDIT</p>
                   </Link>
-                  <p onClick={this.handleDelete(post._id)} className="dashboard-all-posts-item-delete">DELETE</p>
+                  <p onClick={() => this.handleDelete(post._id)} className="dashboard-all-posts-item-delete">DELETE</p>
                </div>
             </div>
          ));
@@ -54,7 +62,7 @@ export default class DashBoardAllPosts extends Component {
          <Fragment>
             {isLoading && <Loading message="Loading your posts..." />}
             {!isLoading && <div className="dashboard-all-posts-container">
-               <p className="dashboard-all-posts-title">All Posts</p>
+               <p className="dashboard-all-posts-title">All Posts ({posts && posts.length})</p>
                <div className="dashboard-all-posts-list">{listPosts}</div>
             </div>}
          </Fragment>

@@ -60,8 +60,6 @@ export default class DashBoard extends Component {
                         {url !== '/my' && <li><Link to="/dashboard/my">My Own Cards</Link></li>}
                         {url === '/addPost' && <li id="nowon"><Link to="/dashboard/addPost">Add Blog</Link></li>}
                         {url !== '/addPost' && <li><Link to="/dashboard/addPost">Add Blog</Link></li>}
-                        {url === '/editPost' && <li id="nowon"><Link to="/dashboard/editPost">Edit Blog</Link></li>}
-                        {url !== '/editPost' && <li><Link to="/dashboard/editPost">Edit Blog</Link></li>}
                      </ul>
                   </div>
                   <BrowserRouter>
