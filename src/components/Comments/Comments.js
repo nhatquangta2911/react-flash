@@ -33,7 +33,7 @@ export default class Comments extends Component {
       const { isLoading, comments } = this.state;
       const commentsResult = comments && comments.map(comment => (
          <div className="comments-item" key={comment.length > 0 && comment._id}>
-            <p className="comments-user">{comment.user && comment.user.name}  <span>| {comment.dateCreated && comment.dateCreated.split('T')[0] + ' - ' + comment.dateCreated.split('T')[1].split('.')[0]}</span></p>
+            <p className="comments-user"><Link to={{ pathname: `/feed/${comment.user && comment.user._id}` }}>{comment.user && comment.user.name}</Link>  <span>| {comment.dateCreated && comment.dateCreated.split('T')[0] + ' - ' + comment.dateCreated.split('T')[1].split('.')[0]}</span></p>
             <p className="comments-content">{comment && comment.content}</p>
          </div>
       ));
