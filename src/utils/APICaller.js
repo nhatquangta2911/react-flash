@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:2911/api';
+const baseUrl = 'https://shawn-movie-rental.herokuapp.com/api';
 
 
 export default function Caller(endpoint, method = 'GET', body = {}, token='') {
