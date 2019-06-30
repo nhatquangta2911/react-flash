@@ -5,11 +5,19 @@
    flex-direction: column;
    padding: 0;
 
+
+
    .personal-blog-my {
       width: 65%;
       margin: 0 auto;
       height: auto;
       background-color: #eee;
       padding: 20px 10%;
+      text-align: center;
+
+      p {
+         color: #555;
+         font-weight: bold; 
+      }
    }
 }
