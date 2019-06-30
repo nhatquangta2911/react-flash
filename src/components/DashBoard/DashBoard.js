@@ -10,8 +10,10 @@ import Card from '../Cards/Card';
 import DashBoardStats from '../DashBoardStats/DashBoardStats';
 import DashBoardAllCardsNotRemembered from '../DashBoardAllCardsNotRemembered/DashBoardAllCardsNotRemembered';
 import DashBoardMy from '../DashBoardMy/DashBoardMy';
-import TextArea from '../TextArea/TextArea';
+import BlogDetails from '../BlogDetails';
 import DashBoardBlogAdd from '../DashBoardBlogAdd/DashBoardBlogAdd';
+import DashBoardAllPosts from '../DashBoardAllPosts/DashBoardAllPosts';
+import DashBoardBlogEdit from '../DashBoardBlogEdit/DashBoardBlogEdit';
 
 export default class DashBoard extends Component {
 
@@ -46,6 +48,8 @@ export default class DashBoard extends Component {
                         {url !== '/stats' && <li><Link to="/dashboard/stats">Stats</Link></li>}
                         {url === '/all-cards' &&<li id="nowon"><Link to="/dashboard/all-cards">Show All Cards</Link></li>}
                         {url !== '/all-cards' &&<li><Link to="/dashboard/all-cards">Show All Cards</Link></li>}                        
+                        {url === '/all-posts' &&<li id="nowon"><Link to="/dashboard/all-posts">Show All My Posts</Link></li>}
+                        {url !== '/all-posts' &&<li><Link to="/dashboard/all-posts">Show All My Posts</Link></li>}                        
                         {url === '/add' && <li id="nowon"><Link to="/dashboard/add">Add Card</Link></li>}
                         {url !== '/add' && <li><Link to="/dashboard/add">Add Card</Link></li>}                        
                         {url === '/edit-profile' && <li id="nowon"><Link to="/dashboard/edit-profile">Edit Proflie</Link></li>}
@@ -54,8 +58,8 @@ export default class DashBoard extends Component {
                         {url !== '/all-cards-not-remembered' && <li><Link to="/dashboard/all-cards-not-remembered">NOT REMEMBERED</Link></li>}
                         {url === '/my' && <li id="nowon"><Link to="/dashboard/my">My Own Cards</Link></li>}
                         {url !== '/my' && <li><Link to="/dashboard/my">My Own Cards</Link></li>}
-                        {url === '/addPost' && <li id="nowon"><Link to="/dashboard/my">Blogs</Link></li>}
-                        {url !== '/addPost' && <li><Link to="/dashboard/addPost">Blog</Link></li>}
+                        {url === '/addPost' && <li id="nowon"><Link to="/dashboard/addPost">Add Blog</Link></li>}
+                        {url !== '/addPost' && <li><Link to="/dashboard/addPost">Add Blog</Link></li>}
                      </ul>
                   </div>
                   <BrowserRouter>
@@ -67,9 +71,12 @@ export default class DashBoard extends Component {
                               <Route path="/dashboard/edit-profile" component={DashBoardEditProfile} />
                               <Route path="/dashboard/all-cards" component={DashBoardAllCards} />
                               <Route path="/dashboard/cards/card/:id" component={Card} />
+                              <Route path="/dashboard/blogs/blog/:id" component={BlogDetails} />
                               <Route path="/dashboard/all-cards-not-remembered" component={DashBoardAllCardsNotRemembered} />
                               <Route path="/dashboard/my" component={DashBoardMy} />
                               <Route path="/dashboard/addPost" component={DashBoardBlogAdd} />
+                              <Route path="/dashboard/editPost" component={DashBoardBlogEdit} />
+                              <Route path="/dashboard/all-posts" component={DashBoardAllPosts} />
                            </Switch>
                      </div>
                   </BrowserRouter>

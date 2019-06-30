@@ -32,7 +32,7 @@ export default class PersonalBlog extends Component {
             <Profile />
             <div className="personal-blog-my">
                {isLoading && <Loading message="Loading..."/>}
-               {posts && posts.length === 0 && <Loading message="Loading..."/>}
+               {posts && posts.length === 0 && <p>No posts yet</p>}
                {posts && posts.length !== 0 && posts.map(post => <Post post={post} key={post._id} />)}
             </div>
          </div>

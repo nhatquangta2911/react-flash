@@ -18,6 +18,12 @@ export default {
    add(post, token) {
       return Caller(prefix, 'POST', post, token);
    },
+   update(postId, post, token) {
+      return Caller(prefix + 'blog/' + postId, 'PUT' , post, token);
+   },
+   delete(postId, token) {
+      return Caller(prefix + postId, 'DELETE', {}, token);
+   },
    view(blogId) {
       return Caller(prefix + 'view/' + blogId, 'GET');
    },
