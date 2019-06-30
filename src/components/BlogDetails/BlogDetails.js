@@ -45,7 +45,7 @@ export default class BlogDetails extends Component {
          <div className="blog-details-container">
             {isLoading && <Loading message="Loading..." />}
             <Post post={post} key={post._id} extended={true}/>
-            <AddComment />
+            <AddComment post={post._id} />
             <Comments ofPost={post._id} />
          </div>
       )

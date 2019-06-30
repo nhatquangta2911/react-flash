@@ -29,6 +29,20 @@ export default class Comments extends Component {
          })
    }
 
+   componentWillReceiveProps() {
+     const ofPost = document.location.href.split('blog/')[1]; 
+     CommentApi.getComments(ofPost)
+         .then(res => {
+            this.setState({
+               isLoading: false,
+               comments: res.data
+            });
+         })
+         .catch(err => {
+            Toast.error('Something went wrong. Please try again!');
+         })
+   }
+
    render() {
       const { isLoading, comments } = this.state;
       const commentsResult = comments && comments.map(comment => (
